@@ -21,6 +21,7 @@ import com.app.service.UserService;
 
 @RestController
 //@RequestMapping("/users")
+@CrossOrigin(origins="http://localhost:3000")
 public class UserAuthController {
 	
 	@Autowired

@@ -19,5 +19,6 @@ public class CommonResponse {
 		super();
 		this.status = status;
 		this.data = data;
+		this.timestamp=LocalDateTime.now();
 	}
 }
