@@ -1,11 +1,15 @@
 package com.app.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Service;
@@ -29,7 +33,7 @@ public class Users extends BaseEntity {
 	private String userName;
 	@Column(length=30,unique=true)
 	private String email;
-	@Column(name="password",length=30)
+	@Column(name="password",length=500)
 	private String password;
 	@Column(name="first_name",length=30)
 	private String firstName;
@@ -57,6 +61,9 @@ public class Users extends BaseEntity {
 	@Column(name="createdAt")
 	private Date createdAt;
 	
-	
+	/*
+	 * @OneToMany(mappedBy="users",cascade=CascadeType.ALL, orphanRemoval=true)
+	 * private List<Service> services=new ArrayList<>();
+	 */
 	
 }

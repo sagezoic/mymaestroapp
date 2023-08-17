@@ -7,13 +7,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-//import com.app.entities.UserEntity;
+import com.app.entities.UserEntity;
 import com.app.entities.Users;
 
 public class MyUserDetails implements UserDetails {
-	
 	private Users user;
-	
 
 	public MyUserDetails(Users user) {
 		super();
@@ -22,8 +20,7 @@ public class MyUserDetails implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		//rts list of granted role to the spring sec framework
-		
+		// Rets List of granted roles to the spring sec frmwork
 		return List.of(new SimpleGrantedAuthority(user.getUserRole().name()));
 	}
 
@@ -42,7 +39,7 @@ public class MyUserDetails implements UserDetails {
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
-		return true; //user a/c is not expired
+		return true;//user a/c is not expired 
 	}
 
 	@Override

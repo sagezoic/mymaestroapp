@@ -1,56 +1,40 @@
 package com.app.service;
 
-import java.util.List;
-
-import javax.validation.Valid;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.app.custom_exception.ResourceNotFoundException;
 import com.app.dao.UserDao;
-import com.app.dto.AuthRequest;
-import com.app.dto.AuthResp;
-import com.app.dto.SignupRequestDTO;
-import com.app.dto.SignupResponseDTO;
+import com.app.dto.UserDto;
+import com.app.dto.UserSignupResponseDto;
+import com.app.entities.UserEntity;
 import com.app.entities.Users;
 
 @Service
 @Transactional
-public class UserServiceImpl implements UserService{
-
+public class UserServiceImpl implements UserService {
+	//dep : user dao
 	@Autowired
 	private UserDao userDao;
-	
+	//dep : password encoder
+	@Autowired
+	private PasswordEncoder encoder;
+	//dep : model mapper
 	@Autowired
 	private ModelMapper mapper;
-	
-	@Override
-	public SignupResponseDTO addUser(SignupRequestDTO signUpRequest) {
-		// TODO Auto-generated method stub
-		System.out.println("request "+ signUpRequest);
-		
-		Users persistentUser=userDao.save(mapper.map(signUpRequest,Users.class));
-		
-		return mapper.map(persistentUser, SignupResponseDTO.class);
-	}
 
 	@Override
-	public List<Users> getAllUsers() {
-		// TODO Auto-generated method stub
-		return userDao.findAll();
+	public UserSignupResponseDto registerUser(UserDto dto) {
+		// map dto --> entity
+		Users user=mapper.map(dto,Users.class);
+		//encode pwd
+		System.out.println(user);
+		user.setPassword(encoder.encode(user.getPassword()));
+		//save
+		Users persistentUser = userDao.save(user);
+		// map persistent entity --> dto
+		return mapper.map(persistentUser,UserSignupResponseDto.class);
 	}
-
-	@Override
-	public AuthResp signInUser( AuthRequest request) {
-		// TODO Auto-generated method stub
-		Users user=userDao.findByEmailAndPassword(request.getEmail(), request.getPassword())
-				.orElseThrow(()->new ResourceNotFoundException("invalid Email or Password "));
-		return mapper.map(user, AuthResp.class);
-		
-	}
-
-	
 }
