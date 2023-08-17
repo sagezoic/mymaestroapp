@@ -24,7 +24,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString(exclude="password")
+//@ToString(exclude="password")
 public class Users extends BaseEntity {
 	@Enumerated(EnumType.STRING)
 	@Column(length=30)
@@ -60,10 +60,19 @@ public class Users extends BaseEntity {
 	private boolean enabled;
 	@Column(name="createdAt")
 	private Date createdAt;
-	
-	/*
-	 * @OneToMany(mappedBy="users",cascade=CascadeType.ALL, orphanRemoval=true)
-	 * private List<Service> services=new ArrayList<>();
-	 */
+
+	  @OneToMany(mappedBy="users",cascade = CascadeType.ALL, orphanRemoval = true)
+	  private List<Servce> servces=new ArrayList<>();
+
+
+	@Override
+	public String toString() {
+		return "Users [userRole=" + userRole + ", userName=" + userName + ", email=" + email + ", firstName="
+				+ firstName + ", lastName=" + lastName + ", dOB=" + dOB + ", otpVerified=" + otpVerified
+				+ ", adminVerified=" + adminVerified + ", dpUrl=" + dpUrl + ", interest=" + interest + ", bio=" + bio
+				+ ", socialMediaLink=" + socialMediaLink + ", token=" + token + ", enabled=" + enabled + ", createdAt="
+				+ createdAt + "]";
+	}
+	 
 	
 }

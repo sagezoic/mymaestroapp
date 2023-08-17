@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.UserDao;
-import com.app.entities.UserEntity;
+//import com.app.entities.UserEntity;
 import com.app.entities.Users;
 
 @Service
