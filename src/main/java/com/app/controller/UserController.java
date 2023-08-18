@@ -73,4 +73,19 @@ public class UserController {
 		return ResponseEntity.ok(userService.downloadProfileImage(userId));
 	}
 	
+	@PostMapping(value="/delete/{userId}")
+	public ResponseEntity<?> deleteUser(@PathVariable Long userId ){
+		
+		System.out.println("in user delete controller");
+		userService.deleteUser(userId);
+		return ResponseEntity.ok("user deleted Successfully");
+	}
+	
+	@PostMapping("/edit")
+	public ResponseEntity<?> editUser(@RequestBody UserDto user){
+		
+		System.out.println("in user edit controller");
+		userService.editUser(user);
+		return ResponseEntity.ok("user data edited Successfully");
+	}
 }

@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 
 import org.apache.commons.io.FileUtils;
 import org.modelmapper.ModelMapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,6 +21,8 @@ import com.app.dto.UserDto;
 import com.app.dto.UserSignupResponseDto;
 //import com.app.entities.UserEntity;
 import com.app.entities.Users;
+import java.util.Optional;
+
 
 import custom_exception.ResourceNotFoundException;
 
@@ -46,6 +49,9 @@ public class UserServiceImpl implements UserService {
 	
 	}
 	
+//registering or adding user	
+//----------------------------------------------------------------------
+
 	@Override
 	public UserSignupResponseDto registerUser(UserDto dto) {
 		// map dto --> entity
@@ -58,6 +64,7 @@ public class UserServiceImpl implements UserService {
 		// map persistent entity --> dto
 		return mapper.map(persistentUser,UserSignupResponseDto.class);
 	}
+
 	
 	
 	@Override
@@ -127,4 +134,50 @@ public class UserServiceImpl implements UserService {
 			
 			throw new ResourceNotFoundException("Image not yet assigned");
 		}
+
+//-------------------------------------------------------------------------	
+
+
+//edit user 
+//------------------------------------------------
+	@Override
+	public void editUser(UserDto request)
+	{
+		Users user=mapper.map(request, Users.class);
+		System.out.println(user);
+		Users persistentUser=userDao.save(user);
+	}
+	
+//deleting user using email --not working
+//-------------------------------------------------------------------
+//	@Override
+//	public void deleteUser(String Email) {
+//		// TODO Auto-generated method stub
+//		
+//		Optional<Users> user=userDao.findByEmail(Email);
+//		
+//		if(user.isPresent())
+//		{
+//			userDao.dele;
+//		}
+//	}
+//---------------------------------------------------------------
+
+
+	
+//deleting user using userId
+//----------------------------------------------------------	
+	@Override
+	public void deleteUser(Long userid) {
+		// TODO Auto-generated method stub
+		Optional<Users> user=userDao.findById(userid);
+		if(user.isPresent())
+		{
+			userDao.deleteById(userid);
+		}
+	}
+//-------------------------------------------------------	
+	
+	
+	
 }
