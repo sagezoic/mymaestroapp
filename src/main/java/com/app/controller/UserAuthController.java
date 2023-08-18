@@ -66,5 +66,6 @@ public class UserAuthController {
 		
 		return ResponseEntity.ok(new CommonResponse("Success", userService.registerUser(request)));
 	}
+	//@PostMapping("/")
 	
 }

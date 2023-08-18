@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.app.dao.UserDao;
 import com.app.dto.UserDto;
 import com.app.dto.UserSignupResponseDto;
-import com.app.entities.UserEntity;
+//import com.app.entities.UserEntity;
 import com.app.entities.Users;
 
 @Service
