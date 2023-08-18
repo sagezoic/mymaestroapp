@@ -9,10 +9,13 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.server.SecurityWebFilterChain;
 
 import com.app.filters.JWTRequestFilter;
+
 //Entry point of spring sec configuration
 @EnableWebSecurity //to enable web security frmwork
 @Configuration //to tell SC following is java configuration class : to declare spring beans
@@ -30,9 +33,9 @@ public class SecurityConfig {
 	{
 		http.csrf().disable(). //disable CSRF  to continue with REST APIs
 		authorizeRequests() //specify all authorization rules (i.e authorize all requests)
-		.antMatchers("/products/view","/login","/signup","/service","/service/edit","/service/delete","/swagger-ui/index.html").permitAll() // for incoming req ending with /products/view : no authentication n authorization needed
-		.antMatchers("/products/purchase").hasRole("EXPLORER")//only explorer can purchase the products
-		.antMatchers("/products/add").hasRole("MAESTRO") //only maestro can add the products
+		.antMatchers("/products/view","/login","/signup","/service","/service/edit","/service/delete", "/webjars/**", "/v3/api-docs/**","/v2/api-docs/**", "/swagger.json", "/swagger-ui/**", "/swagger-ui.html", "/swagger-resources/**").permitAll() // for incoming req ending with /products/view : no authentication n authorization needed
+		//.antMatchers("/products/purchase").hasRole("EXPLORER")//only explorer can purchase the products
+		//.antMatchers("/products/add").hasRole("MAESTRO") //only maestro can add the products
 		.anyRequest().authenticated() //all remaining end points accessible only to authenticated users
 		.and()
 		.sessionManagement() //configure HttpSession management
@@ -46,4 +49,5 @@ public class SecurityConfig {
 	public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
 		return config.getAuthenticationManager();
 	}
+
 }
