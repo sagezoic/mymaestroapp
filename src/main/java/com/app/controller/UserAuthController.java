@@ -18,6 +18,7 @@ import com.app.dto.AuthResponse;
 import com.app.dto.CommonResponse;
 import com.app.dto.UserDto;
 import com.app.jwt_utils.JwtUtils;
+import com.app.service.ServceService;
 import com.app.service.UserService;
 
 @RestController
@@ -27,6 +28,9 @@ public class UserAuthController {
 	
 	@Autowired
 	private UserService userService; 
+	
+	@Autowired
+	private ServceService servceService;
 	
 	// dep : auth mgr
 	@Autowired
@@ -66,6 +70,5 @@ public class UserAuthController {
 		
 		return ResponseEntity.ok(new CommonResponse("Success", userService.registerUser(request)));
 	}
-	//@PostMapping("/")
 	
 }
