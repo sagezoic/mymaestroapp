@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.ServceDao;
+import com.app.dao.UserDao;
 import com.app.dto.ServceRequestDTO;
 import com.app.dto.ServceResponseDTO;
 import com.app.entities.Servce;
@@ -20,6 +21,9 @@ public class ServceServiceImpl implements ServceService{
 	private ServceDao servceDao;
 	
 	@Autowired
+	private UserDao userDao;
+	
+	@Autowired
 	private ModelMapper mapper;
 	
 	@Override
@@ -27,11 +31,10 @@ public class ServceServiceImpl implements ServceService{
 		
 		Servce ser=mapper.map(request,Servce.class);
 		System.out.println(ser);
+		ser.setUserId(userDao.findById(request.getUserId()).orElse(null));
 		Servce persistentser=servceDao.save(ser);
-		
 		return mapper.map(persistentser,ServceResponseDTO.class);
 	}
-
 
 	@Override
 	public ServceResponseDTO editService(ServceRequestDTO request) {
