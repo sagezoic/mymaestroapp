@@ -1,5 +1,8 @@
 package com.app.dto;
 
+import java.time.LocalDate;
+
+import com.app.entities.UserInterest;
 import com.app.entities.UserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,7 +20,7 @@ import lombok.ToString;
 public class UserDto {
 	//skip id during de-ser
 	//@JsonProperty(access = Access.WRITE_ONLY)
-	private Long id;
+	
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -26,14 +29,20 @@ public class UserDto {
 	//@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
 	private UserRole userRole;
+	private LocalDate dob;
+	private UserInterest interest;
 
-	public UserDto(String firstName, String lastName, String email, String password, UserRole userRole) {
+	public UserDto(String firstName, String lastName, String email, String password, UserRole userRole,LocalDate dob,UserInterest interest) {
 		super();
+		
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
 		this.userRole = userRole;
+		this.dob = dob;
+		this.interest = interest;
+				
 	}
 	
 }

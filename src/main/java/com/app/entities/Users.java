@@ -1,5 +1,6 @@
 package com.app.entities;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -40,7 +41,7 @@ public class Users extends BaseEntity {
 	@Column(name="last_name",length=30)
 	private String lastName;
 	@Column(name="dob")
-	private Date dOB;
+	private LocalDate dob;
 	@Column(name="otp_verified")
 	private boolean otpVerified;
 	@Column(name="admin_verified")
@@ -68,7 +69,7 @@ public class Users extends BaseEntity {
 	@Override
 	public String toString() {
 		return "Users [userRole=" + userRole + ", userName=" + userName + ", email=" + email + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", dOB=" + dOB + ", otpVerified=" + otpVerified
+				+ firstName + ", lastName=" + lastName + ", dob=" + dob + ", otpVerified=" + otpVerified
 				+ ", adminVerified=" + adminVerified + ", dpUrl=" + dpUrl + ", interest=" + interest + ", bio=" + bio
 				+ ", socialMediaLink=" + socialMediaLink + ", token=" + token + ", enabled=" + enabled + ", createdAt="
 				+ createdAt + "]";

@@ -30,9 +30,9 @@ public class SecurityConfig {
 	{
 		http.csrf().disable(). //disable CSRF  to continue with REST APIs
 		authorizeRequests() //specify all authorization rules (i.e authorize all requests)
-		.antMatchers("/products/view","/login","/signup","/swagger-ui/index.html").permitAll() // for incoming req ending with /products/view : no authentication n authorization needed
-		.antMatchers("/products/purchase").hasRole("EXPLORER")//only explorer can purchase the products
-		.antMatchers("/products/add").hasRole("MAESTRO") //only maestro can add the products
+		.antMatchers("/products/view","/login","/signup","/swagger-ui/index.html","/users/role","/users/details","/users/interest","/users/image/{userId}").permitAll() // for incoming req ending with /products/view : no authentication n authorization needed
+		//.antMatchers("/products/purchase").hasRole("EXPLORER")//only explorer can purchase the products
+		//.antMatchers("/products/add").hasRole("MAESTRO") //only maestro can add the products
 		.anyRequest().authenticated() //all remaining end points accessible only to authenticated users
 		.and()
 		.sessionManagement() //configure HttpSession management
