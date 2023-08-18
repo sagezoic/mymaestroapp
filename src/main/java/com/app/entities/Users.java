@@ -61,7 +61,7 @@ public class Users extends BaseEntity {
 	@Column(name="createdAt")
 	private Date createdAt;
 
-	  @OneToMany(mappedBy="users",cascade = CascadeType.ALL, orphanRemoval = true)
+	  @OneToMany(mappedBy="userId",cascade = CascadeType.ALL, orphanRemoval = true)
 	  private List<Servce> servces=new ArrayList<>();
 
 
@@ -74,5 +74,17 @@ public class Users extends BaseEntity {
 				+ createdAt + "]";
 	}
 	 
+	public void addServces(Servce s)
+	{
+		servces.add(s);
+		s.setUserId(this);
+	}
+	public void removeServce(Servce s)
+	{
+		servces.remove(s);
+		s.setUserId(null);
+	}
+	
+	
 	
 }
