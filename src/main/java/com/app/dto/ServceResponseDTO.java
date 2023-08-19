@@ -1,5 +1,8 @@
 package com.app.dto;
 
+import java.util.List;
+
+import com.app.entities.Servce;
 import com.app.entities.ServiceType;
 import com.app.entities.UserRole;
 
@@ -21,6 +24,6 @@ public class ServceResponseDTO {
 	  private ServiceType servicetype;
 	  private float priceToken;
 	  private Long user_id;
-	  
+	  private List<Servce> serviceList;
 	  
 }

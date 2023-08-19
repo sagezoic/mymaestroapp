@@ -1,11 +1,14 @@
 package com.app.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.dto.CommonResponse;
 import com.app.dto.ServceRequestDTO;
 import com.app.dto.UserDto;
+import com.app.entities.Servce;
 //import com.app.dto.servceDTO;
 import com.app.service.ServceService;
 
@@ -50,5 +54,12 @@ public class ServceController {
 		System.out.println("in edit service"+ request);
 		servceService.editService(request);
 		return ResponseEntity.ok("success");
+	}
+	
+	@GetMapping("/service/{userId}")
+	public ResponseEntity<?> getListOfUserServices(@PathVariable Long userId){
+		//List<Servce> list = servceService.getUserService(userId); 
+		
+		return ResponseEntity.ok(new CommonResponse("Success",servceService.getUserService(userId)));
 	}
 }

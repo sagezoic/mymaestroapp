@@ -1,5 +1,6 @@
 package com.app.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
@@ -9,9 +10,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.ServceDao;
 import com.app.dao.UserDao;
+import com.app.dto.CommonResponse;
 import com.app.dto.ServceRequestDTO;
 import com.app.dto.ServceResponseDTO;
 import com.app.entities.Servce;
+import com.app.entities.Users;
+
+import custom_exception.ResourceNotFoundException;
 
 @Service
 @Transactional
@@ -29,10 +34,17 @@ public class ServceServiceImpl implements ServceService{
 	@Override
 	public ServceResponseDTO addNewService(ServceRequestDTO request) {
 		
+		//Servce servce=new Servce();
 		Servce ser=mapper.map(request,Servce.class);
 		System.out.println(ser);
-		ser.setUserId(userDao.findById(request.getUserId()).orElse(null));
+	ser.setUserId(userDao.findById(request.getUserId()).orElse(null));
+		//Long i=request.getUserId();
+		//ser.setUserId(i);
 		Servce persistentser=servceDao.save(ser);
+		Users user=userDao.findById(request.getUserId()).orElse(null);
+		if(user!=null) {
+			user.addServces(persistentser);
+		}
 		return mapper.map(persistentser,ServceResponseDTO.class);
 	}
 
@@ -63,6 +75,21 @@ public class ServceServiceImpl implements ServceService{
 			servceDao.deleteById(servceId);
 			System.out.println("inside delete service if statement " );
 		}
+	}
+	
+	@Override
+	public List<Servce> /*ServceResponseDTO*/ getUserService(Long userId) {
+		
+		List<Servce> service=servceDao.findByUserIdWithJoinFetch(userId);
+		//List<Servce> service = servceDao.findByuserId(userDao.findById(userId).orElse(null));
+	//int count=service.size();
+		System.out.println(service);
+		System.out.println("hello");
+//	    ServceResponseDTO ser = new ServceResponseDTO();
+//	    ser.setServiceList(service);
+//	    System.out.println(ser.getServiceList());
+		return service; 
+	    //return mapper.map(ser, ServceResponseDTO.class);
 	}
 
 }
