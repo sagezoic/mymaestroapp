@@ -40,8 +40,11 @@ public class UserServiceImpl implements UserService {
 	private ModelMapper mapper;
 	
 	//declare in application.properties
-	@Value("${upload.location}")
-	private String folderLocation;
+	@Value("${upload.locationmaestro}")
+	private String maestroImageLocation;
+	
+	@Value("${upload.locationexplorer}")
+	private String explorerImageLocation;
 
 	private Users findByEmail(UserDto dto) {
 		return userDao.findByEmail(dto.getEmail())
@@ -85,6 +88,7 @@ public class UserServiceImpl implements UserService {
 		user.setFirstName(dto.getFirstName());
 		user.setLastName(dto.getLastName());
 		user.setDob(dto.getDob());
+		user.setUserName(dto.getUserName());
 		Users persistenceuser = userDao.save(user);
 		return mapper.map(persistenceuser, UserSignupResponseDto.class);
 	}
@@ -100,13 +104,21 @@ public class UserServiceImpl implements UserService {
 		
 		@PostConstruct
 		public void init() {
-			System.out.println("in init " + folderLocation);
+			System.out.println("in init " + maestroImageLocation +" "+ explorerImageLocation);
 			// chk if folder exists
-			File folder = new File(folderLocation);
-			if (folder.exists())
+			File maestro = new File(maestroImageLocation);
+			if (maestro.exists())
 				System.out.println("folder alrdy exists !");
 			else {
-				folder.mkdir(); // creates a new folder
+				maestro.mkdir(); // creates a new folder
+				System.out.println("created a new folder...");
+			}
+			
+			File explorer = new File(explorerImageLocation);
+			if (explorer.exists())
+				System.out.println("folder alrdy exists !");
+			else {
+				explorer.mkdir(); // creates a new folder
 				System.out.println("created a new folder...");
 			}
 
@@ -117,8 +129,24 @@ public class UserServiceImpl implements UserService {
 		@Override
 		public UserSignupResponseDto uploadProfileImage(Long userId, MultipartFile file) throws IOException {
 			Users user = userDao.findById(userId).orElseThrow(()->new ResourceNotFoundException("User is not valid"));
-			String path = folderLocation.concat(user.getUserRole().toString()).concat("/").concat(user.getUserName()).concat("/").concat(file.getOriginalFilename());
-			System.out.println("Path"+path);
+			//String path = folderLocation.concat(user.getUserRole().toString()).concat("/").concat(user.getUserName())
+				//	.concat("/").concat(file.getOriginalFilename());
+			String path=null;
+			if(user.getUserRole().toString()=="ROLE_MAESTRO")
+			{
+				path =maestroImageLocation.concat(user.getUserName());
+				path=path.concat("/profile/");
+				path=path.concat(file.getOriginalFilename());
+				System.out.println("Path"+path);
+					
+			}
+			else if(user.getUserRole().toString()=="ROLE_EXPLORER")
+			{
+				path =explorerImageLocation.concat(user.getUserName());
+				path=path.concat("/profile/");
+				path=path.concat(file.getOriginalFilename());
+				System.out.println("Path"+path);
+			}
 			
 			FileUtils.writeByteArrayToFile(new File(path), file.getBytes());
 			user.setDpUrl(path);

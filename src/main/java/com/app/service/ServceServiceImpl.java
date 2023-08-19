@@ -56,10 +56,12 @@ public class ServceServiceImpl implements ServceService{
 	@Override
 	public void deleteServce(Long servceId) {
 		// TODO Auto-generated method stub
+		System.out.println("servceId " + servceId);
 		Optional<Servce> servce=servceDao.findById(servceId);
 		if(servce.isPresent())
 		{
 			servceDao.deleteById(servceId);
+			System.out.println("inside delete service if statement " );
 		}
 	}
 
