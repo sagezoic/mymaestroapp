@@ -9,5 +9,5 @@ import com.app.dto.PostResponseDTO;
 
 public interface PostService {
 
-	PostResponseDTO addPost(Long userId , MultipartFile file,PostRequestDTO dto) throws IOException; 
+	PostResponseDTO addPost(PostRequestDTO dto) throws IOException; 
 }

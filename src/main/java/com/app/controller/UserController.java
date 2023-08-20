@@ -62,7 +62,7 @@ public class UserController {
 	}
 	
 	@PostMapping(value="/{userId}/image",consumes = "multipart/form-data")
-	public ResponseEntity<?> uploadProfileImage(@PathVariable Long userId,@RequestParam MultipartFile imagefile) throws IOException{
+	public ResponseEntity<?> uploadProfileImage(@PathVariable Long userId, @RequestParam MultipartFile imagefile) throws IOException{
 		
 		System.out.println("in image upload "+userId);
 		return ResponseEntity.ok(new CommonResponse("Success",userService.uploadProfileImage(userId, imagefile)));

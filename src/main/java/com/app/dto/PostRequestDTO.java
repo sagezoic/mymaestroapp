@@ -1,5 +1,7 @@
 package com.app.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.app.entities.PostType;
 
 import lombok.AllArgsConstructor;
@@ -19,5 +21,6 @@ public class PostRequestDTO {
 	private String captionText;
 	private String urlText;
 	private Long userId;
+	private MultipartFile imageFile;
 
 }

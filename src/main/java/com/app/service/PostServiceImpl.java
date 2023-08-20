@@ -60,15 +60,15 @@ public class PostServiceImpl implements PostService {
 
 	}
 	@Override
-	public PostResponseDTO addPost(Long userId, MultipartFile file,PostRequestDTO dto) throws IOException {
-		Users user = userDao.findById(userId).orElseThrow(()->new ResourceNotFoundException("User id invaild"));  
-		
+	public PostResponseDTO addPost(PostRequestDTO dto) throws IOException {
+		Users user = userDao.findById(dto.getUserId()).orElseThrow(()->new ResourceNotFoundException("User id invaild"));  
+		Post post=mapper.map(dto, Post.class);
 		String path=null;
 		if(user.getUserRole().toString()=="ROLE_MAESTRO")
 		{
 			path =maestroImageLocation.concat(user.getUserName());
 			path=path.concat("/Post/");
-			path=path.concat(file.getOriginalFilename());
+			path=path.concat(dto.getImageFile().getOriginalFilename());
 			System.out.println("Path"+path);
 				
 		}
@@ -76,12 +76,12 @@ public class PostServiceImpl implements PostService {
 		{
 			path =explorerImageLocation.concat(user.getUserName());
 			path=path.concat("/Post/");
-			path=path.concat(file.getOriginalFilename());
-			System.out.println("Path"+path);
+			path=path.concat(dto.getImageFile().getOriginalFilename());
+			System.out.println("Path "+path);
 		}
 		
-		FileUtils.writeByteArrayToFile(new File(path), file.getBytes());
-		Post post = postDao.findById(dto.getId()).orElseThrow(()->new ResourceNotFoundException("invalid id"));
+		FileUtils.writeByteArrayToFile(new File(path), dto.getImageFile().getBytes());
+		//Post post = postDao.findById(dto.getId()).orElseThrow(()->new ResourceNotFoundException("invalid id"));
 		post.setUrlText(path);
 		user.addpost(post);
 		Post persistance = postDao.save(post);

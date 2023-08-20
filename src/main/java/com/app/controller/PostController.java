@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,11 +31,12 @@ public class PostController {
 		System.out.println("In Post Controller");
 	}
 	
-	@PostMapping(value="/{userId}/image",consumes = "multipart/form-data")
-	public ResponseEntity<?> addPost(@PathVariable Long userId ,@RequestParam MultipartFile imagefile, @RequestBody @Valid PostRequestDTO dto) throws IOException{
-	
+
+	@PostMapping(value="/image",consumes = "multipart/form-data")
+	public ResponseEntity<?> addPost(@ModelAttribute @Valid PostRequestDTO dto) throws IOException{
+		System.out.println(dto);
 		System.out.println("in addPost mathod");
-		return ResponseEntity.ok(new CommonResponse("Success", postService.addPost(dto.getUserId(),imagefile,dto)));
+		return ResponseEntity.ok(new CommonResponse("Success", postService.addPost(dto)));
 	}
 	
 }
