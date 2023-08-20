@@ -33,6 +33,8 @@ import javax.persistence.JoinColumn; import
   @ManyToOne  
   @JoinColumn(name="user_id")
   private Users userId;
+  
+  
 
 @Override
 public String toString() {

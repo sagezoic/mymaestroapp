@@ -10,11 +10,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AuthResponse {
+	private Long id;
 	private String message;
 	private String jwt;
 	private LocalDateTime timestamp;
-	public AuthResponse(String message, String jwt) {
+	public AuthResponse(String message, String jwt,Long id) {
 		super();
+		this.id=id;
 		this.message = message;
 		this.jwt = jwt;
 		this.timestamp=LocalDateTime.now();

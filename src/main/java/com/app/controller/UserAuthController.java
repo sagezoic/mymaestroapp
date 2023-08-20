@@ -12,13 +12,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dao.UserDao;
 import com.app.dto.AuthRequest;
 import com.app.dto.AuthResponse;
 import com.app.dto.CommonResponse;
 import com.app.dto.UserDto;
+import com.app.entities.Users;
 import com.app.jwt_utils.JwtUtils;
 import com.app.service.ServceService;
 import com.app.service.UserService;
+
+import custom_exception.ResourceNotFoundException;
 
 @RestController
 //@RequestMapping("/users")
@@ -27,6 +31,9 @@ public class UserAuthController {
 	
 	@Autowired
 	private UserService userService; 
+	
+	@Autowired
+	private UserDao userDao;
 	
 	@Autowired
 	private ServceService servceService;
@@ -56,9 +63,10 @@ public class UserAuthController {
 				request.getPassword());
 		// invoke Auth mgr's authenticate method
 		Authentication verifiedCredentials = manager.authenticate(authToken);
+		Users user = userDao.findByEmail(request.getEmail()).orElseThrow(()->new ResourceNotFoundException("Invalid Email!"));
 		//=>no auth exc => auth success , generate auth resp containing genearated JWT
 		return ResponseEntity.ok(new AuthResponse("Successs",
-				jwtUtils.generateJwtToken(verifiedCredentials)));
+				jwtUtils.generateJwtToken(verifiedCredentials), user.getId()));
 	}
 	
 	@PostMapping("/signup")
