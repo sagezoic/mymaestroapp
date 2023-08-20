@@ -62,9 +62,11 @@ public class Users extends BaseEntity {
 	@Column(name="createdAt")
 	private Date createdAt;
 
-	  @OneToMany(mappedBy="userId",cascade = CascadeType.ALL, orphanRemoval = true)
-	  private List<Servce> servces=new ArrayList<>();
-
+	@OneToMany(mappedBy="userId",cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Servce> servces=new ArrayList<>();
+	
+	@OneToMany(mappedBy ="userId",cascade = CascadeType.ALL, orphanRemoval = true )
+	private List<Post> post = new ArrayList<Post>();
 
 	@Override
 	public String toString() {
@@ -84,6 +86,17 @@ public class Users extends BaseEntity {
 	{
 		servces.remove(s);
 		s.setUserId(null);
+	}
+	
+	public void addpost(Post p)
+	{
+		post.add(p);
+		p.setUserId(this);
+	}
+	public void removePost(Post p)
+	{
+		post.remove(p);
+		p.setUserId(null);
 	}
 	
 	
