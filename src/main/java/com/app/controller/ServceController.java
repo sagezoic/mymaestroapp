@@ -19,7 +19,7 @@ import com.app.dto.UserDto;
 import com.app.service.ServceService;
 
 @RestController
-@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin(origins="*")
 public class ServceController {
 
 	@Autowired

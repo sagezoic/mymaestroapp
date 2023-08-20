@@ -3,6 +3,7 @@ package com.app.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -28,12 +29,14 @@ public class SecurityConfig {
 	//configures spring security for authorization (role based)
 	@Bean
 	public SecurityFilterChain authorizeRequests(HttpSecurity http) throws Exception
-	{
+	{	
 		http.csrf().disable(). //disable CSRF  to continue with REST APIs
 		authorizeRequests() //specify all authorization rules (i.e authorize all requests)
 		.antMatchers("/products/view","/login","/signup","/swagger-ui/index.html","/users/role","/users/details",
 		"/users/interest","/users/{userId}/image","/service","/service/edit","/service/delete/{serviceId}","/users/delete/{userId}","/users/edit",
-		"/webjars/**", "/v3/api-docs/**","/v2/api-docs/**", "/swagger.json", "/swagger-ui/**", "/swagger-ui.html", "/swagger-resources/**").permitAll() // for incoming req ending with /products/view : no authentication n authorization needed
+		"/webjars/**", "/v3/api-docs/**","/v2/api-docs/**", "/swagger.json", "/swagger-ui/**", "/swagger-ui.html", "/swagger-resources/**").permitAll()
+		.antMatchers(HttpMethod.OPTIONS).permitAll()
+		// for incoming req ending with /products/view : no authentication n authorization needed
 		//.antMatchers("/products/purchase").hasRole("EXPLORER")//only explorer can purchase the products
 		//.antMatchers("/products/add").hasRole("MAESTRO") //only maestro can add the products
 		.anyRequest().authenticated() //all remaining end points accessible only to authenticated users
@@ -42,6 +45,7 @@ public class SecurityConfig {
 		.sessionCreationPolicy(SessionCreationPolicy.STATELESS) //DO NOT use HttpSession for storing any sec info
 		.and()
 		.addFilterBefore(jwtFilter,UsernamePasswordAuthenticationFilter.class);
+		http.cors(); 
 		return http.build();
 	}
 	//expose spring supplied auth mgr as a spring bean , so that auth controller can use it for authentication .

@@ -22,5 +22,4 @@ public class ServceResponseDTO {
 	  private float priceToken;
 	  private Long user_id;
 	  
-	  
 }
