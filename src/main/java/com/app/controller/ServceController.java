@@ -23,7 +23,7 @@ import com.app.entities.Servce;
 import com.app.service.ServceService;
 
 @RestController
-@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin(origins="*")
 public class ServceController {
 
 	@Autowired

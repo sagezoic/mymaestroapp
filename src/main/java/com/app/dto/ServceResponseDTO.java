@@ -24,6 +24,5 @@ public class ServceResponseDTO {
 	  private ServiceType servicetype;
 	  private float priceToken;
 	  private Long user_id;
-	  private List<Servce> serviceList;
 	  
 }
