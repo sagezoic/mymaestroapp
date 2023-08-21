@@ -10,10 +10,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -65,8 +70,10 @@ public class Users extends BaseEntity {
 	@OneToMany(mappedBy="userId",cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Servce> servces=new ArrayList<>();
 	
-	@OneToMany(mappedBy ="userId",cascade = CascadeType.ALL, orphanRemoval = true )
-	private List<Post> post = new ArrayList<Post>();
+	@JsonIgnore
+	@OneToMany(mappedBy ="userId",cascade = CascadeType.ALL, orphanRemoval = true)
+	@Fetch(FetchMode.JOIN)
+	private List<Post> post = new ArrayList<>();
 
 	@Override
 	public String toString() {

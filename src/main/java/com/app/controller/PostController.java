@@ -5,8 +5,11 @@ import java.io.IOException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,6 +40,26 @@ public class PostController {
 		System.out.println(dto);
 		System.out.println("in addPost mathod");
 		return ResponseEntity.ok(new CommonResponse("Success", postService.addPost(dto)));
+	}
+	
+	@GetMapping("/{userId}/allpost")
+	public ResponseEntity<?> getAllPost(@PathVariable Long userId){
+		System.out.println("in get all post method");
+		return ResponseEntity.ok(new CommonResponse("Success",postService.getAllPost(userId)));
+	}
+	
+//	@DeleteMapping("/deletepost")
+//	public ResponseEntity<?> deletePost(@RequestBody PostRequestDTO dto ){
+//		System.out.println(dto);
+//			postService.deletePost(dto.getUserId(), dto.getId());
+//		return ResponseEntity.ok("Success");
+//	}
+	
+	@DeleteMapping("/deletepost")
+	public ResponseEntity<?> deletePost(@RequestParam Long userId , @RequestParam Long postId){
+		//System.out.println(dto);
+			postService.deletePost(userId, postId);
+		return ResponseEntity.ok("Success");
 	}
 	
 }

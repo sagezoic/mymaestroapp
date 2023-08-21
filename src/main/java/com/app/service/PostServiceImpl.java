@@ -2,6 +2,7 @@ package com.app.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 
@@ -32,6 +33,7 @@ public class PostServiceImpl implements PostService {
 	
 	@Autowired
 	private UserDao userDao;
+	
 	@Value("${upload.locationmaestro}")
 	private String maestroImageLocation;
 	
@@ -87,5 +89,20 @@ public class PostServiceImpl implements PostService {
 		Post persistance = postDao.save(post);
 		return mapper.map(persistance,PostResponseDTO.class);	
 				
+	}
+	
+	@Override
+	public List<Post> getAllPost(Long userId) {
+		Users user = userDao.findById(userId).orElseThrow(()->new ResourceNotFoundException("user is invalid"));
+		return user.getPost();
+	}
+	
+	@Override
+	public void deletePost(Long userId, Long postId) {
+		Users user = userDao.findById(userId).orElseThrow(()->new ResourceNotFoundException("user is invalid"));
+		Post post =  postDao.findById(postId).orElseThrow(()->new ResourceNotFoundException("user is invalid"));
+		postDao.deleteById(postId);
+		user.removePost(post);
+		
 	}
 }
