@@ -41,11 +41,22 @@ public class ServceController {
 		servceService.addNewService(request);
 		return ResponseEntity.ok("success");
 	}
-	@DeleteMapping("/service/delete/{serviceId}")
-	public ResponseEntity<?> deleteServce(@PathVariable Long serviceId)
+//	@DeleteMapping("/service/delete/{serviceId}")
+//	public ResponseEntity<?> deleteServce(@PathVariable Long serviceId)
+//	{
+//		System.out.println("in delete serviceId "+ serviceId);
+//		servceService.deleteServce(serviceId);
+//		return ResponseEntity.ok("success");
+//	}
+	
+	@DeleteMapping("/service/delete")
+	public ResponseEntity<?> deleteServce(@RequestBody ServceRequestDTO dto)
 	{
-		System.out.println("in delete serviceId "+ serviceId);
+		//System.out.println("in delete serviceId "+ serviceId);
 		//servceService.deleteServce(serviceId);
+
+		System.out.println("in delete serviceId "+ dto.getId());
+		servceService.deleteServce(dto.getUserId(),dto.getId());
 		return ResponseEntity.ok("success");
 	}
 	
@@ -57,10 +68,20 @@ public class ServceController {
 		return ResponseEntity.ok("success");
 	}
 	
-	@GetMapping("/service/{userId}")
-	public ResponseEntity<?> getListOfUserServices(@PathVariable Users userId){
+	//@GetMapping("/service/{userId}")
+	//public ResponseEntity<?> getListOfUserServices(@PathVariable Users userId){
 		//List<Servce> list = servceService.getUserService(userId); 
 		
-		return ResponseEntity.ok(new CommonResponse("Success",servceService.getUserService(userId)));
-	}
+		//System.out.println("inside controller of getLisOfUserServices");
+		//List<Servce> list=servceService.getServceFromUserId(userId);
+		
+	//	return ResponseEntity.ok(new CommonResponse("Success",servceService.getUserService(userId)));
+		//return ResponseEntity.ok(new CommonResponse("Success",list));
+	//}
+		//System.out.println("inside controller of getLisOfUserServices");
+		//List<Servce> list=servceService.getServceFromUserId(userId);
+		
+	//	return ResponseEntity.ok(new CommonResponse("Success",servceService.getUserService(userId)));
+		//return ResponseEntity.ok(new CommonResponse("Success",list));
+	//}
 }

@@ -13,9 +13,16 @@ public interface ServceService {
 
 	ServceResponseDTO addNewService(ServceRequestDTO request);
 //	void deleteServce(Long servceId);
-	ServceResponseDTO editService(ServceRequestDTO request);
+	//ServceResponseDTO editService(ServceRequestDTO request);
 	List<Servce> getUserService(Users userId);
 	//void delServce(Long userId,Long servceId);
 	 //ServceResponseDTO getUserService (Long userId);
-	public String deleteServceDetails(Long UserId, Long serviceId);
+	//public String deleteServceDetails(Long UserId, Long serviceId);
+
+	//void deleteServce(Long servceId);
+	void deleteServce(Long userId , Long serviceId);
+	ServceResponseDTO editService(ServceRequestDTO request);
+	//List<Servce> getUserService(Long userId);
+	 //ServceResponseDTO getUserService (Long userId);
+	List<Servce> getServceFromUserId(Long userId);
 }
