@@ -19,6 +19,7 @@ import com.app.dto.CommonResponse;
 import com.app.dto.ServceRequestDTO;
 import com.app.dto.UserDto;
 import com.app.entities.Servce;
+import com.app.entities.Users;
 //import com.app.dto.servceDTO;
 import com.app.service.ServceService;
 
@@ -44,7 +45,7 @@ public class ServceController {
 	public ResponseEntity<?> deleteServce(@PathVariable Long serviceId)
 	{
 		System.out.println("in delete serviceId "+ serviceId);
-		servceService.deleteServce(serviceId);
+		//servceService.deleteServce(serviceId);
 		return ResponseEntity.ok("success");
 	}
 	
@@ -57,7 +58,7 @@ public class ServceController {
 	}
 	
 	@GetMapping("/service/{userId}")
-	public ResponseEntity<?> getListOfUserServices(@PathVariable Long userId){
+	public ResponseEntity<?> getListOfUserServices(@PathVariable Users userId){
 		//List<Servce> list = servceService.getUserService(userId); 
 		
 		return ResponseEntity.ok(new CommonResponse("Success",servceService.getUserService(userId)));

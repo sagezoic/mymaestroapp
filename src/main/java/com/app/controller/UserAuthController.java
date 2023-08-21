@@ -66,7 +66,7 @@ public class UserAuthController {
 		Users user = userDao.findByEmail(request.getEmail()).orElseThrow(()->new ResourceNotFoundException("Invalid Email!"));
 		//=>no auth exc => auth success , generate auth resp containing genearated JWT
 		return ResponseEntity.ok(new AuthResponse("Successs",
-				jwtUtils.generateJwtToken(verifiedCredentials), user.getId()));
+				jwtUtils.generateJwtToken(verifiedCredentials), user.getId(),user.getUserRole()));
 	}
 	
 	@PostMapping("/signup")
