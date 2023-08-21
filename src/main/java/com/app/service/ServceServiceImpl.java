@@ -88,8 +88,20 @@ public class ServceServiceImpl implements ServceService{
 //		}
 //	}
 	
-	@Override
-	public List<Servce> /*ServceResponseDTO*/ getUserService(Users userId) {
+//	@Override
+//	public void deleteServce(Long servceId) {
+//		// TODO Auto-generated method stub
+//		System.out.println("servceId " + servceId);
+//		Optional<Servce> servce=servceDao.findById(servceId);
+//		if(servce.isPresent())
+//		{
+//			servceDao.deleteById(servceId);
+//			System.out.println("inside delete service if statement " );
+//		}
+//	}
+
+	//@Override
+	/*public List<Servce> /*ServceResponseDTO getUserService(Users userId) {
 		
 		//List<Servce> service=servceDao.findByUserIdWithJoinFetch(userId);
 		List<ServceRequestDTO> servce=servceDao.findByuserId(userId);
@@ -115,7 +127,7 @@ public class ServceServiceImpl implements ServceService{
 	//	service.addAll(servce)
 	//	return service; 
 	    //return mapper.map(ser, ServceResponseDTO.class);
-	}
+	}*/
 	
 //	@Override
 //	public void deleteServce(Long servceId) {
@@ -144,6 +156,12 @@ public class ServceServiceImpl implements ServceService{
 		Users user = userDao.findById(userId).orElseThrow(()->new ResourceNotFoundException("user invalid"));
 		return user.getServces();
 		//return list;
+	}
+
+	@Override
+	public List<Servce> getUserService(Users userId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 //	@Override

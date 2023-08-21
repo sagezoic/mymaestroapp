@@ -57,7 +57,6 @@ public class ServceController {
 
 		System.out.println("in delete serviceId "+ dto.getId());
 		servceService.deleteServce(dto.getUserId(),dto.getId());
-
 		return ResponseEntity.ok("success");
 	}
 	
@@ -72,7 +71,13 @@ public class ServceController {
 	//@GetMapping("/service/{userId}")
 	//public ResponseEntity<?> getListOfUserServices(@PathVariable Users userId){
 		//List<Servce> list = servceService.getUserService(userId); 
-		 
+		
+		//System.out.println("inside controller of getLisOfUserServices");
+		//List<Servce> list=servceService.getServceFromUserId(userId);
+		
+	//	return ResponseEntity.ok(new CommonResponse("Success",servceService.getUserService(userId)));
+		//return ResponseEntity.ok(new CommonResponse("Success",list));
+	//}
 		//System.out.println("inside controller of getLisOfUserServices");
 		//List<Servce> list=servceService.getServceFromUserId(userId);
 		
