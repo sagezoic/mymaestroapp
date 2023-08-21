@@ -16,4 +16,6 @@ public interface PostService {
 	List<Post> getAllPost(Long userId);
 	
 	void deletePost(Long userId,Long postId);
+	
+	PostResponseDTO editPost(Long postId,String caption) throws IOException;
 }

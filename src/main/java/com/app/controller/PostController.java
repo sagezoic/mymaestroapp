@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -62,4 +63,9 @@ public class PostController {
 		return ResponseEntity.ok("Success");
 	}
 	
+	@PutMapping("/edit")
+	public ResponseEntity<?> editPost(@RequestParam Long postId,@RequestParam String caption ) throws IOException{
+		
+		return ResponseEntity.ok(new CommonResponse("Success",postService.editPost(postId, caption)));
+	}
 }

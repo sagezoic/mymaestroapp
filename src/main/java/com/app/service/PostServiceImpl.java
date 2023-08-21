@@ -100,9 +100,18 @@ public class PostServiceImpl implements PostService {
 	@Override
 	public void deletePost(Long userId, Long postId) {
 		Users user = userDao.findById(userId).orElseThrow(()->new ResourceNotFoundException("user is invalid"));
-		Post post =  postDao.findById(postId).orElseThrow(()->new ResourceNotFoundException("user is invalid"));
+		Post post =  postDao.findById(postId).orElseThrow(()->new ResourceNotFoundException("post id is invalid"));
 		postDao.deleteById(postId);
 		user.removePost(post);
+		
+	}
+	
+	@Override
+	public PostResponseDTO editPost(Long postId,String caption) throws IOException {
+		Post post = postDao.findById(postId).orElseThrow(()->new ResourceNotFoundException("post id is invalid"));
+		post.setCaptionText(caption);
+		Post persistance = postDao.save(post);
+		return mapper.map(persistance,PostResponseDTO.class);	
 		
 	}
 }
