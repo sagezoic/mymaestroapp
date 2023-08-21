@@ -7,13 +7,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.app.dto.ServceRequestDTO;
 import com.app.entities.Servce;
 import com.app.entities.Users;
 
 public interface ServceDao extends JpaRepository<Servce, Long>{
 
 	Optional<Servce> findById(Long Id);
-	List<Servce> findByuserId(Users Id);
+	//List<Servce> findByuserId(User userId);
+	List<ServceRequestDTO> findByuserId(Users userId);
 	
 //	@Query("select s from service_table s join fetch s.userId where d.userId = :uid")
 //	List<Servce> findByUserId(@Param("uid") Long userId);

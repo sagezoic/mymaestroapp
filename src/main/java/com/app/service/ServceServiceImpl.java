@@ -1,5 +1,6 @@
 package com.app.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,31 +65,55 @@ public class ServceServiceImpl implements ServceService{
 		return mapper.map(persistentser, ServceResponseDTO.class);
 	}
 
-	
 	@Override
-	public void deleteServce(Long servceId) {
-		// TODO Auto-generated method stub
-		System.out.println("servceId " + servceId);
-		Optional<Servce> servce=servceDao.findById(servceId);
-		if(servce.isPresent())
-		{
-			servceDao.deleteById(servceId);
-			System.out.println("inside delete service if statement " );
-		}
+	public String deleteServceDetails(Long UserId, Long serviceId) {
+		// get team details from team id
+		Users user = userDao.findById(UserId).orElseThrow(() -> new ResourceNotFoundException("Invalid Team ID!!!!"));
+		Servce service = servceDao.findById(serviceId)
+				.orElseThrow(() -> new ResourceNotFoundException("Invalid Service ID!!!!"));
+		// => team n player : valid
+		user.removeServce(service);
+		return "Service details deleted from user " + user.getUserName();
 	}
 	
+//	@Override
+//	public void deleteServce(Long servceId) {
+//		// TODO Auto-generated method stub
+//		System.out.println("servceId " + servceId);
+//		Optional<Servce> servce=servceDao.findById(servceId);
+//		if(servce.isPresent())
+//		{
+//			servceDao.deleteById(servceId);
+//			System.out.println("inside delete service if statement " );
+//		}
+//	}
+	
 	@Override
-	public List<Servce> /*ServceResponseDTO*/ getUserService(Long userId) {
+	public List<Servce> /*ServceResponseDTO*/ getUserService(Users userId) {
 		
-		List<Servce> service=servceDao.findByUserIdWithJoinFetch(userId);
+		//List<Servce> service=servceDao.findByUserIdWithJoinFetch(userId);
+		List<ServceRequestDTO> servce=servceDao.findByuserId(userId);
 		//List<Servce> service = servceDao.findByuserId(userDao.findById(userId).orElse(null));
 	//int count=service.size();
-		System.out.println(service);
+		System.out.println(servce);
 		System.out.println("hello");
+		List<Servce> service = new ArrayList<>();
+	    
+	    for (ServceRequestDTO dto : servce) {
+	        Servce entity = new Servce();
+	        // Assuming there is a mapping logic from ServceRequestDTO to Servce entity
+	        // You need to map the properties from dto to entity here
+	        
+	        service.add(entity);
+	    }
+	    
+	    return service;
 //	    ServceResponseDTO ser = new ServceResponseDTO();
 //	    ser.setServiceList(service);
 //	    System.out.println(ser.getServiceList());
-		return service; 
+	//	List<Servce> service=new ArrayList<>();
+	//	service.addAll(servce)
+	//	return service; 
 	    //return mapper.map(ser, ServceResponseDTO.class);
 	}
 
