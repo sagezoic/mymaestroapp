@@ -10,8 +10,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class AuthRequest {
-	@NotBlank
+	@NotBlank(message="email required/invalid email")
 	private String email;
-	@NotBlank
+	@NotBlank(message="password is required")
 	private String password;
 }

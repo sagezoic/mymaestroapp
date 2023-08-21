@@ -16,6 +16,7 @@ public interface ServceDao extends JpaRepository<Servce, Long>{
 	Optional<Servce> findById(Long Id);
 	//List<Servce> findByuserId(User userId);
 	List<ServceRequestDTO> findByuserId(Users userId);
+
 	
 //	@Query("select s from service_table s join fetch s.userId where d.userId = :uid")
 //	List<Servce> findByUserId(@Param("uid") Long userId);

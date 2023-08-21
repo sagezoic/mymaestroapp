@@ -65,7 +65,7 @@ public class ServceServiceImpl implements ServceService{
 		return mapper.map(persistentser, ServceResponseDTO.class);
 	}
 
-	@Override
+	/*@Override
 	public String deleteServceDetails(Long UserId, Long serviceId) {
 		// get team details from team id
 		Users user = userDao.findById(UserId).orElseThrow(() -> new ResourceNotFoundException("Invalid Team ID!!!!"));
@@ -74,7 +74,7 @@ public class ServceServiceImpl implements ServceService{
 		// => team n player : valid
 		user.removeServce(service);
 		return "Service details deleted from user " + user.getUserName();
-	}
+	}*/
 	
 //	@Override
 //	public void deleteServce(Long servceId) {
@@ -116,5 +116,49 @@ public class ServceServiceImpl implements ServceService{
 	//	return service; 
 	    //return mapper.map(ser, ServceResponseDTO.class);
 	}
+	
+//	@Override
+//	public void deleteServce(Long servceId) {
+//		// TODO Auto-generated method stub
+//		System.out.println("servceId " + servceId);
+//		Optional<Servce> servce=servceDao.findById(servceId);
+//		if(servce.isPresent())
+//		{
+//			servceDao.deleteById(servceId);
+//			System.out.println("inside delete service if statement " );
+//		}
+//	}
+
+	@Override
+	public void deleteServce(Long userId, Long serviceId) {
+		Users user = userDao.findById(userId).orElseThrow(()->new ResourceNotFoundException("Invalid user"));
+		Servce service =servceDao.findById(serviceId).orElseThrow(()->new ResourceNotFoundException("Invalid service id"));
+		servceDao.deleteById(serviceId);
+		user.removeServce(service);
+		
+	}
+	@Override
+	public List<Servce> getServceFromUserId(Long userId) {
+		// TODO Auto-generated method stub
+		//List<Servce> list=servceDao.findByuserId(userId);
+		Users user = userDao.findById(userId).orElseThrow(()->new ResourceNotFoundException("user invalid"));
+		return user.getServces();
+		//return list;
+	}
+	
+//	@Override
+//	public List<Servce> /*ServceResponseDTO*/ getUserService(Long userId) {
+//		
+//		List<Servce> service=servceDao.findByUserIdWithJoinFetch(userId);
+//		//List<Servce> service = servceDao.findByuserId(userDao.findById(userId).orElse(null));
+//	//int count=service.size();
+//		System.out.println(service);
+//		System.out.println("hello");
+////	    ServceResponseDTO ser = new ServceResponseDTO();
+////	    ser.setServiceList(service);
+////	    System.out.println(ser.getServiceList());
+//		return service; 
+//	    //return mapper.map(ser, ServceResponseDTO.class);
+//	}
 
 }
