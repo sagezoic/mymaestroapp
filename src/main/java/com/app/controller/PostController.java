@@ -24,6 +24,9 @@ import com.app.dto.CommonResponse;
 import com.app.dto.PostRequestDTO;
 import com.app.service.PostService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/post")
 @CrossOrigin(origins = "http://localhost:3000")

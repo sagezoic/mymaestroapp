@@ -23,7 +23,9 @@ import com.app.service.ServceService;
 import com.app.service.UserService;
 
 import custom_exception.ResourceNotFoundException;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 //@RequestMapping("/users")
 @CrossOrigin(origins="*")
