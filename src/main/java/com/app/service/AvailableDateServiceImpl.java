@@ -1,5 +1,8 @@
 package com.app.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.modelmapper.ModelMapper;
@@ -54,6 +57,35 @@ public class AvailableDateServiceImpl implements AvailableDateService {
 		availableDateResponseDTO.setServiceId(persistentAvailableDate.getServiceId().getId());
 				
 		return availableDateResponseDTO;
+	}
+	
+	@Override
+	public List<AvailableDateResponseDTO> getAllAvailableDate(Long serviceId) {
+		Servce service = servceDao.findById(serviceId).orElseThrow(()->new ResourceNotFoundException("Service ID is Invalid"));
+		List<AvailableDateResponseDTO> dateList = new ArrayList<>();
+		for(AvailableDate date : service.getDateList()) {
+			dateList.add(myMapper(date));
+		}
+		
+		return dateList;
+	}
+	
+	@Override
+	public void deleteAvailableDate(Long serviceId, Long availableDateId) {
+		Servce service = servceDao.findById(serviceId).orElseThrow(()->new ResourceNotFoundException("service id is invalid"));
+		AvailableDate availableDate = availableDateDao.findById(availableDateId).orElseThrow(()->new ResourceNotFoundException("AvailableDate id is invalid"));
+		availableDateDao.deleteById(availableDateId);
+		service.removeAvailableDate(availableDate);
+	}
+	
+	
+	@Override
+	public AvailableDateResponseDTO editDateSolt(AvailableDateRequestDTO dto) {
+		Servce service = servceDao.findById(dto.getServiceId()).orElseThrow(()->new ResourceNotFoundException("service id is invalid"));
+		AvailableDate availableDate = mapper.map(dto, AvailableDate.class);
+		availableDate.setServiceId(servceDao.findById(dto.getServiceId()).orElseThrow(()->new ResourceNotFoundException("service id is invalid")));
+		AvailableDate persistanceAvailableDate = availableDateDao.save(availableDate);
+		return myMapper(persistanceAvailableDate);
 	}
 	
 }
