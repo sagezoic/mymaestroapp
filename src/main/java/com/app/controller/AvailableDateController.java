@@ -13,6 +13,9 @@ import com.app.dto.AvailableDateRequestDTO;
 import com.app.dto.CommonResponse;
 import com.app.service.AvailableDateService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/date")
 @CrossOrigin(origins = "http://localhost:3000")
