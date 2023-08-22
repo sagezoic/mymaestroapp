@@ -87,8 +87,8 @@ public class PostServiceImpl implements PostService {
 		//Post post = postDao.findById(dto.getId()).orElseThrow(()->new ResourceNotFoundException("invalid id"));
 		post.setUrlText(path);
 		user.addpost(post);
-		Post persistance = postDao.save(post);
-		return mapper.map(persistance,PostResponseDTO.class);	
+		Post postPersistance = postDao.save(post);
+		return myMapper(postPersistance);
 				
 	}
 	
@@ -103,13 +103,13 @@ public class PostServiceImpl implements PostService {
 		return postList;
 	}
 	
-	PostResponseDTO myMapper(Post post) {
+	PostResponseDTO myMapper(Post postPersistance ) {
 		PostResponseDTO postDTO = new PostResponseDTO();
-		postDTO.setId(post.getId());
-		postDTO.setCaptionText(post.getCaptionText());
-		postDTO.setPostType(post.getPostType());
-		postDTO.setUserId(post.getUserId().getId());
-		postDTO.setUrlText(post.getUrlText());
+		postDTO.setId(postPersistance.getId());
+		postDTO.setCaptionText(postPersistance.getCaptionText());
+		postDTO.setPostType(postPersistance.getPostType());
+		postDTO.setUserId(postPersistance.getUserId().getId());
+		postDTO.setUrlText(postPersistance.getUrlText());
 		return postDTO;
 	}
 	
