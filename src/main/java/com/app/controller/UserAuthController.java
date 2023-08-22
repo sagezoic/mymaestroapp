@@ -67,7 +67,7 @@ public class UserAuthController {
 		Authentication verifiedCredentials = manager.authenticate(authToken);
 		Users user = userDao.findByEmail(request.getEmail()).orElseThrow(()->new ResourceNotFoundException("Invalid Email!"));
 		//=>no auth exc => auth success , generate auth resp containing genearated JWT
-		return ResponseEntity.ok(new AuthResponse("Successs",
+		return ResponseEntity.ok(new AuthResponse("Success",
 				jwtUtils.generateJwtToken(verifiedCredentials), user.getId(),user.getUserRole()));
 	}
 	
