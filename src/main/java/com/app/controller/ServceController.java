@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.CommonResponse;
 import com.app.dto.ServceRequestDTO;
-import com.app.dto.ServiceRequestRequest;
+//import com.app.dto.ServiceRequestRequest;
 import com.app.dto.UserDto;
 import com.app.entities.Servce;
 import com.app.entities.Users;
@@ -40,8 +40,8 @@ public class ServceController {
 	@PostMapping("/add")
 	public ResponseEntity<?> addservce(@RequestBody @Valid ServceRequestDTO request) {
 		System.out.println("in addservice " + request);
-		servceService.addNewService(request);
-		return ResponseEntity.ok("success");
+		
+		return ResponseEntity.ok(new CommonResponse("success",servceService.addNewService(request)));
 	}
 //	@DeleteMapping("/service/delete/{serviceId}")
 //	public ResponseEntity<?> deleteServce(@PathVariable Long serviceId)
@@ -64,8 +64,8 @@ public class ServceController {
 	@PutMapping("/edit")
 	public ResponseEntity<?> editServce(@RequestBody @Valid ServceRequestDTO request) {
 		System.out.println("in edit service" + request);
-		servceService.editService(request);
-		return ResponseEntity.ok("success");
+		
+		return ResponseEntity.ok(new CommonResponse("success",servceService.editService(request)));
 	}
 
 	@GetMapping("/{userId}")
@@ -77,9 +77,9 @@ public class ServceController {
 
 	}
 	
-	@PostMapping("/addrequest")
-	public ResponseEntity<?> addServiceRequest(@RequestBody @Valid ServiceRequestRequest dto){
-		
-		return ResponseEntity.ok(new CommonResponse("Success",servceService.addServiceRequest(dto)));
-	}
+//	@PostMapping("/addrequest")
+//	public ResponseEntity<?> addServiceRequest(@RequestBody @Valid ServiceRequestRequest dto){
+//		
+//		return ResponseEntity.ok(new CommonResponse("Success",servceService.addServiceRequest(dto)));
+//	}
 }

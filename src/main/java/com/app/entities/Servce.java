@@ -37,6 +37,12 @@ import lombok.ToString;
   @Column(name="price_token")
   private float priceToken;
   
+  @Column(name="time_period")
+  private int timePeriod;
+  
+  @Column(name="description")
+  private String description;
+  
   @Enumerated(EnumType.STRING)
   @Column(name="service_category")
   private ServiceCategory serviceCategory;
