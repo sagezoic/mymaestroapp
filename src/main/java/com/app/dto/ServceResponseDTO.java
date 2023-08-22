@@ -20,9 +20,8 @@ import lombok.ToString;
 public class ServceResponseDTO {
 
 	private Long id;
-	private String serviceTitle; 
-	  private ServiceType servicetype;
-	  private float priceToken;
-	  private Long user_id;
-	  
+	private String serviceTitle;
+	private ServiceType servicetype;
+	private float priceToken;
+	private Long user_id;
 }

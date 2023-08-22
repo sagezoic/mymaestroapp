@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.CommonResponse;
 import com.app.dto.ServceRequestDTO;
+import com.app.dto.ServiceRequestRequest;
 import com.app.dto.UserDto;
 import com.app.entities.Servce;
 import com.app.entities.Users;
@@ -24,20 +26,20 @@ import com.app.entities.Users;
 import com.app.service.ServceService;
 
 @RestController
-@CrossOrigin(origins="*")
+@RequestMapping("/service")
+@CrossOrigin(origins = "*")
 public class ServceController {
 
 	@Autowired
 	private ServceService servceService;
-	
+
 	public ServceController() {
 		System.out.println("in service controller ");
 	}
-	
-	@PostMapping("/service")
-	public ResponseEntity<?> addservce(@RequestBody @Valid ServceRequestDTO request)
-	{
-		System.out.println("in addservice "+ request);
+
+	@PostMapping("/add")
+	public ResponseEntity<?> addservce(@RequestBody @Valid ServceRequestDTO request) {
+		System.out.println("in addservice " + request);
 		servceService.addNewService(request);
 		return ResponseEntity.ok("success");
 	}
@@ -48,40 +50,36 @@ public class ServceController {
 //		servceService.deleteServce(serviceId);
 //		return ResponseEntity.ok("success");
 //	}
-	
-	@DeleteMapping("/service/delete")
-	public ResponseEntity<?> deleteServce(@RequestBody ServceRequestDTO dto)
-	{
-		//System.out.println("in delete serviceId "+ serviceId);
-		//servceService.deleteServce(serviceId);
 
-		System.out.println("in delete serviceId "+ dto.getId());
-		servceService.deleteServce(dto.getUserId(),dto.getId());
+	@DeleteMapping("/delete")
+	public ResponseEntity<?> deleteServce(@RequestBody ServceRequestDTO dto) {
+		// System.out.println("in delete serviceId "+ serviceId);
+		// servceService.deleteServce(serviceId);
+
+		System.out.println("in delete serviceId " + dto.getId());
+		servceService.deleteServce(dto.getUserId(), dto.getId());
 		return ResponseEntity.ok("success");
 	}
-	
-	@PutMapping("/service/edit")
-	public ResponseEntity<?> editServce(@RequestBody @Valid ServceRequestDTO request)
-	{
-		System.out.println("in edit service"+ request);
+
+	@PutMapping("/edit")
+	public ResponseEntity<?> editServce(@RequestBody @Valid ServceRequestDTO request) {
+		System.out.println("in edit service" + request);
 		servceService.editService(request);
 		return ResponseEntity.ok("success");
 	}
+
+	@GetMapping("/{userId}")
+	public ResponseEntity<?> getListOfUserServices(@PathVariable Long userId) {
+
+		System.out.println("inside controller of getLisOfUserServices");
+
+		return ResponseEntity.ok(new CommonResponse("Success", servceService.getUserService(userId)));
+
+	}
 	
-	//@GetMapping("/service/{userId}")
-	//public ResponseEntity<?> getListOfUserServices(@PathVariable Users userId){
-		//List<Servce> list = servceService.getUserService(userId); 
+	@PostMapping("/addrequest")
+	public ResponseEntity<?> addServiceRequest(@RequestBody @Valid ServiceRequestRequest dto){
 		
-		//System.out.println("inside controller of getLisOfUserServices");
-		//List<Servce> list=servceService.getServceFromUserId(userId);
-		
-	//	return ResponseEntity.ok(new CommonResponse("Success",servceService.getUserService(userId)));
-		//return ResponseEntity.ok(new CommonResponse("Success",list));
-	//}
-		//System.out.println("inside controller of getLisOfUserServices");
-		//List<Servce> list=servceService.getServceFromUserId(userId);
-		
-	//	return ResponseEntity.ok(new CommonResponse("Success",servceService.getUserService(userId)));
-		//return ResponseEntity.ok(new CommonResponse("Success",list));
-	//}
+		return ResponseEntity.ok(new CommonResponse("Success",servceService.addServiceRequest(dto)));
+	}
 }

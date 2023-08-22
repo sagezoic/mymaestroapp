@@ -60,6 +60,17 @@ public class JWTRequestFilter extends OncePerRequestFilter {
 		// pass the request to the next filter in the chain
 		filterChain.doFilter(request, response);
 
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	}
 
 }

@@ -2,6 +2,7 @@ package com.app.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -92,9 +93,24 @@ public class PostServiceImpl implements PostService {
 	}
 	
 	@Override
-	public List<Post> getAllPost(Long userId) {
+	public List<PostResponseDTO> getAllPost(Long userId) {
 		Users user = userDao.findById(userId).orElseThrow(()->new ResourceNotFoundException("user is invalid"));
-		return user.getPost();
+		List<PostResponseDTO> postList = new ArrayList<>();
+		
+		for(Post post: user.getPost()){
+			postList.add(myMapper(post));
+		}
+		return postList;
+	}
+	
+	PostResponseDTO myMapper(Post post) {
+		PostResponseDTO postDTO = new PostResponseDTO();
+		postDTO.setId(post.getId());
+		postDTO.setCaptionText(post.getCaptionText());
+		postDTO.setPostType(post.getPostType());
+		postDTO.setUserId(post.getUserId().getId());
+		postDTO.setUrlText(post.getUrlText());
+		return postDTO;
 	}
 	
 	@Override
