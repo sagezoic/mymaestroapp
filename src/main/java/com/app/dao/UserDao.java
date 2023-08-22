@@ -17,7 +17,7 @@ import com.app.entities.Users;
 public interface UserDao extends JpaRepository<Users, Long> {
 //add a finder to load user by email
 	Optional<Users> findByEmail(String email);
-	Optional<Users> findById(Long Id);
+	Optional<Users> findById(Users users);
 //	default List<Post> findPostByUserId(Long UserId)
 //	{
 //		

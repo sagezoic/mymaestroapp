@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -32,7 +33,7 @@ public class ServiceRequest extends BaseEntity {
 	private Long explorerUserId;
 	
 	@ManyToOne
-	//@Column(name="service_id")
+	@JoinColumn(name="service_id")
 	private Servce serviceId;
 	
 	@Column(name="status")
