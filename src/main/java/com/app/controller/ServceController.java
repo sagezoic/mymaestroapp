@@ -1,7 +1,5 @@
 package com.app.controller;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.dto.CommonResponse;
 import com.app.dto.ServceRequestDTO;
 import com.app.dto.ServiceRequestRequest;
-import com.app.dto.UserDto;
-import com.app.entities.Servce;
-import com.app.entities.Users;
 //import com.app.dto.servceDTO;
 import com.app.service.ServceService;
 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @RestController
 @RequestMapping("/service")
 @CrossOrigin(origins = "*")
