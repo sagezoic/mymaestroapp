@@ -23,7 +23,9 @@ import com.app.service.ServceService;
 import com.app.service.UserService;
 
 import custom_exception.ResourceNotFoundException;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 //@RequestMapping("/users")
 @CrossOrigin(origins="*")
@@ -65,7 +67,7 @@ public class UserAuthController {
 		Authentication verifiedCredentials = manager.authenticate(authToken);
 		Users user = userDao.findByEmail(request.getEmail()).orElseThrow(()->new ResourceNotFoundException("Invalid Email!"));
 		//=>no auth exc => auth success , generate auth resp containing genearated JWT
-		return ResponseEntity.ok(new AuthResponse("Successs",
+		return ResponseEntity.ok(new AuthResponse("Success",
 				jwtUtils.generateJwtToken(verifiedCredentials), user.getId(),user.getUserRole()));
 	}
 	

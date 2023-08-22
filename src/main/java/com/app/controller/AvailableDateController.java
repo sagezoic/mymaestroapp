@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.dao.AvailableDateDao;
 import com.app.dto.AvailableDateRequestDTO;
 import com.app.dto.CommonResponse;
 import com.app.service.AvailableDateService;
 
-import lombok.experimental.Delegate;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("/date")
 @CrossOrigin(origins = "http://localhost:3000")
