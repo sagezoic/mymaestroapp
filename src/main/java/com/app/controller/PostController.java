@@ -26,46 +26,45 @@ import com.app.service.PostService;
 
 @RestController
 @RequestMapping("/post")
-@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 public class PostController {
 	@Autowired
 	private PostService postService;
-	
+
 	public PostController() {
 		System.out.println("In Post Controller");
 	}
-	
 
-	@PostMapping(value="/image",consumes = "multipart/form-data")
-	public ResponseEntity<?> addPost(@ModelAttribute @Valid PostRequestDTO dto) throws IOException{
+	@PostMapping(value = "/image", consumes = "multipart/form-data")
+	public ResponseEntity<?> addPost(@ModelAttribute @Valid PostRequestDTO dto) throws IOException {
 		System.out.println(dto);
 		System.out.println("in addPost mathod");
 		return ResponseEntity.ok(new CommonResponse("Success", postService.addPost(dto)));
 	}
-	
+
 	@GetMapping("/{userId}/allpost")
-	public ResponseEntity<?> getAllPost(@PathVariable Long userId){
+	public ResponseEntity<?> getAllPost(@PathVariable Long userId) {
 		System.out.println("in get all post method");
-		return ResponseEntity.ok(new CommonResponse("Success",postService.getAllPost(userId)));
+		return ResponseEntity.ok(new CommonResponse("Success", postService.getAllPost(userId)));
 	}
-	
+
 //	@DeleteMapping("/deletepost")
 //	public ResponseEntity<?> deletePost(@RequestBody PostRequestDTO dto ){
 //		System.out.println(dto);
 //			postService.deletePost(dto.getUserId(), dto.getId());
 //		return ResponseEntity.ok("Success");
 //	}
-	
+
 	@DeleteMapping("/deletepost")
-	public ResponseEntity<?> deletePost(@RequestParam Long userId , @RequestParam Long postId){
-		//System.out.println(dto);
-			postService.deletePost(userId, postId);
+	public ResponseEntity<?> deletePost(@RequestParam Long userId, @RequestParam Long postId) {
+		// System.out.println(dto);
+		postService.deletePost(userId, postId);
 		return ResponseEntity.ok("Success");
 	}
-	
+
 	@PutMapping("/edit")
-	public ResponseEntity<?> editPost(@RequestParam Long postId,@RequestParam String caption ) throws IOException{
-		
-		return ResponseEntity.ok(new CommonResponse("Success",postService.editPost(postId, caption)));
+	public ResponseEntity<?> editPost(@RequestParam Long postId, @RequestParam String caption) throws IOException {
+
+		return ResponseEntity.ok(new CommonResponse("Success", postService.editPost(postId, caption)));
 	}
 }

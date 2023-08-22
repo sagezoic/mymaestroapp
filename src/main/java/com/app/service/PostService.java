@@ -13,7 +13,7 @@ public interface PostService {
 
 	PostResponseDTO addPost(PostRequestDTO dto) throws IOException; 
 	
-	List<Post> getAllPost(Long userId);
+	List<PostResponseDTO> getAllPost(Long userId);
 	
 	void deletePost(Long userId,Long postId);
 	

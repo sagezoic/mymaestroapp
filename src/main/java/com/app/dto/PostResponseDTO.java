@@ -19,5 +19,5 @@ public class PostResponseDTO {
 	private PostType postType;
 	private String captionText;
 	private String urlText;
-
+	private Long userId;
 }

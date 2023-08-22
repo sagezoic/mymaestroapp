@@ -10,11 +10,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.ServceDao;
+import com.app.dao.ServiceRequestDao;
 import com.app.dao.UserDao;
 import com.app.dto.CommonResponse;
 import com.app.dto.ServceRequestDTO;
 import com.app.dto.ServceResponseDTO;
+import com.app.dto.ServiceRequestRequest;
+import com.app.dto.ServiceRequestResponse;
 import com.app.entities.Servce;
+import com.app.entities.ServiceRequest;
+import com.app.entities.ServiceType;
 import com.app.entities.Users;
 
 import custom_exception.ResourceNotFoundException;
@@ -32,13 +37,15 @@ public class ServceServiceImpl implements ServceService{
 	@Autowired
 	private ModelMapper mapper;
 	
+	@Autowired
+	private ServiceRequestDao serviceRequestDao;
 	@Override
 	public ServceResponseDTO addNewService(ServceRequestDTO request) {
 		
 		//Servce servce=new Servce();
 		Servce ser=mapper.map(request,Servce.class);
 		System.out.println(ser);
-	ser.setUserId(userDao.findById(request.getUserId()).orElse(null));
+		ser.setUserId(userDao.findById(request.getUserId()).orElse(null));
 		//Long i=request.getUserId();
 		//ser.setUserId(i);
 		Servce persistentser=servceDao.save(ser);
@@ -150,33 +157,36 @@ public class ServceServiceImpl implements ServceService{
 		
 	}
 	@Override
-	public List<Servce> getServceFromUserId(Long userId) {
-		// TODO Auto-generated method stub
-		//List<Servce> list=servceDao.findByuserId(userId);
+	public List<ServceResponseDTO> getUserService(Long userId) {
 		Users user = userDao.findById(userId).orElseThrow(()->new ResourceNotFoundException("user invalid"));
-		return user.getServces();
-		//return list;
-	}
-
-	@Override
-	public List<Servce> getUserService(Users userId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<ServceResponseDTO> serviceList = new ArrayList<>();
+		for(Servce service : user.getServces()){
+			serviceList.add(myMapper(service));
+		}
+		return serviceList;
+	
 	}
 	
-//	@Override
-//	public List<Servce> /*ServceResponseDTO*/ getUserService(Long userId) {
-//		
-//		List<Servce> service=servceDao.findByUserIdWithJoinFetch(userId);
-//		//List<Servce> service = servceDao.findByuserId(userDao.findById(userId).orElse(null));
-//	//int count=service.size();
-//		System.out.println(service);
-//		System.out.println("hello");
-////	    ServceResponseDTO ser = new ServceResponseDTO();
-////	    ser.setServiceList(service);
-////	    System.out.println(ser.getServiceList());
-//		return service; 
-//	    //return mapper.map(ser, ServceResponseDTO.class);
-//	}
+	ServceResponseDTO myMapper(Servce service) {
+		ServceResponseDTO serviceDTO = new ServceResponseDTO();
+		serviceDTO.setId(service.getId());
+		serviceDTO.setServiceTitle(service.getServiceTitle());
+		serviceDTO.setPriceToken(service.getPriceToken());
+		serviceDTO.setServicetype(service.getServicetype());
+		serviceDTO.setUser_id(service.getUserId().getId());
+		return serviceDTO;
+		
+	}
+	
+	@Override
+	public ServiceRequestResponse addServiceRequest(ServiceRequestRequest dto) {
+		ServiceRequest serviceRequest = mapper.map(dto, ServiceRequest.class);
+		ServiceRequest persistanceServiceRequest = serviceRequestDao.save(serviceRequest);
+		return mapper.map(persistanceServiceRequest, ServiceRequestResponse.class);
+	}
+
+	
+	
+
 
 }

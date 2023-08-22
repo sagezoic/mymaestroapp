@@ -67,12 +67,10 @@ public class Users extends BaseEntity {
 	@Column(name="createdAt")
 	private Date createdAt;
 
-	@OneToMany(mappedBy="userId",cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="userId",cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Servce> servces=new ArrayList<>();
 	
-	@JsonIgnore
 	@OneToMany(mappedBy ="userId",cascade = CascadeType.ALL, orphanRemoval = true)
-	@Fetch(FetchMode.JOIN)
 	private List<Post> post = new ArrayList<>();
 
 	@Override
