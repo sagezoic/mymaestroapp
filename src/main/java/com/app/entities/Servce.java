@@ -38,7 +38,7 @@ import lombok.ToString;
   private float priceToken;
   
   @Column(name="time_period")
-  private int timePeriod;
+  private Integer timePeriod;
   
   @Column(name="description")
   private String description;

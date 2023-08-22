@@ -23,7 +23,7 @@ public class ServceResponseDTO {
 	private Long id;
 	private String serviceTitle;
 	private ServiceType servicetype;
-	private int timePeriod;
+	private Integer timePeriod;
 	private String description;
 	private float priceToken;
 	private Long userId;

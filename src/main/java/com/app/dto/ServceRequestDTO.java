@@ -25,7 +25,7 @@ public class ServceRequestDTO {
 	private String serviceTitle; 
 	private ServiceType servicetype;
 	private float priceToken;
-	private int timePeriod;
+	private Integer timePeriod;
 	private String description;
 	private Long userId;
 	private ServiceCategory serviceCategory;
