@@ -2,6 +2,7 @@ package com.app.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 import javax.annotation.PostConstruct;
 
@@ -26,6 +27,7 @@ import com.app.entities.ServiceTransaction;
 import com.app.entities.Users;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,7 +70,7 @@ public class UserServiceImpl implements UserService {
 		//encode pwd
 		System.out.println(user);
 		user.setPassword(encoder.encode(user.getPassword()));
-		//save
+		user.setCreatedAt(LocalDateTime.now());
 		Users persistentUser = userDao.save(user);
 		// map persistent entity --> dto
 		return mapper.map(persistentUser,UserSignupResponseDto.class);

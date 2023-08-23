@@ -1,6 +1,7 @@
 package com.app.entities;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -65,7 +66,7 @@ public class Users extends BaseEntity {
 	@Column(name="enabled")
 	private boolean enabled;
 	@Column(name="createdAt")
-	private Date createdAt;
+	private LocalDateTime createdAt;
 
 	@OneToMany(mappedBy="userId",cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Servce> servces=new ArrayList<>();
