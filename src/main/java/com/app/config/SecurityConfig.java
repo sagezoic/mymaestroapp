@@ -37,8 +37,7 @@ public class SecurityConfig {
 		"/webjars/**", "/v3/api-docs/**","/v2/api-docs/**", "/swagger.json", "/swagger-ui/**", "/swagger-ui.html", "/swagger-resources/**",
 		"/post","/post/image","/post/{userId}/allpost","/post/deletepost","/post/edit",
 		"/date/add","/date/{serviceId}/getalldate","/date/edit","/date/delete",
-		"/transaction/add",
-		"/servicerequest/add").permitAll()
+		"/transaction/add").permitAll()
 		.antMatchers(HttpMethod.OPTIONS).permitAll()// for incoming req ending with /products/view : no authentication n authorization needed
 
 		//.antMatchers("/products/purchase").hasRole("EXPLORER")//only explorer can purchase the products

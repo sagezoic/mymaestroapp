@@ -1,5 +1,8 @@
 package com.app.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +14,8 @@ import com.app.dto.ServiceRequestRequestDTO;
 import com.app.dto.ServiceRequestResponseDTO;
 import com.app.entities.Servce;
 import com.app.entities.ServiceRequest;
+
+import custom_exception.ResourceNotFoundException;
 
 
 @Service
@@ -28,7 +33,7 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
 	
 	@Override
 	public ServiceRequestResponseDTO addServiceRequest(ServiceRequestRequestDTO request) {
-		// TODO Auto-generated method stub
+		
 		
 		ServiceRequest serviceRequest=mapper.map(request,ServiceRequest.class);
 		System.out.println(serviceRequest);
@@ -39,6 +44,32 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
 			service.addServiceRequest(persistentServiceRequest);
 		}
 		return myMapper(persistentServiceRequest);
+	}
+	
+	@Override
+	public List<ServiceRequestResponseDTO> getServiceRequestList(Long serviceId) {
+		
+		Servce service=serviceDao.findById(serviceId).orElseThrow(()->new ResourceNotFoundException("invalid serviceId"));
+		List<ServiceRequestResponseDTO> serviceRequestList=new ArrayList<>();
+		for(ServiceRequest ser : service.getServiceList())
+		{
+			serviceRequestList.add(myMapper(ser));
+		}
+		return serviceRequestList;
+	}
+	
+	@Override
+	public ServiceRequestResponseDTO editServiceRequest(ServiceRequestRequestDTO request) {
+		
+		ServiceRequest serviceRequest=mapper.map(request, ServiceRequest.class);
+		System.out.println(serviceRequest);
+		serviceRequest.setServiceId(serviceDao.findById(request.getServiceId()).orElse(null));
+		ServiceRequest persistentServiceRequest=serviceRequestDao.save(serviceRequest);
+		Servce service=serviceDao.findById(request.getServiceId()).orElse(null);
+		if(service!=null) {
+			service.addServiceRequest(persistentServiceRequest);
+		}
+		return myMapper(persistentServiceRequest);		
 	}
 	
 	ServiceRequestResponseDTO myMapper(ServiceRequest serviceRequest) {
@@ -56,5 +87,11 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
 		return serviceRequestResponseDTO;
 		
 	}
+
+	
+
+	
+	
+	
 
 }

@@ -5,7 +5,10 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,5 +38,19 @@ public class ServiceRequestController {
 	{
 		System.out.println("in addServiceRequest "+ serviceRequestRequest);
 		return ResponseEntity.ok(new CommonResponse("success",serviceRequestService.addServiceRequest(serviceRequestRequest)));
+	}
+	
+	@PutMapping("/edit")
+	public ResponseEntity<?> editServiceRequest(@RequestBody @Valid ServiceRequestRequestDTO serviceRequestRequest)
+	{
+		System.out.println("in editServiceRequest "+ serviceRequestRequest);
+		return ResponseEntity.ok(new CommonResponse("success",serviceRequestService.editServiceRequest(serviceRequestRequest)));
+	}
+	
+	@GetMapping("/get/{serviceId}")
+	public ResponseEntity<?> getServiceRequest(@PathVariable Long serviceId)
+	{
+		System.out.println("in getServiceRequest in List with serviceId = "+ serviceId);
+		return ResponseEntity.ok(new CommonResponse("success",serviceRequestService.getServiceRequestList(serviceId)));
 	}
 }
