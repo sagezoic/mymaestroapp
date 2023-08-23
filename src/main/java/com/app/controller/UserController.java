@@ -95,4 +95,19 @@ public class UserController {
 		userService.editUser(user);
 		return ResponseEntity.ok("user data edited Successfully");
 	}
+	
+	@GetMapping("/maestro/{userId}")
+	public ResponseEntity<?> getTransactionListOfMaestro(@PathVariable Long userId){
+		System.out.println("in user get meastro transaction list controller");
+		System.out.println("userId "+userId);
+		return ResponseEntity.ok(new CommonResponse("Meastro Transaction List",userService.getTransactionListOfMaestro(userId)));
+	}
+	
+	@GetMapping("/explorer/{userId}")
+	public ResponseEntity<?> getTransactionListOfExplorer(@PathVariable Long userId){
+		System.out.println("in user get meastro transaction list controller");
+		System.out.println("userId "+userId);
+		return ResponseEntity.ok(new CommonResponse("Explorer Transaction List",userService.getTransactionListOfExplorer(userId)));
+	}
 }
+

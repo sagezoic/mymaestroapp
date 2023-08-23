@@ -13,14 +13,20 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.event.TransactionPhase;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.app.dao.UserDao;
 import com.app.dto.CommonResponse;
+import com.app.dto.ServiceTransactionResponseDTO;
 import com.app.dto.UserDto;
 import com.app.dto.UserSignupResponseDto;
+import com.app.entities.ServiceTransaction;
 //import com.app.entities.UserEntity;
 import com.app.entities.Users;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -206,6 +212,41 @@ public class UserServiceImpl implements UserService {
 	}
 //-------------------------------------------------------	
 	
+	public ServiceTransactionResponseDTO myMapper(ServiceTransaction transaction) {
+		ServiceTransactionResponseDTO serviceTransactionResponse = new ServiceTransactionResponseDTO();
+		serviceTransactionResponse.setId(transaction.getId());
+		serviceTransactionResponse.setDateGenTime(transaction.getDateGenTime());
+		serviceTransactionResponse.setPaymentMethod(transaction.getPaymentMethod());
+		serviceTransactionResponse.setReciverUserId(transaction.getReciverUserId().getId());
+		serviceTransactionResponse.setSenderUserId(transaction.getSenderUserId().getId());
+		serviceTransactionResponse.setServiceAmount(transaction.getAmount());
+		serviceTransactionResponse.setServiceId(transaction.getServiceId().getId());
+		serviceTransactionResponse.setSuccess(true);
+		return serviceTransactionResponse;
+		
+	}
 	
+	//get trasaction list of maestro
+	@Override
+	public List<ServiceTransactionResponseDTO> getTransactionListOfMaestro(Long userId) {
+		Users user = userDao.findById(userId).orElseThrow(()-> new ResourceNotFoundException("User is not valid"));
+		List<ServiceTransactionResponseDTO> transactionList = new ArrayList<>();
+		for(ServiceTransaction transaction : user.getMaestroTransactionList()) {
+			transactionList.add(myMapper(transaction));
+		}
+		return transactionList;
+	}
+	
+	@Override
+	public List<ServiceTransactionResponseDTO> getTransactionListOfExplorer(Long userId) {
+		Users user = userDao.findById(userId).orElseThrow(()-> new ResourceNotFoundException("User is not valid"));
+		List<ServiceTransactionResponseDTO> transactionList = new ArrayList<>();
+		for(ServiceTransaction transaction : user.getExplorerTransactionList()) {
+			transactionList.add(myMapper(transaction));
+		}
+		return transactionList;
+		
+		
+	}
 	
 }
