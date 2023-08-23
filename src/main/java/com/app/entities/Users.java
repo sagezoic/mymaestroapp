@@ -61,7 +61,7 @@ public class Users extends BaseEntity {
 	@Column(name="social_media_link",length=100)
 	private String socialMediaLink;
 	@Column(name="token")
-	private int token;
+	private float token;
 	@Column(name="enabled")
 	private boolean enabled;
 	@Column(name="createdAt")
@@ -72,7 +72,13 @@ public class Users extends BaseEntity {
 	
 	@OneToMany(mappedBy ="userId",cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Post> post = new ArrayList<>();
-
+	
+	@OneToMany(mappedBy="senderUserId",cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<ServiceTransaction> explorerTransactionList = new ArrayList<>();
+	
+	@OneToMany(mappedBy="reciverUserId",cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<ServiceTransaction> maestroTransactionList = new ArrayList<>();
+	
 	@Override
 	public String toString() {
 		return "Users [userRole=" + userRole + ", userName=" + userName + ", email=" + email + ", firstName="
@@ -104,6 +110,24 @@ public class Users extends BaseEntity {
 		p.setUserId(null);
 	}
 	
+	public void addExplorerTransaction(ServiceTransaction st) {
+		explorerTransactionList.add(st);
+		st.setSenderUserId(this);
+	}
+
+	public void removeExplorerTransaction(ServiceTransaction st) {
+		explorerTransactionList.remove(st);
+		st.setSenderUserId(null);
+	}
 	
+	public void addMaestroTransaction(ServiceTransaction st) {
+		maestroTransactionList.add(st);
+		st.setReciverUserId(this);
+	}
+
+	public void removeMaestroTransaction(ServiceTransaction st) {
+		maestroTransactionList.remove(st);
+		st.setReciverUserId(null);
+	}
 	
 }

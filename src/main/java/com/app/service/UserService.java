@@ -1,10 +1,12 @@
 package com.app.service;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
 import com.app.dto.CommonResponse;
+import com.app.dto.ServiceTransactionResponseDTO;
 import com.app.dto.UserDto;
 import com.app.dto.UserSignupResponseDto;
 
@@ -36,4 +38,10 @@ public interface UserService {
 	void editUser(UserDto request);
 //--------------------------------------------------	
 
+	//get trasaction list of maestro 
+	List<ServiceTransactionResponseDTO> getTransactionListOfMaestro(Long userId);
+	
+	//get trasaction list of explorer 
+	List<ServiceTransactionResponseDTO> getTransactionListOfExplorer(Long userId);
+	
 }

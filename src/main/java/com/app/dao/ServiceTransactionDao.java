@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.app.entities.ServiceTransaction;
 
-public interface TransactionDao extends JpaRepository<ServiceTransaction, String> {
+public interface ServiceTransactionDao extends JpaRepository<ServiceTransaction, String> {
 
 }
