@@ -17,7 +17,7 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
+ 
 
 @Entity
 @Table(name = "service_table")
@@ -38,7 +38,7 @@ public class Servce extends BaseEntity {
 	private float priceToken;
 
 	@Column(name = "time_period")
-	private int timePeriod;
+	private Integer timePeriod;
 
 	@Column(name = "description")
 	private String description;
