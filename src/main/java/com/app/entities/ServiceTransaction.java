@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -39,12 +40,15 @@ public class ServiceTransaction {
 	@Column(name="payment_method",length=30)
 	private PaymentMethod paymentMethod;
 	
+	@JoinColumn(name="sernder_user_id")
 	@OneToOne
 	private Users senderUserId;
 	
+	@JoinColumn(name="reciver_user_id")
 	@OneToOne
 	private Users reciverUserId;
 	
+	@JoinColumn(name="service_id")
 	@ManyToOne
 	private Servce serviceId;
 	

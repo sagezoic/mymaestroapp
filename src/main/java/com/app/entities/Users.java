@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -66,6 +67,11 @@ public class Users extends BaseEntity {
 	private boolean enabled;
 	@Column(name="createdAt")
 	private Date createdAt;
+	
+	
+	
+	@OneToMany(mappedBy = "userId",cascade = CascadeType.ALL,orphanRemoval = true)
+	private List<LikePost> likePost = new ArrayList<>();
 
 	@OneToMany(mappedBy="userId",cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Servce> servces=new ArrayList<>();
@@ -130,4 +136,13 @@ public class Users extends BaseEntity {
 		st.setReciverUserId(null);
 	}
 	
+	public void addLikePost(LikePost lp) {
+		likePost.add(lp);
+		lp.setUserId(this);
+	}
+		
+	public void removeLikePost(LikePost lp) {
+		likePost.remove(lp);
+		lp.setUserId(null);
+	}
 }
