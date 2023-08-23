@@ -69,7 +69,15 @@ public class ServceController {
 		
 		return ResponseEntity.ok(new CommonResponse("success",servceService.editService(request)));
 	}
-
+	
+	@GetMapping("/get/{serviceId}")
+	public ResponseEntity<?> getService(@PathVariable Long serviceId)
+	{
+		System.out.println("in get service from serviceId = " + serviceId);
+		
+		return ResponseEntity.ok(new CommonResponse("success",servceService.getUserServiceUsingServiceId(serviceId)));
+	}
+	
 	@GetMapping("/{userId}")
 	public ResponseEntity<?> getListOfUserServices(@PathVariable Long userId) {
 

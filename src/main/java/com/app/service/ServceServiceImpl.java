@@ -100,6 +100,14 @@ public class ServceServiceImpl implements ServceService{
 	
 	}
 	
+	@Override
+	public ServceResponseDTO getUserServiceUsingServiceId(Long serviceId) {
+		// TODO Auto-generated method stub
+		Servce service=servceDao.findById(serviceId).orElseThrow(()->new ResourceNotFoundException("invalid serviceid"));
+		return myMapper(service);
+	}
+	
+	
 	ServceResponseDTO myMapper(Servce service) {
 		ServceResponseDTO serviceDTO = new ServceResponseDTO();
 		serviceDTO.setId(service.getId());
@@ -112,6 +120,8 @@ public class ServceServiceImpl implements ServceService{
 		return serviceDTO;
 		
 	}
+
+	
 	
 
 	

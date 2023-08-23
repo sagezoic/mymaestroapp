@@ -13,5 +13,6 @@ public interface ServceService {
 	void deleteServce(Long userId , Long serviceId);
 	ServceResponseDTO editService(ServceRequestDTO request);
 	List<ServceResponseDTO> getUserService(Long userId);
+	ServceResponseDTO getUserServiceUsingServiceId(Long serviceId);
 	
 }

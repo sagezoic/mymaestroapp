@@ -5769,8 +5769,6 @@ custom_exception.ResourceNotFoundException: User is not valid
  java.base@17.0.8/java.lang.Thread.run(Thread.java:833)
 2023-08-23 19:38:37.977  INFO 7271 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-08-23 19:38:37.981  INFO 7271 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-=======
->>>>>>> main
 2023-08-23 02:30:32.523  INFO 51718 --- [restartedMain] com.app.Application                      : Starting Application using Java 17.0.7 on sunbeam-VivoBook-ASUSLaptop-X430FA-S430FA with PID 51718 (/home/sunbeam/Desktop/backend/mymaestroapp/target/classes started by sunbeam in /home/sunbeam/Desktop/backend/mymaestroapp)
 2023-08-23 02:30:32.523 DEBUG 51718 --- [restartedMain] com.app.Application                      : Running with Spring Boot v2.7.13, Spring v5.3.28
 2023-08-23 02:30:32.523  INFO 51718 --- [restartedMain] com.app.Application                      : No active profile set, falling back to 1 default profile: "default"
@@ -5836,7 +5834,6 @@ custom_exception.ResourceNotFoundException: User is not valid
 2023-08-23 02:31:05.319  INFO 51718 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2023-08-23 02:31:05.420 DEBUG 51718 --- [restartedMain] com.app.filters.JWTRequestFilter         : Filter 'JWTRequestFilter' configured for use
 2023-08-23 02:31:05.902  INFO 51718 --- [restartedMain] com.app.Application                      : Started Application in 1.073 seconds (JVM running for 250.807)
-<<<<<<< HEAD
 2023-08-23 11:30:28.613  INFO 51718 --- [restartedMain] com.app.Application                      : Starting Application using Java 17.0.7 on sunbeam-VivoBook-ASUSLaptop-X430FA-S430FA with PID 51718 (/home/sunbeam/Desktop/backend/mymaestroapp/target/classes started by sunbeam in /home/sunbeam/Desktop/backend/mymaestroapp)
 2023-08-23 11:30:28.613 DEBUG 51718 --- [restartedMain] com.app.Application                      : Running with Spring Boot v2.7.13, Spring v5.3.28
 2023-08-23 11:30:28.613  INFO 51718 --- [restartedMain] com.app.Application                      : No active profile set, falling back to 1 default profile: "default"
@@ -5891,6 +5888,94 @@ custom_exception.ResourceNotFoundException: User is not valid
  java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
 2023-08-23 20:12:52.558  INFO 66963 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-08-23 20:12:52.566  INFO 66963 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-=======
->>>>>>> main
->>>>>>> main
+
+2023-08-23 22:04:52.355  INFO 69123 --- [restartedMain] com.app.Application                      : Starting Application using Java 17.0.7 on sunbeam-VivoBook-ASUSLaptop-X430FA-S430FA with PID 69123 (/home/sunbeam/Desktop/backend/mymaestroapp/target/classes started by sunbeam in /home/sunbeam/Desktop/backend/mymaestroapp)
+2023-08-23 22:04:52.356 DEBUG 69123 --- [restartedMain] com.app.Application                      : Running with Spring Boot v2.7.13, Spring v5.3.28
+2023-08-23 22:04:52.357  INFO 69123 --- [restartedMain] com.app.Application                      : No active profile set, falling back to 1 default profile: "default"
+2023-08-23 22:04:53.560  INFO 69123 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-23 22:04:53.561  INFO 69123 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
+2023-08-23 22:04:53.627  INFO 69123 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-23 22:04:53.754  INFO 69123 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-23 22:04:53.784  INFO 69123 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-23 22:04:53.882  INFO 69123 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-23 22:04:53.965  INFO 69123 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-23 22:04:54.093  INFO 69123 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-23 22:04:54.104  INFO 69123 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-23 22:04:58.753  INFO 69123 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-23 22:04:59.042 DEBUG 69123 --- [restartedMain] com.app.filters.JWTRequestFilter         : Filter 'JWTRequestFilter' configured for use
+2023-08-23 22:05:00.159  INFO 69123 --- [restartedMain] com.app.Application                      : Started Application in 8.091 seconds (JVM running for 8.533)
+2023-08-23 22:05:12.565  INFO 69123 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-23 22:05:12.590  INFO 69123 --- [http-nio-8080-exec-1] com.app.filters.JWTRequestFilter         : in once per request filter
+2023-08-23 22:05:12.591 ERROR 69123 --- [http-nio-8080-exec-1] com.app.filters.JWTRequestFilter         : Request header DOES NOT contain a Bearer Token
+2023-08-23 22:05:12.650  INFO 69123 --- [http-nio-8080-exec-2] com.app.filters.JWTRequestFilter         : in once per request filter
+2023-08-23 22:05:12.651 ERROR 69123 --- [http-nio-8080-exec-2] com.app.filters.JWTRequestFilter         : Request header DOES NOT contain a Bearer Token
+2023-08-23 22:05:12.651  INFO 69123 --- [http-nio-8080-exec-3] com.app.filters.JWTRequestFilter         : in once per request filter
+2023-08-23 22:05:12.651 ERROR 69123 --- [http-nio-8080-exec-3] com.app.filters.JWTRequestFilter         : Request header DOES NOT contain a Bearer Token
+2023-08-23 22:05:12.651  INFO 69123 --- [http-nio-8080-exec-4] com.app.filters.JWTRequestFilter         : in once per request filter
+2023-08-23 22:05:12.652 ERROR 69123 --- [http-nio-8080-exec-4] com.app.filters.JWTRequestFilter         : Request header DOES NOT contain a Bearer Token
+2023-08-23 22:05:12.887  INFO 69123 --- [http-nio-8080-exec-5] com.app.filters.JWTRequestFilter         : in once per request filter
+2023-08-23 22:05:12.887 ERROR 69123 --- [http-nio-8080-exec-5] com.app.filters.JWTRequestFilter         : Request header DOES NOT contain a Bearer Token
+2023-08-23 22:05:12.891  INFO 69123 --- [http-nio-8080-exec-6] com.app.filters.JWTRequestFilter         : in once per request filter
+2023-08-23 22:05:12.891 ERROR 69123 --- [http-nio-8080-exec-6] com.app.filters.JWTRequestFilter         : Request header DOES NOT contain a Bearer Token
+2023-08-23 22:05:12.929  INFO 69123 --- [http-nio-8080-exec-7] com.app.filters.JWTRequestFilter         : in once per request filter
+2023-08-23 22:05:12.929 ERROR 69123 --- [http-nio-8080-exec-7] com.app.filters.JWTRequestFilter         : Request header DOES NOT contain a Bearer Token
+2023-08-23 22:05:13.321  INFO 69123 --- [http-nio-8080-exec-7] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 376 ms
+2023-08-23 22:06:11.096  INFO 69123 --- [http-nio-8080-exec-8] com.app.filters.JWTRequestFilter         : in once per request filter
+2023-08-23 22:06:11.097 ERROR 69123 --- [http-nio-8080-exec-8] com.app.filters.JWTRequestFilter         : Request header DOES NOT contain a Bearer Token
+2023-08-23 22:06:58.130  INFO 69123 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-08-23 22:06:58.131  INFO 69123 --- [Thread-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-08-23 22:06:58.133  WARN 69123 --- [Thread-5] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2023-08-23 22:06:58.140  INFO 69123 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-23 22:06:58.146  INFO 69123 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-08-23 22:06:58.254  INFO 69123 --- [restartedMain] com.app.Application                      : Starting Application using Java 17.0.7 on sunbeam-VivoBook-ASUSLaptop-X430FA-S430FA with PID 69123 (/home/sunbeam/Desktop/backend/mymaestroapp/target/classes started by sunbeam in /home/sunbeam/Desktop/backend/mymaestroapp)
+2023-08-23 22:06:58.254 DEBUG 69123 --- [restartedMain] com.app.Application                      : Running with Spring Boot v2.7.13, Spring v5.3.28
+2023-08-23 22:06:58.254  INFO 69123 --- [restartedMain] com.app.Application                      : No active profile set, falling back to 1 default profile: "default"
+2023-08-23 22:06:58.543  INFO 69123 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-23 22:06:58.544  INFO 69123 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
+2023-08-23 22:06:58.552  INFO 69123 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-23 22:06:58.591  INFO 69123 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-23 22:06:58.594  INFO 69123 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-08-23 22:06:58.597  INFO 69123 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-08-23 22:06:58.598  INFO 69123 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-23 22:06:58.750  INFO 69123 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-23 22:06:58.856 DEBUG 69123 --- [restartedMain] com.app.filters.JWTRequestFilter         : Filter 'JWTRequestFilter' configured for use
+2023-08-23 22:06:59.339  INFO 69123 --- [restartedMain] com.app.Application                      : Started Application in 1.114 seconds (JVM running for 127.713)
+2023-08-23 22:07:05.912  INFO 69123 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-23 22:07:05.914  INFO 69123 --- [http-nio-8080-exec-1] com.app.filters.JWTRequestFilter         : in once per request filter
+2023-08-23 22:07:05.915 ERROR 69123 --- [http-nio-8080-exec-1] com.app.filters.JWTRequestFilter         : Request header DOES NOT contain a Bearer Token
+2023-08-23 22:08:56.396  INFO 69123 --- [Thread-7] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-08-23 22:08:56.397  INFO 69123 --- [Thread-7] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-08-23 22:08:56.399  WARN 69123 --- [Thread-7] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-2 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2023-08-23 22:08:56.404  INFO 69123 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2023-08-23 22:08:56.406  INFO 69123 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2023-08-23 22:08:56.521  INFO 69123 --- [restartedMain] com.app.Application                      : Starting Application using Java 17.0.7 on sunbeam-VivoBook-ASUSLaptop-X430FA-S430FA with PID 69123 (/home/sunbeam/Desktop/backend/mymaestroapp/target/classes started by sunbeam in /home/sunbeam/Desktop/backend/mymaestroapp)
+2023-08-23 22:08:56.521 DEBUG 69123 --- [restartedMain] com.app.Application                      : Running with Spring Boot v2.7.13, Spring v5.3.28
+2023-08-23 22:08:56.522  INFO 69123 --- [restartedMain] com.app.Application                      : No active profile set, falling back to 1 default profile: "default"
+2023-08-23 22:08:56.752  INFO 69123 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-23 22:08:56.753  INFO 69123 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
+2023-08-23 22:08:56.760  INFO 69123 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-23 22:08:56.794  INFO 69123 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-23 22:08:56.797  INFO 69123 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2023-08-23 22:08:56.801  INFO 69123 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2023-08-23 22:08:56.801  INFO 69123 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-23 22:08:56.964  INFO 69123 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-23 22:08:57.054 DEBUG 69123 --- [restartedMain] com.app.filters.JWTRequestFilter         : Filter 'JWTRequestFilter' configured for use
+2023-08-23 22:08:57.542  INFO 69123 --- [restartedMain] com.app.Application                      : Started Application in 1.054 seconds (JVM running for 245.916)
