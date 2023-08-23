@@ -873,3 +873,57 @@ java.lang.IllegalArgumentException: Can not set int field com.app.entities.Servc
 2023-08-23 02:31:05.319  INFO 51718 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2023-08-23 02:31:05.420 DEBUG 51718 --- [restartedMain] com.app.filters.JWTRequestFilter         : Filter 'JWTRequestFilter' configured for use
 2023-08-23 02:31:05.902  INFO 51718 --- [restartedMain] com.app.Application                      : Started Application in 1.073 seconds (JVM running for 250.807)
+2023-08-23 11:30:28.613  INFO 51718 --- [restartedMain] com.app.Application                      : Starting Application using Java 17.0.7 on sunbeam-VivoBook-ASUSLaptop-X430FA-S430FA with PID 51718 (/home/sunbeam/Desktop/backend/mymaestroapp/target/classes started by sunbeam in /home/sunbeam/Desktop/backend/mymaestroapp)
+2023-08-23 11:30:28.613 DEBUG 51718 --- [restartedMain] com.app.Application                      : Running with Spring Boot v2.7.13, Spring v5.3.28
+2023-08-23 11:30:28.613  INFO 51718 --- [restartedMain] com.app.Application                      : No active profile set, falling back to 1 default profile: "default"
+2023-08-23 11:30:28.858  INFO 51718 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-23 11:30:28.858  INFO 51718 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
+2023-08-23 11:30:28.864  INFO 51718 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-23 11:30:28.907  INFO 51718 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-23 11:30:28.912  INFO 51718 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2023-08-23 11:30:28.915  INFO 51718 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2023-08-23 11:30:28.916  INFO 51718 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-23 11:30:29.064  INFO 51718 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-23 11:30:29.167 DEBUG 51718 --- [restartedMain] com.app.filters.JWTRequestFilter         : Filter 'JWTRequestFilter' configured for use
+2023-08-23 11:30:29.658  INFO 51718 --- [restartedMain] com.app.Application                      : Started Application in 1.079 seconds (JVM running for 835.983)
+2023-08-23 11:50:11.891  INFO 51718 --- [Thread-19] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-08-23 11:50:11.894  WARN 51718 --- [Thread-19] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-5 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2023-08-23 11:50:11.901  INFO 51718 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2023-08-23 11:50:11.902  INFO 51718 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2023-08-23 20:05:55.934  INFO 66963 --- [restartedMain] com.app.Application                      : Starting Application using Java 17.0.7 on sunbeam-VivoBook-ASUSLaptop-X430FA-S430FA with PID 66963 (/home/sunbeam/Desktop/backend/mymaestroapp/target/classes started by sunbeam in /home/sunbeam/Desktop/backend/mymaestroapp)
+2023-08-23 20:05:55.935 DEBUG 66963 --- [restartedMain] com.app.Application                      : Running with Spring Boot v2.7.13, Spring v5.3.28
+2023-08-23 20:05:55.936  INFO 66963 --- [restartedMain] com.app.Application                      : No active profile set, falling back to 1 default profile: "default"
+2023-08-23 20:05:57.131  INFO 66963 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-23 20:05:57.131  INFO 66963 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
+2023-08-23 20:05:57.200  INFO 66963 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-23 20:05:57.326  INFO 66963 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-23 20:05:57.358  INFO 66963 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-23 20:05:57.463  INFO 66963 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-23 20:05:57.536  INFO 66963 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-23 20:05:57.664  INFO 66963 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-23 20:05:57.676  INFO 66963 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-23 20:05:58.373  INFO 66963 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-23 20:05:58.661 DEBUG 66963 --- [restartedMain] com.app.filters.JWTRequestFilter         : Filter 'JWTRequestFilter' configured for use
+2023-08-23 20:05:59.759  INFO 66963 --- [restartedMain] com.app.Application                      : Started Application in 4.124 seconds (JVM running for 4.603)
+2023-08-23 20:12:52.540  INFO 66963 --- [RMI TCP Connection(2)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-08-23 20:12:52.543  WARN 66963 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2023-08-23 20:12:52.558  INFO 66963 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-23 20:12:52.566  INFO 66963 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

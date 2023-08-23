@@ -15,11 +15,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter
 @Setter
+@Getter
 @Table(name="service_request")
 @NoArgsConstructor
 public class ServiceRequest extends BaseEntity {
+	
 	@Column(name="slot_date")
 	private LocalDate slotDate;
 	
@@ -44,11 +45,18 @@ public class ServiceRequest extends BaseEntity {
 	
 	@OneToOne
 	private ServiceTransaction transactionId;
+	
 
 	@Override
 	public String toString() {
 		return "ServiceRequest [slotDate=" + slotDate + ", description=" + description + ", maestroUserId="
 				+ maestroUserId + ", explorerUserId=" + explorerUserId + ", status=" + status + ", requestGenTime="
 				+ requestGenTime + "]";
+	}
+
+
+	public boolean getStatus() {
+		// TODO Auto-generated method stub
+		return status;
 	}
 }

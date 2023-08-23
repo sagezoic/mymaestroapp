@@ -71,6 +71,17 @@ import lombok.ToString;
 		dateList.remove(a);
 		a.setServiceId(null);
 	}
+	
+	public void addServiceRequest(ServiceRequest sr)
+	{
+		serviceList.add(sr);
+		sr.setServiceId(this);
+	}
+	public void removeServce(ServiceRequest sr)
+	{
+		serviceList.remove(sr);
+		sr.setServiceId(null);
+	}
   
 	@Override
 	public String toString() {

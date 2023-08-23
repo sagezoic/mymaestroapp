@@ -34,6 +34,6 @@ public class ServiceRequestRequestDTO {
 
 	private LocalDate requestGenTime;
 
-	private ServiceTransaction transactionId;
+	private String transactionId;
 
 }

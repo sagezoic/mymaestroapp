@@ -15,6 +15,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class ServiceRequestResponseDTO {
 	
 	private Long id;

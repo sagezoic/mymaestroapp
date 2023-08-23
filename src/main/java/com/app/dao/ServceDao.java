@@ -13,7 +13,7 @@ import com.app.entities.Users;
 
 public interface ServceDao extends JpaRepository<Servce, Long>{
 
-	//Optional<Servce> findById(Long Id);
+	Optional<Servce> findById(Servce servce);
 	List<Servce> findByuserId(Long userId);
 	//List<Servce> findById(Long userId);
 	
