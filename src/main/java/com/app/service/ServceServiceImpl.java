@@ -16,13 +16,20 @@ import com.app.dto.ServceRequestDTO;
 import com.app.dto.ServceResponseDTO;
 import com.app.entities.Servce;
 import com.app.entities.Users;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import custom_exception.ResourceNotFoundException;
+
 
 @Service
 @Transactional
 public class ServceServiceImpl implements ServceService{
 
+	private static final Logger infoLogger = LoggerFactory.getLogger("infor logger");
+	private static final Logger debugLogger = LoggerFactory.getLogger("debug logger");
+	private static final Logger errorLogger = LoggerFactory.getLogger("error logger");
+	
 	@Autowired
 	private ServceDao servceDao;
 	
@@ -36,15 +43,24 @@ public class ServceServiceImpl implements ServceService{
 	private ServiceRequestDao serviceRequestDao;
 	@Override
 	public ServceResponseDTO addNewService(ServceRequestDTO request) {
-		
+	    
+		debugLogger.debug("Entering addNewService method");
 		Servce ser=mapper.map(request,Servce.class);
+	    debugLogger.debug("Mapped request to Service entity: {}", ser);
 		System.out.println(ser);
 		ser.setUserId(userDao.findById(request.getUserId()).orElse(null));
 		Servce persistentser=servceDao.save(ser);
 		Users user=userDao.findById(request.getUserId()).orElse(null);
+	    debugLogger.debug("Retrieved user with ID {}: {}", request.getUserId(), user);
 		if(user!=null) {
 			user.addServces(persistentser);
+	        debugLogger.debug("Saved Service entity: {}", persistentser);
+
 		}
+		
+	    debugLogger.debug("Exiting addNewService method");
+	    errorLogger.error("hello error");
+	    infoLogger.info("hello info");
 		return myMapper(persistentser);
 	}
 
@@ -84,6 +100,14 @@ public class ServceServiceImpl implements ServceService{
 	
 	}
 	
+	@Override
+	public ServceResponseDTO getUserServiceUsingServiceId(Long serviceId) {
+		// TODO Auto-generated method stub
+		Servce service=servceDao.findById(serviceId).orElseThrow(()->new ResourceNotFoundException("invalid serviceid"));
+		return myMapper(service);
+	}
+	
+	
 	ServceResponseDTO myMapper(Servce service) {
 		ServceResponseDTO serviceDTO = new ServceResponseDTO();
 		serviceDTO.setId(service.getId());
@@ -96,6 +120,8 @@ public class ServceServiceImpl implements ServceService{
 		return serviceDTO;
 		
 	}
+
+	
 	
 
 	

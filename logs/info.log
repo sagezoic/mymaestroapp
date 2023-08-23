@@ -1,0 +1,324 @@
+2023-08-23 12:03:37,630 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.5.Final
+2023-08-23 12:03:37,634 [restartedMain] INFO  com.app.Application - Starting Application using Java 17.0.7 on sunbeam-VivoBook-ASUSLaptop-X430FA-S430FA with PID 54218 (/home/sunbeam/Desktop/backend/mymaestroapp/target/classes started by sunbeam in /home/sunbeam/Desktop/backend/mymaestroapp)
+2023-08-23 12:03:37,634 [restartedMain] DEBUG com.app.Application - Running with Spring Boot v2.7.13, Spring v5.3.28
+2023-08-23 12:03:37,635 [restartedMain] INFO  com.app.Application - No active profile set, falling back to 1 default profile: "default"
+2023-08-23 12:03:38,778 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:03:38,779 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-08-23 12:03:38,780 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.76]
+2023-08-23 12:03:38,847 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-08-23 12:03:38,973 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-23 12:03:39,000 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-23 12:03:39,091 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-23 12:03:39,161 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-08-23 12:03:39,268 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-08-23 12:03:39,278 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-23 12:03:39,888 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-23 12:03:40,191 [restartedMain] DEBUG com.app.filters.JWTRequestFilter - Filter 'JWTRequestFilter' configured for use
+2023-08-23 12:03:41,271 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:03:41,292 [restartedMain] INFO  com.app.Application - Started Application in 3.988 seconds (JVM running for 4.566)
+2023-08-23 12:04:17,137 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-23 12:04:17,162 [http-nio-8080-exec-1] INFO  com.app.filters.JWTRequestFilter - in once per request filter
+2023-08-23 12:04:17,162 [http-nio-8080-exec-1] ERROR com.app.filters.JWTRequestFilter - Request header DOES NOT contain a Bearer Token
+2023-08-23 12:04:17,224 [http-nio-8080-exec-2] INFO  com.app.filters.JWTRequestFilter - in once per request filter
+2023-08-23 12:04:17,225 [http-nio-8080-exec-2] ERROR com.app.filters.JWTRequestFilter - Request header DOES NOT contain a Bearer Token
+2023-08-23 12:04:17,226 [http-nio-8080-exec-3] INFO  com.app.filters.JWTRequestFilter - in once per request filter
+2023-08-23 12:04:17,226 [http-nio-8080-exec-4] INFO  com.app.filters.JWTRequestFilter - in once per request filter
+2023-08-23 12:04:17,226 [http-nio-8080-exec-3] ERROR com.app.filters.JWTRequestFilter - Request header DOES NOT contain a Bearer Token
+2023-08-23 12:04:17,226 [http-nio-8080-exec-4] ERROR com.app.filters.JWTRequestFilter - Request header DOES NOT contain a Bearer Token
+2023-08-23 12:04:17,445 [http-nio-8080-exec-5] INFO  com.app.filters.JWTRequestFilter - in once per request filter
+2023-08-23 12:04:17,445 [http-nio-8080-exec-5] ERROR com.app.filters.JWTRequestFilter - Request header DOES NOT contain a Bearer Token
+2023-08-23 12:04:17,454 [http-nio-8080-exec-6] INFO  com.app.filters.JWTRequestFilter - in once per request filter
+2023-08-23 12:04:17,455 [http-nio-8080-exec-6] ERROR com.app.filters.JWTRequestFilter - Request header DOES NOT contain a Bearer Token
+2023-08-23 12:04:17,490 [http-nio-8080-exec-7] INFO  com.app.filters.JWTRequestFilter - in once per request filter
+2023-08-23 12:04:17,492 [http-nio-8080-exec-7] ERROR com.app.filters.JWTRequestFilter - Request header DOES NOT contain a Bearer Token
+2023-08-23 12:04:17,838 [http-nio-8080-exec-7] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 331 ms
+2023-08-23 12:04:27,339 [http-nio-8080-exec-8] INFO  com.app.filters.JWTRequestFilter - in once per request filter
+2023-08-23 12:04:27,339 [http-nio-8080-exec-8] ERROR com.app.filters.JWTRequestFilter - Request header DOES NOT contain a Bearer Token
+2023-08-23 12:05:59,317 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:05:59,318 [Thread-5] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-08-23 12:05:59,319 [Thread-5] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-08-23 12:05:59,321 [Thread-5] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2023-08-23 12:05:59,322 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:05:59,325 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:05:59,333 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-08-23 12:05:59,340 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-08-23 12:05:59,436 [restartedMain] INFO  com.app.Application - Starting Application using Java 17.0.7 on sunbeam-VivoBook-ASUSLaptop-X430FA-S430FA with PID 54218 (/home/sunbeam/Desktop/backend/mymaestroapp/target/classes started by sunbeam in /home/sunbeam/Desktop/backend/mymaestroapp)
+2023-08-23 12:05:59,437 [restartedMain] DEBUG com.app.Application - Running with Spring Boot v2.7.13, Spring v5.3.28
+2023-08-23 12:05:59,437 [restartedMain] INFO  com.app.Application - No active profile set, falling back to 1 default profile: "default"
+2023-08-23 12:05:59,731 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:05:59,731 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-08-23 12:05:59,731 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.76]
+2023-08-23 12:05:59,740 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-08-23 12:05:59,774 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-23 12:05:59,777 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2023-08-23 12:05:59,780 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2023-08-23 12:05:59,780 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-23 12:05:59,979 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-23 12:06:00,091 [restartedMain] DEBUG com.app.filters.JWTRequestFilter - Filter 'JWTRequestFilter' configured for use
+2023-08-23 12:06:00,540 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:06:00,547 [restartedMain] INFO  com.app.Application - Started Application in 1.15 seconds (JVM running for 143.821)
+2023-08-23 12:10:01,095 [Thread-7] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:10:01,095 [Thread-7] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-08-23 12:10:01,097 [Thread-7] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-2 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2023-08-23 12:10:01,097 [Thread-7] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:10:01,099 [Thread-7] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:10:01,103 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2023-08-23 12:10:01,105 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2023-08-23 12:10:01,212 [restartedMain] INFO  com.app.Application - Starting Application using Java 17.0.7 on sunbeam-VivoBook-ASUSLaptop-X430FA-S430FA with PID 54218 (/home/sunbeam/Desktop/backend/mymaestroapp/target/classes started by sunbeam in /home/sunbeam/Desktop/backend/mymaestroapp)
+2023-08-23 12:10:01,212 [restartedMain] DEBUG com.app.Application - Running with Spring Boot v2.7.13, Spring v5.3.28
+2023-08-23 12:10:01,212 [restartedMain] INFO  com.app.Application - No active profile set, falling back to 1 default profile: "default"
+2023-08-23 12:10:01,414 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:10:01,414 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-08-23 12:10:01,414 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.76]
+2023-08-23 12:10:01,419 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-08-23 12:10:01,451 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-23 12:10:01,454 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2023-08-23 12:10:01,457 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2023-08-23 12:10:01,457 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-23 12:10:01,580 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-23 12:10:01,660 [restartedMain] DEBUG com.app.filters.JWTRequestFilter - Filter 'JWTRequestFilter' configured for use
+2023-08-23 12:10:02,085 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:10:02,091 [restartedMain] INFO  com.app.Application - Started Application in 0.905 seconds (JVM running for 385.365)
+2023-08-23 12:10:48,702 [Thread-11] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:10:48,703 [Thread-11] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-08-23 12:10:48,705 [Thread-11] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-3 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2023-08-23 12:10:48,706 [Thread-11] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:10:48,707 [Thread-11] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:10:48,711 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2023-08-23 12:10:48,712 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2023-08-23 12:10:48,790 [restartedMain] INFO  com.app.Application - Starting Application using Java 17.0.7 on sunbeam-VivoBook-ASUSLaptop-X430FA-S430FA with PID 54218 (/home/sunbeam/Desktop/backend/mymaestroapp/target/classes started by sunbeam in /home/sunbeam/Desktop/backend/mymaestroapp)
+2023-08-23 12:10:48,790 [restartedMain] DEBUG com.app.Application - Running with Spring Boot v2.7.13, Spring v5.3.28
+2023-08-23 12:10:48,790 [restartedMain] INFO  com.app.Application - No active profile set, falling back to 1 default profile: "default"
+2023-08-23 12:10:48,981 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:10:48,981 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-08-23 12:10:48,981 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.76]
+2023-08-23 12:10:48,987 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-08-23 12:10:49,017 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-23 12:10:49,020 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+2023-08-23 12:10:49,024 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+2023-08-23 12:10:49,024 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-23 12:10:49,128 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-23 12:10:49,215 [restartedMain] DEBUG com.app.filters.JWTRequestFilter - Filter 'JWTRequestFilter' configured for use
+2023-08-23 12:10:49,624 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:10:49,631 [restartedMain] INFO  com.app.Application - Started Application in 0.867 seconds (JVM running for 432.905)
+2023-08-23 12:11:17,154 [Thread-15] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:11:17,154 [Thread-15] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-08-23 12:11:17,156 [Thread-15] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-4 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2023-08-23 12:11:17,156 [Thread-15] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:11:17,157 [Thread-15] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:11:17,161 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+2023-08-23 12:11:17,162 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+2023-08-23 12:11:17,250 [restartedMain] INFO  com.app.Application - Starting Application using Java 17.0.7 on sunbeam-VivoBook-ASUSLaptop-X430FA-S430FA with PID 54218 (/home/sunbeam/Desktop/backend/mymaestroapp/target/classes started by sunbeam in /home/sunbeam/Desktop/backend/mymaestroapp)
+2023-08-23 12:11:17,250 [restartedMain] DEBUG com.app.Application - Running with Spring Boot v2.7.13, Spring v5.3.28
+2023-08-23 12:11:17,250 [restartedMain] INFO  com.app.Application - No active profile set, falling back to 1 default profile: "default"
+2023-08-23 12:11:17,440 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:11:17,440 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-08-23 12:11:17,440 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.76]
+2023-08-23 12:11:17,445 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-08-23 12:11:17,478 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-23 12:11:17,482 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+2023-08-23 12:11:17,485 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+2023-08-23 12:11:17,486 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-23 12:11:17,620 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-23 12:11:17,705 [restartedMain] DEBUG com.app.filters.JWTRequestFilter - Filter 'JWTRequestFilter' configured for use
+2023-08-23 12:11:18,136 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:11:18,142 [restartedMain] INFO  com.app.Application - Started Application in 0.915 seconds (JVM running for 461.416)
+2023-08-23 12:12:08,761 [Thread-19] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:12:08,761 [Thread-19] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-08-23 12:12:08,763 [Thread-19] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-5 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2023-08-23 12:12:08,763 [Thread-19] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:12:08,764 [Thread-19] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:12:08,767 [Thread-19] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
+2023-08-23 12:12:08,769 [Thread-19] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
+2023-08-23 12:12:08,865 [restartedMain] INFO  com.app.Application - Starting Application using Java 17.0.7 on sunbeam-VivoBook-ASUSLaptop-X430FA-S430FA with PID 54218 (/home/sunbeam/Desktop/backend/mymaestroapp/target/classes started by sunbeam in /home/sunbeam/Desktop/backend/mymaestroapp)
+2023-08-23 12:12:08,865 [restartedMain] DEBUG com.app.Application - Running with Spring Boot v2.7.13, Spring v5.3.28
+2023-08-23 12:12:08,865 [restartedMain] INFO  com.app.Application - No active profile set, falling back to 1 default profile: "default"
+2023-08-23 12:12:09,133 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:12:09,133 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-08-23 12:12:09,133 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.76]
+2023-08-23 12:12:09,139 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-08-23 12:12:09,176 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-23 12:12:09,179 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Starting...
+2023-08-23 12:12:09,181 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Start completed.
+2023-08-23 12:12:09,182 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-23 12:12:09,288 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-23 12:12:09,374 [restartedMain] DEBUG com.app.filters.JWTRequestFilter - Filter 'JWTRequestFilter' configured for use
+2023-08-23 12:12:09,786 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:12:09,791 [restartedMain] INFO  com.app.Application - Started Application in 0.96 seconds (JVM running for 513.065)
+2023-08-23 12:12:36,306 [Thread-23] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:12:36,306 [Thread-23] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-08-23 12:12:36,310 [Thread-23] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-6 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2023-08-23 12:12:36,311 [Thread-23] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:12:36,314 [Thread-23] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:12:36,322 [Thread-23] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown initiated...
+2023-08-23 12:12:36,325 [Thread-23] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown completed.
+2023-08-23 12:12:36,438 [restartedMain] INFO  com.app.Application - Starting Application using Java 17.0.7 on sunbeam-VivoBook-ASUSLaptop-X430FA-S430FA with PID 54218 (/home/sunbeam/Desktop/backend/mymaestroapp/target/classes started by sunbeam in /home/sunbeam/Desktop/backend/mymaestroapp)
+2023-08-23 12:12:36,438 [restartedMain] DEBUG com.app.Application - Running with Spring Boot v2.7.13, Spring v5.3.28
+2023-08-23 12:12:36,438 [restartedMain] INFO  com.app.Application - No active profile set, falling back to 1 default profile: "default"
+2023-08-23 12:12:36,641 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:12:36,641 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-08-23 12:12:36,641 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.76]
+2023-08-23 12:12:36,647 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-08-23 12:12:36,682 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-23 12:12:36,685 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Starting...
+2023-08-23 12:12:36,687 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Start completed.
+2023-08-23 12:12:36,687 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-23 12:12:36,775 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-23 12:12:36,874 [restartedMain] DEBUG com.app.filters.JWTRequestFilter - Filter 'JWTRequestFilter' configured for use
+2023-08-23 12:12:37,336 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:12:37,343 [restartedMain] INFO  com.app.Application - Started Application in 0.927 seconds (JVM running for 540.617)
+2023-08-23 12:12:59,829 [Thread-27] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:12:59,830 [Thread-27] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-08-23 12:12:59,831 [Thread-27] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-7 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2023-08-23 12:12:59,832 [Thread-27] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:12:59,833 [Thread-27] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:12:59,838 [Thread-27] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown initiated...
+2023-08-23 12:12:59,840 [Thread-27] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown completed.
+2023-08-23 12:12:59,927 [restartedMain] INFO  com.app.Application - Starting Application using Java 17.0.7 on sunbeam-VivoBook-ASUSLaptop-X430FA-S430FA with PID 54218 (/home/sunbeam/Desktop/backend/mymaestroapp/target/classes started by sunbeam in /home/sunbeam/Desktop/backend/mymaestroapp)
+2023-08-23 12:12:59,928 [restartedMain] DEBUG com.app.Application - Running with Spring Boot v2.7.13, Spring v5.3.28
+2023-08-23 12:12:59,928 [restartedMain] INFO  com.app.Application - No active profile set, falling back to 1 default profile: "default"
+2023-08-23 12:13:00,120 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:13:00,121 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-08-23 12:13:00,121 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.76]
+2023-08-23 12:13:00,126 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-08-23 12:13:00,160 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-23 12:13:00,163 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Starting...
+2023-08-23 12:13:00,165 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Start completed.
+2023-08-23 12:13:00,166 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-23 12:13:00,278 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-23 12:13:00,360 [restartedMain] DEBUG com.app.filters.JWTRequestFilter - Filter 'JWTRequestFilter' configured for use
+2023-08-23 12:13:00,763 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:13:00,770 [restartedMain] INFO  com.app.Application - Started Application in 0.865 seconds (JVM running for 564.044)
+2023-08-23 12:13:03,173 [Thread-31] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:13:03,173 [Thread-31] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-08-23 12:13:03,175 [Thread-31] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-8 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2023-08-23 12:13:03,175 [Thread-31] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-8 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2023-08-23 12:13:03,176 [Thread-31] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:13:03,177 [Thread-31] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:13:03,181 [Thread-31] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown initiated...
+2023-08-23 12:13:03,183 [Thread-31] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown completed.
+2023-08-23 12:13:03,298 [restartedMain] INFO  com.app.Application - Starting Application using Java 17.0.7 on sunbeam-VivoBook-ASUSLaptop-X430FA-S430FA with PID 54218 (/home/sunbeam/Desktop/backend/mymaestroapp/target/classes started by sunbeam in /home/sunbeam/Desktop/backend/mymaestroapp)
+2023-08-23 12:13:03,298 [restartedMain] DEBUG com.app.Application - Running with Spring Boot v2.7.13, Spring v5.3.28
+2023-08-23 12:13:03,298 [restartedMain] INFO  com.app.Application - No active profile set, falling back to 1 default profile: "default"
+2023-08-23 12:13:03,516 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:13:03,516 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-08-23 12:13:03,517 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.76]
+2023-08-23 12:13:03,523 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-08-23 12:13:03,559 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-23 12:13:03,562 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Starting...
+2023-08-23 12:13:03,565 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Start completed.
+2023-08-23 12:13:03,565 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-23 12:13:03,661 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-23 12:13:03,764 [restartedMain] DEBUG com.app.filters.JWTRequestFilter - Filter 'JWTRequestFilter' configured for use
+2023-08-23 12:13:04,218 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:13:04,225 [restartedMain] INFO  com.app.Application - Started Application in 0.954 seconds (JVM running for 567.499)
+2023-08-23 12:13:57,466 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-23 12:13:57,469 [http-nio-8080-exec-1] INFO  com.app.filters.JWTRequestFilter - in once per request filter
+2023-08-23 12:13:57,469 [http-nio-8080-exec-1] ERROR com.app.filters.JWTRequestFilter - Request header DOES NOT contain a Bearer Token
+2023-08-23 12:13:57,491 [http-nio-8080-exec-1] DEBUG com.app.service.ServceServiceImpl - Entering addNewService method
+2023-08-23 12:13:57,510 [http-nio-8080-exec-1] DEBUG com.app.service.ServceServiceImpl - Mapped request to Service entity: Service [serviceTitle=othernewservice, servicetype=ONETOONECALL, priceToken=400.0]
+2023-08-23 12:13:57,535 [http-nio-8080-exec-1] DEBUG com.app.service.ServceServiceImpl - Retrieved user with ID 2: Users [userRole=ROLE_MAESTRO, userName=lomas, email=lomas@gmail.omi, firstName=null, lastName=null, dob=null, otpVerified=false, adminVerified=false, dpUrl=User/maestro/lomas/profile/myimage3.jpeg, interest=null, bio=null, socialMediaLink=null, token=0, enabled=false, createdAt=null]
+2023-08-23 12:13:57,536 [http-nio-8080-exec-1] DEBUG com.app.service.ServceServiceImpl - Saved Service entity: Service [serviceTitle=othernewservice, servicetype=ONETOONECALL, priceToken=400.0]
+2023-08-23 12:13:57,536 [http-nio-8080-exec-1] DEBUG com.app.service.ServceServiceImpl - Exiting addNewService method
+2023-08-23 12:26:14,549 [Thread-35] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:26:14,549 [Thread-35] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-08-23 12:26:14,549 [Thread-35] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-08-23 12:26:14,551 [Thread-35] WARN  o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-9 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)6
+2023-08-23 12:26:14,551 [Thread-35] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:26:14,552 [Thread-35] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-08-23 12:26:14,554 [Thread-35] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Shutdown initiated...
+2023-08-23 12:26:14,555 [Thread-35] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Shutdown completed.
+2023-08-23 13:26:49,626 [http-nio-8080-exec-1] ERROR com.app.service.ServceServiceImpl - hello error
+2023-08-23 13:26:49,626 [http-nio-8080-exec-1] INFO  com.app.service.ServceServiceImpl - hello info
+2023-08-23 14:50:29,333 [http-nio-8080-exec-1] ERROR com.app.service.ServceServiceImpl - hello error
+2023-08-23 14:50:29,334 [http-nio-8080-exec-1] INFO  com.app.service.ServceServiceImpl - hello info
+2023-08-23 14:51:31,830 [http-nio-8080-exec-1] INFO  com.app.service.ServceServiceImpl - hello info

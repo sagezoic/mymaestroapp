@@ -69,6 +69,18 @@ public class Servce extends BaseEntity {
 		dateList.remove(a);
 		a.setServiceId(null);
 	}
+	
+	public void addServiceRequest(ServiceRequest sr)
+	{
+		serviceList.add(sr);
+		sr.setServiceId(this);
+	}
+	public void removeServce(ServiceRequest sr)
+	{
+		serviceList.remove(sr);
+		sr.setServiceId(null);
+	}
+  
 
 	public void addServiceTransaction(ServiceTransaction st) {
 		transactionList.add(st);

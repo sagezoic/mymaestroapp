@@ -1,0 +1,5 @@
+2023-08-23 13:26:49,626 [http-nio-8080-exec-1] ERROR com.app.service.ServceServiceImpl - hello error
+2023-08-23 13:26:49,626 [http-nio-8080-exec-1] INFO  com.app.service.ServceServiceImpl - hello info
+2023-08-23 14:50:29,333 [http-nio-8080-exec-1] ERROR com.app.service.ServceServiceImpl - hello error
+2023-08-23 14:50:29,334 [http-nio-8080-exec-1] INFO  com.app.service.ServceServiceImpl - hello info
+2023-08-23 14:51:31,830 [http-nio-8080-exec-1] INFO  com.app.service.ServceServiceImpl - hello info

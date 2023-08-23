@@ -2,7 +2,7 @@ package com.app.dto;
 
 
 import java.time.LocalDate;
-
+import java.time.LocalDateTime;
 
 import com.app.entities.UserInterest;
 import com.app.entities.UserRole;
@@ -36,6 +36,7 @@ public class UserDto {
 	private String password;
 	private UserRole userRole;
 	private LocalDate dob;
+	private LocalDateTime createdAt;
 
 	private boolean otpVerified;
 

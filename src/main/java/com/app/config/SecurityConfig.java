@@ -40,6 +40,7 @@ public class SecurityConfig {
 		"/transaction/add",
 		"/servicerequest/add","/service/get/{serviceId}",
 		"/likepost/add","/likepost/delete/{likePostId}","/likepost/getpostlike/{userId}").permitAll()
+
 		.antMatchers(HttpMethod.OPTIONS).permitAll()// for incoming req ending with /products/view : no authentication n authorization needed
 
 		//.antMatchers("/products/purchase").hasRole("EXPLORER")//only explorer can purchase the products
