@@ -1,5 +1,6 @@
 package com.app.service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +39,7 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
 		ServiceRequest serviceRequest=mapper.map(request,ServiceRequest.class);
 		System.out.println(serviceRequest);
 		serviceRequest.setServiceId(serviceDao.findById(request.getServiceId()).orElse(null));
+		serviceRequest.setRequestGenTime(LocalDateTime.now());
 		ServiceRequest persistentServiceRequest=serviceRequestDao.save(serviceRequest);
 		Servce service=serviceDao.findById(request.getServiceId()).orElse(null);
 		if(service!=null) {
@@ -64,6 +66,7 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
 		ServiceRequest serviceRequest=mapper.map(request, ServiceRequest.class);
 		System.out.println(serviceRequest);
 		serviceRequest.setServiceId(serviceDao.findById(request.getServiceId()).orElse(null));
+		serviceRequest.setRequestGenTime(LocalDateTime.now());
 		ServiceRequest persistentServiceRequest=serviceRequestDao.save(serviceRequest);
 		Servce service=serviceDao.findById(request.getServiceId()).orElse(null);
 		if(service!=null) {
@@ -82,7 +85,7 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
 		serviceRequestResponseDTO.setServiceId(serviceRequest.getServiceId().getId());
 		serviceRequestResponseDTO.setStatus(serviceRequest.getStatus());
 		serviceRequestResponseDTO.setRequestGenTime(serviceRequest.getRequestGenTime());
-		serviceRequestResponseDTO.setTransactionId(serviceRequest.getTransactionId());
+		serviceRequestResponseDTO.setTransactionId(serviceRequest.getTransactionId().getId());
 		
 		return serviceRequestResponseDTO;
 		

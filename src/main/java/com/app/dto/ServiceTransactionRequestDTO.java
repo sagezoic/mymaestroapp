@@ -33,6 +33,8 @@ public class ServiceTransactionRequestDTO {
 	private PaymentMethod paymentMethod;
 
 	private Long serviceId;
+	
+	private Long serviceRequestId;
 
 	public ServiceTransactionRequestDTO(float amount,
 			boolean success, Long senderUserId, Long reciverUserId,Long serviceId,

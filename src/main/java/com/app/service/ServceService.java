@@ -1,6 +1,7 @@
 package com.app.service;
 
 import com.app.dto.ServceResponseDTO;
+import com.app.dto.ServiceTransactionResponseDTO;
 import com.app.entities.Servce;
 import com.app.entities.Users;
 import java.util.List;
@@ -14,5 +15,5 @@ public interface ServceService {
 	ServceResponseDTO editService(ServceRequestDTO request);
 	List<ServceResponseDTO> getUserService(Long userId);
 	ServceResponseDTO getUserServiceUsingServiceId(Long serviceId);
-	
+	List<ServiceTransactionResponseDTO> getServiceTransactionUsingServiceId(Long serviceId);
 }

@@ -1,6 +1,7 @@
 package com.app.dto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 
@@ -32,9 +33,9 @@ public class ServiceRequestResponseDTO {
 
 	private boolean status;
 
-	private LocalDate requestGenTime;
+	private LocalDateTime requestGenTime;
 
-	private ServiceTransaction transactionId;
+	private String transactionId;
 
 	
 }

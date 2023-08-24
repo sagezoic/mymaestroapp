@@ -3,6 +3,7 @@ package com.app.dto;
 import java.util.List;
 
 import com.app.entities.Servce;
+import com.app.entities.ServiceCategory;
 import com.app.entities.ServiceType;
 import com.app.entities.UserRole;
 import com.app.entities.Users;
@@ -27,4 +28,5 @@ public class ServceResponseDTO {
 	private String description;
 	private float priceToken;
 	private Long userId;
+	private ServiceCategory serviceCategory;
 }

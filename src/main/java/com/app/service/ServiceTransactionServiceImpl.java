@@ -11,10 +11,12 @@ import org.springframework.transaction.support.TransactionCallbackWithoutResult;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import com.app.dao.ServceDao;
+import com.app.dao.ServiceRequestDao;
 import com.app.dao.ServiceTransactionDao;
 import com.app.dao.UserDao;
 import com.app.dto.ServiceTransactionRequestDTO;
 import com.app.entities.Servce;
+import com.app.entities.ServiceRequest;
 import com.app.entities.ServiceTransaction;
 import com.app.entities.Users;
 
@@ -41,6 +43,10 @@ public class ServiceTransactionServiceImpl implements ServiceTransactionService 
 	@Autowired
 	private ServceDao serviceDao;
 	
+	@Autowired
+	private ServiceRequestDao serviceRequestDao;
+	
+	
 	public void addTransaction(ServiceTransactionRequestDTO dto) {
 		transactionTemplate.execute(new TransactionCallbackWithoutResult() {
 			
@@ -51,9 +57,11 @@ public class ServiceTransactionServiceImpl implements ServiceTransactionService 
 					if(explorer.getToken() >= dto.getAmount()) {
 						Users maestro = userDao.findById(dto.getReciverUserId()).orElseThrow(()->new ResourceNotFoundException("User is invalid"));
 						Servce service = serviceDao.findById(dto.getServiceId()).orElseThrow(()->new ResourceNotFoundException("service id is invalid"));
+						ServiceRequest serviceRequest = serviceRequestDao.findByServiceId(service);
 						ServiceTransactionRequestDTO serviceRequestDTO =
 								new ServiceTransactionRequestDTO(dto.getAmount(),true,dto.getSenderUserId() ,dto.getReciverUserId(),dto.getServiceId() ,dto.getPaymentMethod());
 						ServiceTransaction serviceTransaction = mapper.map(serviceRequestDTO, ServiceTransaction.class);
+						serviceTransaction.setServiceRequestId(serviceRequest);
 						ServiceTransaction PersitanceserviceTransaction=serviceTransactionDao.save(serviceTransaction);
 						explorer.setToken(explorer.getToken() - dto.getAmount());	
 						maestro.setToken(maestro.getToken() + dto.getAmount());

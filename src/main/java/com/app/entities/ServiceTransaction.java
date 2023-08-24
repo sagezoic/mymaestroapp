@@ -53,4 +53,8 @@ public class ServiceTransaction {
 	@ManyToOne
 	private Servce serviceId;
 	
+	@OneToOne
+	@JoinColumn(name="service_request_id")
+	private ServiceRequest serviceRequestId;
+	
 }

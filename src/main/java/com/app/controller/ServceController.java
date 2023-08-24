@@ -92,4 +92,14 @@ public class ServceController {
 //		
 //		return ResponseEntity.ok(new CommonResponse("Success",servceService.addServiceRequest(dto)));
 //	}
+	
+	//get service transaction using service id
+	@GetMapping("/gettransaction/{serviceId}")
+	public ResponseEntity<?> getListOfServiceTransaction(@PathVariable Long serviceId){
+		
+		System.out.println("ServiceId :"+serviceId);
+		System.out.println("in the getListOfServiceTransaction controller");
+		return ResponseEntity.ok(new CommonResponse("success",servceService.getServiceTransactionUsingServiceId(serviceId)));
+	}
+	
 }

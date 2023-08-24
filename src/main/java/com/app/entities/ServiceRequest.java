@@ -1,9 +1,12 @@
 package com.app.entities;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -41,9 +44,9 @@ public class ServiceRequest extends BaseEntity {
 	private boolean status;
 	
 	@Column(name="req_gen_time")
-	private LocalDate requestGenTime;
+	private LocalDateTime requestGenTime;
 	
-	@OneToOne
+	@OneToOne(mappedBy = "serviceRequestId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private ServiceTransaction transactionId;
 	
 
