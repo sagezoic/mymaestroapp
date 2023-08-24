@@ -24,7 +24,13 @@ public class LikePost extends BaseEntity {
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private Users userId;
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="post_id")
 	private Post postId;
+	@Override
+	public String toString() {
+		return "LikePost [userId=" + userId.getId() + ", postId=" + postId.getId() + "]";
+	}
+	
+	
 }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.app.dto.LikePostRequestDTO;
-import com.app.service.LikeIdService;
+import com.app.service.LikePostService;
 import com.app.dto.CommonResponse;
 
 import lombok.extern.slf4j.Slf4j;
@@ -20,10 +20,10 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/likepost")
 @CrossOrigin(origins = "http://localhost:3000")
-public class LikeIdController {
+public class LikePostController {
  
 	@Autowired
-	private LikeIdService likeIdService;
+	private LikePostService likePostService;
 	
 	
 	
@@ -31,7 +31,7 @@ public class LikeIdController {
 	public ResponseEntity<?> addLike(@RequestBody LikePostRequestDTO dto){
 		System.out.println(dto);
 		System.out.println("add like controller");
-		likeIdService.addLike(dto);
+		likePostService.addLike(dto);
 		return ResponseEntity.ok("success");
 	}
 	
@@ -39,7 +39,7 @@ public class LikeIdController {
 	public ResponseEntity<?> removePostLike(@PathVariable Long likePostId){
 		System.out.println("likepostId "+likePostId);
 		System.out.println("remove like controller");
-		likeIdService.removeLike(likePostId);
+		likePostService.removeLike(likePostId);
 		return ResponseEntity.ok("success");
 	}
 	
@@ -47,9 +47,14 @@ public class LikeIdController {
 	public ResponseEntity<?> getLikePost(@PathVariable Long userId){
 		System.out.println("likepostId "+userId);
 		System.out.println("get likepost controller");
-		System.out.println(likeIdService.getLikePost(userId));
-		return ResponseEntity.ok(new CommonResponse("success",likeIdService.getLikePost(userId)));
+		//System.out.println(likeIdService.getLikePost(userId));
+		return ResponseEntity.ok(new CommonResponse("success",likePostService.getCountLikesPerPostForUser(userId)));
 	}
 	
-	
+	@GetMapping("/getallpostlike")
+	public ResponseEntity<?> getAllPostLike(){
+		System.out.println("get likepost controller");
+		
+		return ResponseEntity.ok(new CommonResponse("success",likePostService.getCountAllLikesPost()));
+	}
 }

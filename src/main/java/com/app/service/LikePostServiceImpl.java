@@ -1,5 +1,6 @@
 package com.app.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -11,6 +12,7 @@ import com.app.dao.LikePostDao;
 import com.app.dao.PostDao;
 import com.app.dao.UserDao;
 import com.app.dto.LikePostRequestDTO;
+import com.app.dto.LikePostResponseDTO;
 import com.app.entities.LikePost;
 import com.app.entities.Post;
 import com.app.entities.Users;
@@ -18,7 +20,7 @@ import com.app.entities.Users;
 import custom_exception.ResourceNotFoundException;
 @Service
 @Transactional
-public class LikeIdServiceImpl implements LikeIdService {
+public class LikePostServiceImpl implements LikePostService {
 
 	@Autowired
 	private LikePostDao likePostDao;
@@ -50,8 +52,36 @@ public class LikeIdServiceImpl implements LikeIdService {
 	}
 	
 	@Override
-	public List<Object[]> getLikePost(Long userId) {
+	public List<LikePostResponseDTO> getCountLikesPerPostForUser(Long userId) {
 		
-		return likePostDao.countLikesPerPostForUser(userId);
+		//System.out.println(likePostDao.countLikesPerPostForUser(userId));
+		Users user = userDao.findById(userId).orElseThrow(()->new ResourceNotFoundException("user id is invalid"));
+		List<LikePostResponseDTO> likePostList = new ArrayList<>();
+		for (Object [] arr : likePostDao.countLikesPerPostForUser(user)) {
+			System.out.println(((Post)arr[0]).toString());
+			System.out.println(arr[1]);
+			likePostList.add(myMapper(arr));
+		}
+		return likePostList;
+	}
+	
+	public LikePostResponseDTO myMapper(Object [] arr) {
+		LikePostResponseDTO responseDTO = new LikePostResponseDTO();
+		responseDTO.setPostId(((Post)arr[0]).getId());	 
+		responseDTO.setLikes((Long)arr[1]);
+		return responseDTO;
+			
+	}
+	
+	@Override
+	public List<LikePostResponseDTO> getCountAllLikesPost() {
+		
+		List<LikePostResponseDTO> likePostList = new ArrayList<>();
+		for (Object [] arr : likePostDao.countAllLikesPost()) {
+			System.out.println(((Post)arr[0]).toString());
+			System.out.println(arr[1]);
+			likePostList.add(myMapper(arr));
+		}
+		return likePostList;
 	}
 }

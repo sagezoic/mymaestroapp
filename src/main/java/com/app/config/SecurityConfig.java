@@ -39,7 +39,8 @@ public class SecurityConfig {
 		"/date/add","/date/{serviceId}/getalldate","/date/edit","/date/delete",
 		"/transaction/add",
 		"/servicerequest/add","/service/get/{serviceId}",
-		"/likepost/add","/likepost/delete/{likePostId}","/likepost/getpostlike/{userId}").permitAll()
+		"/likepost/add","/likepost/delete/{likePostId}","/likepost/getpostlike/{userId}","/likepost/getallpostlike",
+		"/admin/verifyuser/{userId}").permitAll()
 
 		.antMatchers(HttpMethod.OPTIONS).permitAll()// for incoming req ending with /products/view : no authentication n authorization needed
 

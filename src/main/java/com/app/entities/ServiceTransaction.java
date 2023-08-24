@@ -1,6 +1,7 @@
 package com.app.entities;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,7 +32,7 @@ public class ServiceTransaction {
 	private String id;
 	
 	@Column(name="date_gen_time")
-	private LocalDate dateGenTime;
+	private LocalDateTime dateGenTime;
 	
 	@Column(name="amount")
 	private float amount;

@@ -1,6 +1,7 @@
 package com.app.dto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import com.app.entities.PaymentMethod;
 
@@ -19,7 +20,7 @@ public class ServiceTransactionResponseDTO {
 
 	private String id;
 	
-	private LocalDate dateGenTime;
+	private LocalDateTime dateGenTime;
 	
 	private float serviceAmount;
 	

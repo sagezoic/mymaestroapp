@@ -1,6 +1,7 @@
 package com.app.dto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import com.app.entities.PaymentMethod;
@@ -19,7 +20,7 @@ public class ServiceTransactionRequestDTO {
 
 	private String id;
 	
-	private LocalDate dateGenTime;
+	private LocalDateTime dateGenTime;
 	
 	private float amount;
 	
@@ -38,7 +39,7 @@ public class ServiceTransactionRequestDTO {
 			PaymentMethod paymentMethod) {
 		super();
 		this.id = generateTransactionId(); 
-		this.dateGenTime = LocalDate.now();
+		this.dateGenTime = LocalDateTime.now();
 		this.amount = amount;
 		this.success = success;
 		this.senderUserId = senderUserId;
