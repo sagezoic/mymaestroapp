@@ -15,5 +15,7 @@ public interface ServceService {
 	ServceResponseDTO editService(ServceRequestDTO request);
 	List<ServceResponseDTO> getUserService(Long userId);
 	ServceResponseDTO getUserServiceUsingServiceId(Long serviceId);
+	List<ServceResponseDTO> getAllServices();
 	List<ServiceTransactionResponseDTO> getServiceTransactionUsingServiceId(Long serviceId);
+	
 }

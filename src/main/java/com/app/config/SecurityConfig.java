@@ -38,7 +38,7 @@ public class SecurityConfig {
 		"/post","/post/image","/post/{userId}/allpost","/post/deletepost","/post/edit",
 		"/date/add","/date/{serviceId}/getalldate","/date/edit","/date/delete",
 		"/transaction/add",
-		"/service/get/{serviceId}","/service/gettransaction/{serviceId}",
+		"/service/get/{serviceId}","/service/gettransaction/{serviceId}","/service/getallservice",
 		"/servicerequest/add","/servicerequest/get/{serviceId}","/servicerequest/edit",
 		"/likepost/add","/likepost/delete/{likePostId}","/likepost/getpostlike/{userId}","/likepost/getallpostlike",
 		"/admin/verifyuser/{userId}").permitAll()

@@ -103,8 +103,17 @@ public class ServceServiceImpl implements ServceService{
 	}
 	
 	@Override
+	public List<ServceResponseDTO> getAllServices() {
+		List<ServceResponseDTO> responseDTOList = new ArrayList<ServceResponseDTO>();
+		List<Servce> alllist=servceDao.findAll();
+		for(Servce service : alllist) {
+			responseDTOList.add(myMapper(service));
+		}
+		return responseDTOList;
+	}
+	
+	@Override
 	public ServceResponseDTO getUserServiceUsingServiceId(Long serviceId) {
-		// TODO Auto-generated method stub
 		Servce service=servceDao.findById(serviceId).orElseThrow(()->new ResourceNotFoundException("invalid serviceid"));
 		return myMapper(service);
 	}

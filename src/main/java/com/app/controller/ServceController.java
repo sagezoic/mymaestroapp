@@ -87,6 +87,13 @@ public class ServceController {
 
 	}
 	
+	@GetMapping("/getallservice")
+	public ResponseEntity<?> getAllServices()
+	{
+		System.out.println("in the getAllSrvices");
+		return ResponseEntity.ok(new CommonResponse("Success",servceService.getAllServices()));
+	}
+	
 //	@PostMapping("/addrequest")
 //	public ResponseEntity<?> addServiceRequest(@RequestBody @Valid ServiceRequestRequest dto){
 //		
