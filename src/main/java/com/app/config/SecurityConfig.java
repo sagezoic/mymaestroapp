@@ -37,9 +37,11 @@ public class SecurityConfig {
 		"/webjars/**", "/v3/api-docs/**","/v2/api-docs/**", "/swagger.json", "/swagger-ui/**", "/swagger-ui.html", "/swagger-resources/**",
 		"/post","/post/image","/post/{userId}/allpost","/post/deletepost","/post/edit",
 		"/date/add","/date/{serviceId}/getalldate","/date/edit","/date/delete",
+
 		"/transaction/add", 
 		"/service/gettransaction/{serviceId}",
 		"/servicerequest/add","/servicerequest/get/{serviceId}","/servicerequest/edit",
+
 		"/service/get/{serviceId}",
 		"/likepost/add","/likepost/delete/{likePostId}","/likepost/getpostlike/{userId}","/admin/verifyuser/{userId}",
 		"/admin/block/{userId}","/admin/getuserlist","/users/reportpost/{postId}","/admin/removereportedpost/{postId}","/admin/getallreportedpost").permitAll()
