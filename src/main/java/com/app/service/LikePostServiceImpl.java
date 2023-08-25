@@ -38,6 +38,7 @@ public class LikePostServiceImpl implements LikePostService {
 		likePost.setUserId(user);
 		likePost.setPostId(post);
 		LikePost persistanceLikePost = likePostDao.save(likePost);
+		post.setLikePost(persistanceLikePost);
 		user.addLikePost(persistanceLikePost);
 	}
 	

@@ -33,12 +33,12 @@ public class SecurityConfig {
 		http.csrf().disable(). //disable CSRF  to continue with REST APIs
 		authorizeRequests() //specify all authorization rules (i.e authorize all requests)
 		.antMatchers("/products/view","/login","/signup","/swagger-ui/index.html","/users/role","/users/details",
-		"/users/interest","/users/{userId}/image","/users/delete/{userId}","/users/edit",
+		"/users/interest","/users/{userId}/dp","/users/delete/{userId}","/users/edit",
 		"/users/get/maestro/transaction/{userId}","/users/get/explorer/transaction/{userId}",
 		
 		"/webjars/**", "/v3/api-docs/**","/v2/api-docs/**", "/swagger.json", "/swagger-ui/**", "/swagger-ui.html", "/swagger-resources/**",
 		
-		"/post","/post/image","/post/{userId}/allpost","/post/getallpost","/post/deletepost","/post/edit",
+		"/post","/post/image","/post/{userId}/allpost","/post/getallpost","/post/deletepost","/post/edit","/post/findimage",
 		
 		"/date/add","/date/{serviceId}/getalldate","/date/edit","/date/delete",
 
@@ -49,7 +49,7 @@ public class SecurityConfig {
 
 		"/servicerequest/add","/servicerequest/get/{serviceId}","/servicerequest/edit",
 		
-		"/likepost/add","/likepost/delete/{likePostId}","/likepost/getpostlike/{userId}",
+		"/likepost/add","/likepost/delete/{likePostId}","/likepost/getpostlike/{userId}","/likepost/getallpostlike",
 		
 		"/admin/verifyuser/{userId}","/admin/block/{userId}","/admin/getuserlist","/users/reportpost/{postId}","/admin/removereportedpost/{postId}","/admin/getallreportedpost").permitAll()
 
