@@ -71,14 +71,14 @@ public class UserController {
 		return ResponseEntity.ok(new CommonResponse("success", userService.addInterest(user)));
 	}
 	
-	@PostMapping(value="/{userId}/image",consumes = "multipart/form-data")
+	@PostMapping(value="/{userId}/dp",consumes = "multipart/form-data")
 	public ResponseEntity<?> uploadProfileImage(@PathVariable Long userId, @RequestParam MultipartFile imagefile) throws IOException{
 		
 		System.out.println("in image upload "+userId);
 		return ResponseEntity.ok(new CommonResponse("Success",userService.uploadProfileImage(userId, imagefile)));
 	}
 	
-	@GetMapping(value = "/{userId}/image", produces = { IMAGE_GIF_VALUE, 
+	@GetMapping(value = "/{userId}/dp", produces = { IMAGE_GIF_VALUE, 
 			IMAGE_JPEG_VALUE, IMAGE_PNG_VALUE })
 	public ResponseEntity<?> downloadEmpImage(@PathVariable Long userId) throws IOException {
 		System.out.println("in img download " + userId);

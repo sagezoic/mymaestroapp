@@ -115,7 +115,6 @@ public class PostServiceImpl implements PostService {
 		postDTO.setUrlText(postPersistance.getUrlText());
 		if(postPersistance.getLikePost()!=null)
 		postDTO.setPostLikeId(postPersistance.getLikePost().getId());
-		
 		return postDTO;
 	}
 	
@@ -133,6 +132,8 @@ public class PostServiceImpl implements PostService {
 	
 
 	PostResponseDTO myMapper(Object [] postObject ) {
+		Post post = null;
+		post= postDao.findById((Long)postObject[0]).orElseThrow(()->new ResourceNotFoundException("post id invalid"));
 		PostResponseDTO postDTO = new PostResponseDTO(); 
 		postDTO.setId((Long)postObject[0]);
 		postDTO.setCaptionText((String)postObject[1]);
@@ -140,7 +141,8 @@ public class PostServiceImpl implements PostService {
 		postDTO.setTimeStamp((LocalDateTime)postObject[3]);
 		postDTO.setUrlText((String)postObject[4]);
 		postDTO.setUserId(((Users)postObject[5]).getId());
-		
+		if(post.getLikePost()!=null)
+		postDTO.setPostLikeId(post.getLikePost().getId());
 		return postDTO;
 	}
 	
@@ -161,8 +163,8 @@ public class PostServiceImpl implements PostService {
 		Post post = postDao.findById(postId).orElseThrow(()->new ResourceNotFoundException("post id is invalid"));
 		post.setCaptionText(caption);
 		Post persistance = postDao.save(post);
-		return mapper.map(persistance,PostResponseDTO.class);	
-		
+		//return mapper.map(persistance,PostResponseDTO.class);	
+		return myMapper(persistance);
 	}
 	
 	@Override
