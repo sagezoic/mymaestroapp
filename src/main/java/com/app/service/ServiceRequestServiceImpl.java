@@ -11,10 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.ServceDao;
 import com.app.dao.ServiceRequestDao;
+import com.app.dao.ServiceTransactionDao;
 import com.app.dto.ServiceRequestRequestDTO;
 import com.app.dto.ServiceRequestResponseDTO;
 import com.app.entities.Servce;
 import com.app.entities.ServiceRequest;
+import com.app.entities.ServiceTransaction;
 
 import custom_exception.ResourceNotFoundException;
 
@@ -32,16 +34,19 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
 	@Autowired
 	private ModelMapper mapper;
 	
+	@Autowired
+	private ServiceTransactionDao serviceTransactionDao;
+	
 	@Override
 	public ServiceRequestResponseDTO addServiceRequest(ServiceRequestRequestDTO request) {
-		
-		
+		Servce service = serviceDao.findById(request.getServiceId()).orElseThrow(()->new ResourceNotFoundException("service id is invalid"));
+		ServiceTransaction serviceTransaction = serviceTransactionDao.findByServiceId(service);
 		ServiceRequest serviceRequest=mapper.map(request,ServiceRequest.class);
 		System.out.println(serviceRequest);
-		serviceRequest.setServiceId(serviceDao.findById(request.getServiceId()).orElse(null));
+		serviceRequest.setServiceId(service);
+		serviceRequest.setTransactionId(serviceTransaction);
 		serviceRequest.setRequestGenTime(LocalDateTime.now());
 		ServiceRequest persistentServiceRequest=serviceRequestDao.save(serviceRequest);
-		Servce service=serviceDao.findById(request.getServiceId()).orElse(null);
 		if(service!=null) {
 			service.addServiceRequest(persistentServiceRequest);
 		}
