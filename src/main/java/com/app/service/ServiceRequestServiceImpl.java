@@ -90,6 +90,7 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
 		serviceRequestResponseDTO.setServiceId(serviceRequest.getServiceId().getId());
 		serviceRequestResponseDTO.setStatus(serviceRequest.getStatus());
 		serviceRequestResponseDTO.setRequestGenTime(serviceRequest.getRequestGenTime());
+		if(serviceRequest.getTransactionId()!=null)
 		serviceRequestResponseDTO.setTransactionId(serviceRequest.getTransactionId().getId());
 		
 		return serviceRequestResponseDTO;

@@ -5,5 +5,5 @@ import com.app.dto.ServiceTransactionResponseDTO;
 
 public interface ServiceTransactionService {
 
-	public ServiceTransactionResponseDTO addTransaction(ServiceTransactionRequestDTO dto);
+	public void addTransaction(ServiceTransactionRequestDTO dto);
 }
