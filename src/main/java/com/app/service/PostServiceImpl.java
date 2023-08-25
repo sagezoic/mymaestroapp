@@ -156,6 +156,8 @@ public class PostServiceImpl implements PostService {
 		
 	}
 	
+	
+	
 	@Override
 	public PostResponseDTO editPost(Long postId,String caption) throws IOException {
 		Post post = postDao.findById(postId).orElseThrow(()->new ResourceNotFoundException("post id is invalid"));
@@ -163,5 +165,16 @@ public class PostServiceImpl implements PostService {
 		Post persistance = postDao.save(post);
 		//return mapper.map(persistance,PostResponseDTO.class);	
 		return myMapper(persistance);
+	}
+	
+	@Override
+	public byte[] downloadPostImage(String path) throws IOException {
+	//	Users user = userDao.findById(empId).orElseThrow(()-> new ResourceNotFoundException("User is not valid"));
+		if(path!=null) {
+			System.out.println(path);
+			return FileUtils.readFileToByteArray(new File(path));
+		}
+		
+		throw new ResourceNotFoundException("Image not yet assigned");
 	}
 }

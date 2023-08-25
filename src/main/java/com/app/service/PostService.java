@@ -20,4 +20,6 @@ public interface PostService {
 	PostResponseDTO editPost(Long postId,String caption) throws IOException;
 	
 	List<PostResponseDTO> getAllPost();
+	
+	byte[] downloadPostImage(String path) throws IOException;
 }
