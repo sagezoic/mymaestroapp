@@ -49,7 +49,7 @@ public class UserDto {
 
 
 
-	public UserDto(String firstName, String lastName, String email, String password, UserRole userRole,LocalDate dob,UserInterest interest) {
+	public UserDto(String firstName, String lastName, String email, String password, UserRole userRole,LocalDate dob,UserInterest interest,String userName) {
 		super();
 		
 		this.firstName = firstName;
@@ -59,6 +59,7 @@ public class UserDto {
 		this.userRole = userRole;
 		this.dob = dob;
 		this.interest = interest;
+		this.userName=userName;
 				
 	}
 	

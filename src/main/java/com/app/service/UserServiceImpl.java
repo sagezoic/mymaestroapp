@@ -250,5 +250,13 @@ public class UserServiceImpl implements UserService {
 		
 		
 	}
+
+	@Override
+	public UserSignupResponseDto getUserDetailsfromUserId(Long userId) {
+
+		Users user=userDao.findById(userId).orElseThrow(()->new ResourceNotFoundException("invalid userId"));
+		UserSignupResponseDto userSignupResponseDto=mapper.map(user, UserSignupResponseDto.class);		
+		return userSignupResponseDto;
+	}
 	
 }
