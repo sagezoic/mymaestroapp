@@ -37,11 +37,12 @@ public class SecurityConfig {
 		"/webjars/**", "/v3/api-docs/**","/v2/api-docs/**", "/swagger.json", "/swagger-ui/**", "/swagger-ui.html", "/swagger-resources/**",
 		"/post","/post/image","/post/{userId}/allpost","/post/deletepost","/post/edit",
 		"/date/add","/date/{serviceId}/getalldate","/date/edit","/date/delete",
-		"/transaction/add",
-		"/service/get/{serviceId}","/service/gettransaction/{serviceId}",
+		"/transaction/add", 
+		"/service/gettransaction/{serviceId}",
 		"/servicerequest/add","/servicerequest/get/{serviceId}","/servicerequest/edit",
-		"/likepost/add","/likepost/delete/{likePostId}","/likepost/getpostlike/{userId}","/likepost/getallpostlike",
-		"/admin/verifyuser/{userId}").permitAll()
+		"/service/get/{serviceId}",
+		"/likepost/add","/likepost/delete/{likePostId}","/likepost/getpostlike/{userId}","/admin/verifyuser/{userId}",
+		"/admin/block/{userId}","/admin/getuserlist","/users/reportpost/{postId}","/admin/removereportedpost/{postId}","/admin/getallreportedpost").permitAll()
 
 		.antMatchers(HttpMethod.OPTIONS).permitAll()// for incoming req ending with /products/view : no authentication n authorization needed
 

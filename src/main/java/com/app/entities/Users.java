@@ -34,38 +34,54 @@ import lombok.ToString;
 @Setter
 //@ToString(exclude="password")
 public class Users extends BaseEntity {
+	
 	@Enumerated(EnumType.STRING)
 	@Column(length=30)
 	private UserRole userRole;
+	
 	@Column(length=30,unique=true)
 	private String userName;
+	
 	@Column(length=30,unique=true)
 	private String email;
+	
 	@Column(name="password",length=500)
 	private String password;
+	
 	@Column(name="first_name",length=30)
 	private String firstName;
+	
 	@Column(name="last_name",length=30)
 	private String lastName;
+	
 	@Column(name="dob")
 	private LocalDate dob;
+	
 	@Column(name="otp_verified")
 	private boolean otpVerified;
+	
 	@Column(name="admin_verified")
 	private boolean adminVerified;
+	
 	@Column(length=100,name="dp_url")
 	private String dpUrl;
+	
 	@Enumerated(EnumType.STRING)
 	@Column(length=30)
 	private UserInterest interest;
+	
 	@Column(length=30)
 	private String bio;
+	
 	@Column(name="social_media_link",length=100)
 	private String socialMediaLink;
+	
 	@Column(name="token")
 	private float token;
+	
 	@Column(name="enabled")
 	private boolean enabled;
+	
 	@Column(name="created_at")
 	private LocalDateTime createdAt;
 
@@ -83,6 +99,9 @@ public class Users extends BaseEntity {
 	
 	@OneToMany(mappedBy="reciverUserId",cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<ServiceTransaction> maestroTransactionList = new ArrayList<>();
+	
+	@OneToMany(mappedBy="reportingUserId",cascade=CascadeType.ALL,orphanRemoval=true)
+	private List<ReportedPost> reportedPostList=new ArrayList<>();
 	
 	@Override
 	public String toString() {
@@ -143,5 +162,29 @@ public class Users extends BaseEntity {
 	public void removeLikePost(LikePost lp) {
 		likePost.remove(lp);
 		lp.setUserId(null);
+	}
+	
+	public void addReportedPost(ReportedPost rp) {
+		reportedPostList.add(rp);
+		rp.setReportingUserId(this);
+	}
+		
+	public void removeReportedPost(ReportedPost rp) {
+		reportedPostList.remove(rp);
+		rp.setReportingUserId(null);
+	}
+	
+	
+	public boolean getAdminVerified()
+	{
+		return this.adminVerified;
+	}
+//	public UserInterest getInterest()
+//	{
+//		return this.interest;
+//	}
+	public boolean getEnabled()
+	{
+		return this.enabled;
 	}
 }
