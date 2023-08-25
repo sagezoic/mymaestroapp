@@ -1,5 +1,9 @@
 package com.app.controller;
 
+import static org.springframework.http.MediaType.IMAGE_GIF_VALUE;
+import static org.springframework.http.MediaType.IMAGE_JPEG_VALUE;
+import static org.springframework.http.MediaType.IMAGE_PNG_VALUE;
+
 import java.io.IOException;
 
 import javax.validation.Valid;
@@ -46,6 +50,14 @@ public class PostController {
 	public ResponseEntity<?> getAllPost(@PathVariable Long userId) {
 		System.out.println("in get all post of user method");
 		return ResponseEntity.ok(new CommonResponse("Success", postService.getAllPostForUser(userId)));
+	}
+	
+	@GetMapping(value="/findimage", produces = { IMAGE_GIF_VALUE, 
+			IMAGE_JPEG_VALUE, IMAGE_PNG_VALUE })
+	public ResponseEntity<?> getpost(@RequestParam String path) throws IOException
+	{
+		System.out.println("in post controller getpost method "+ path);
+		return ResponseEntity.ok(postService.downloadPostImage(path));
 	}
 	
 	@GetMapping("/getallpost")
