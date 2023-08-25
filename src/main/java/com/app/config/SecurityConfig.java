@@ -33,7 +33,7 @@ public class SecurityConfig {
 		http.csrf().disable(). //disable CSRF  to continue with REST APIs
 		authorizeRequests() //specify all authorization rules (i.e authorize all requests)
 		.antMatchers("/products/view","/login","/signup","/swagger-ui/index.html","/users/role","/users/details",
-		"/users/interest","/users/{userId}/dp","/users/delete/{userId}","/users/edit",
+		"/users/interest","/users/{userId}/dp","/users/finddp","/users/delete/{userId}","/users/edit",
 		"/users/get/maestro/transaction/{userId}","/users/get/explorer/transaction/{userId}",
 		
 		"/webjars/**", "/v3/api-docs/**","/v2/api-docs/**", "/swagger.json", "/swagger-ui/**", "/swagger-ui.html", "/swagger-resources/**",

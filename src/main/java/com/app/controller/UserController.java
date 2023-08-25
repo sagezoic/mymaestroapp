@@ -80,9 +80,16 @@ public class UserController {
 	
 	@GetMapping(value = "/{userId}/dp", produces = { IMAGE_GIF_VALUE, 
 			IMAGE_JPEG_VALUE, IMAGE_PNG_VALUE })
-	public ResponseEntity<?> downloadEmpImage(@PathVariable Long userId) throws IOException {
+	public ResponseEntity<?> downloadDpImageByUserId(@PathVariable Long userId) throws IOException {
 		System.out.println("in img download " + userId);
 		return ResponseEntity.ok(userService.downloadProfileImage(userId));
+	}
+	
+	@GetMapping(value = "/finddp", produces = { IMAGE_GIF_VALUE, 
+			IMAGE_JPEG_VALUE, IMAGE_PNG_VALUE })
+	public ResponseEntity<?> downloadEmpImage(@RequestParam String path) throws IOException {
+		System.out.println("in users controller getDp method "+ path);
+		return ResponseEntity.ok(userService.downloadProfileImage(path));
 	}
 	
 	@DeleteMapping(value="/delete/{userId}")

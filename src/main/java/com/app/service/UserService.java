@@ -24,6 +24,8 @@ public interface UserService {
 	UserSignupResponseDto uploadProfileImage(Long userId, MultipartFile file) throws IOException;
 	
 	byte[] downloadProfileImage(Long empId) throws IOException;
+	
+	byte[] downloadProfileImage(String path) throws IOException;
 
 //----------------------------------------	
 //deleting user using userid
