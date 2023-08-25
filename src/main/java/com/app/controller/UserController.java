@@ -120,5 +120,12 @@ public class UserController {
 		System.out.println("inside addReportedPost of user Controller with postId "+postId + " and userId "+userId);
 		return ResponseEntity.ok(reportedPostService.addReportedPost(userId, postId));
 	}
+	@GetMapping("/{userId}")
+	public ResponseEntity<?> getUserDetailsFromUserId(@PathVariable Long userId)
+	{
+		System.out.println("inside userController in getUserDetailsFromUserId method with userId "+userId);
+		
+		return ResponseEntity.ok(new CommonResponse("user detail ",userService.getUserDetailsfromUserId(userId)));
+	}
 }
 

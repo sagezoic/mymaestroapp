@@ -44,4 +44,6 @@ public interface UserService {
 	//get trasaction list of explorer 
 	List<ServiceTransactionResponseDTO> getTransactionListOfExplorer(Long userId);
 	
+	UserSignupResponseDto getUserDetailsfromUserId(Long userId);
+	
 }
