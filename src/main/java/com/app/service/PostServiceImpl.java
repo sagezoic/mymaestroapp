@@ -113,6 +113,7 @@ public class PostServiceImpl implements PostService {
 		postDTO.setTimeStamp(postPersistance.getTimeStamp());
 		postDTO.setUserId(postPersistance.getUserId().getId());
 		postDTO.setUrlText(postPersistance.getUrlText());
+		if(postPersistance.getLikePost()!=null)
 		postDTO.setPostLikeId(postPersistance.getLikePost().getId());
 		
 		return postDTO;
