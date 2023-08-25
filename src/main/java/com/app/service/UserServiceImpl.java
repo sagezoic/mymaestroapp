@@ -171,6 +171,15 @@ public class UserServiceImpl implements UserService {
 			throw new ResourceNotFoundException("Image not yet assigned");
 		}
 
+		
+		@Override
+		public byte[] downloadProfileImage(String path) throws IOException {
+			if(path!=null) {
+				System.out.println(path);
+				return FileUtils.readFileToByteArray(new File(path));
+			}
+			throw new ResourceNotFoundException("Image not yet assigned");
+		}
 //-------------------------------------------------------------------------	
 
 
