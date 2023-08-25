@@ -44,8 +44,14 @@ public class PostController {
 
 	@GetMapping("/{userId}/allpost")
 	public ResponseEntity<?> getAllPost(@PathVariable Long userId) {
+		System.out.println("in get all post of user method");
+		return ResponseEntity.ok(new CommonResponse("Success", postService.getAllPostForUser(userId)));
+	}
+	
+	@GetMapping("/getallpost")
+	public ResponseEntity<?> getAllPost() {
 		System.out.println("in get all post method");
-		return ResponseEntity.ok(new CommonResponse("Success", postService.getAllPost(userId)));
+		return ResponseEntity.ok(new CommonResponse("Success", postService.getAllPost()));
 	}
 
 //	@DeleteMapping("/deletepost")

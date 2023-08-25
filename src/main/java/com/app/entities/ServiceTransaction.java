@@ -41,7 +41,7 @@ public class ServiceTransaction {
 	@Column(name="payment_method",length=30)
 	private PaymentMethod paymentMethod;
 	
-	@JoinColumn(name="sernder_user_id")
+	@JoinColumn(name="sender_user_id")
 	@OneToOne
 	private Users senderUserId;
 	

@@ -2,6 +2,7 @@ package com.app.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,7 @@ import com.app.dto.PostRequestDTO;
 import com.app.dto.PostResponseDTO;
 import com.app.dto.UserSignupResponseDto;
 import com.app.entities.Post;
+import com.app.entities.PostType;
 import com.app.entities.Users;
 
 import custom_exception.ResourceNotFoundException;
@@ -93,7 +95,7 @@ public class PostServiceImpl implements PostService {
 	}
 	
 	@Override
-	public List<PostResponseDTO> getAllPost(Long userId) {
+	public List<PostResponseDTO> getAllPostForUser(Long userId) {
 		Users user = userDao.findById(userId).orElseThrow(()->new ResourceNotFoundException("user is invalid"));
 		List<PostResponseDTO> postList = new ArrayList<>();
 		
@@ -108,10 +110,39 @@ public class PostServiceImpl implements PostService {
 		postDTO.setId(postPersistance.getId());
 		postDTO.setCaptionText(postPersistance.getCaptionText());
 		postDTO.setPostType(postPersistance.getPostType());
+		postDTO.setTimeStamp(postPersistance.getTimeStamp());
 		postDTO.setUserId(postPersistance.getUserId().getId());
 		postDTO.setUrlText(postPersistance.getUrlText());
+		postDTO.setPostLikeId(postPersistance.getLikePost().getId());
+		
 		return postDTO;
 	}
+	
+	
+	@Override
+	public List<PostResponseDTO> getAllPost() {
+		List<PostResponseDTO> postList = new ArrayList<>();
+		List<Object[]> arr = postDao.fetchAlllPost();
+		for(Object [] a : arr) {
+			postList.add(myMapper(a));
+		}
+	            
+		return postList;
+}
+	
+
+	PostResponseDTO myMapper(Object [] postObject ) {
+		PostResponseDTO postDTO = new PostResponseDTO(); 
+		postDTO.setId((Long)postObject[0]);
+		postDTO.setCaptionText((String)postObject[1]);
+		postDTO.setPostType((PostType)postObject[2]);
+		postDTO.setTimeStamp((LocalDateTime)postObject[3]);
+		postDTO.setUrlText((String)postObject[4]);
+		postDTO.setUserId(((Users)postObject[5]).getId());
+		
+		return postDTO;
+	}
+	
 	
 	@Override
 	public void deletePost(Long userId, Long postId) {

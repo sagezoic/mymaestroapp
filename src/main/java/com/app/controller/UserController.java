@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.app.dto.CommonResponse;
 import com.app.dto.UserDto;
+import com.app.service.ReportedPostService;
 import com.app.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -37,6 +39,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ReportedPostService reportedPostService;
 	
 	public UserController() {
 		System.out.println("in user controller");
@@ -96,18 +101,24 @@ public class UserController {
 		return ResponseEntity.ok("user data edited Successfully");
 	}
 	
-	@GetMapping("/maestro/{userId}")
+	@GetMapping("/get/maestro/transaction/{userId}")
 	public ResponseEntity<?> getTransactionListOfMaestro(@PathVariable Long userId){
 		System.out.println("in user get meastro transaction list controller");
 		System.out.println("userId "+userId);
 		return ResponseEntity.ok(new CommonResponse("Meastro Transaction List",userService.getTransactionListOfMaestro(userId)));
 	}
 	
-	@GetMapping("/explorer/{userId}")
+	@GetMapping("/get/explorer/transaction/{userId}")
 	public ResponseEntity<?> getTransactionListOfExplorer(@PathVariable Long userId){
 		System.out.println("in user get meastro transaction list controller");
 		System.out.println("userId "+userId);
 		return ResponseEntity.ok(new CommonResponse("Explorer Transaction List",userService.getTransactionListOfExplorer(userId)));
+	}
+	@PostMapping("/reportpost/{postId}")
+	public ResponseEntity<?> addReportedPost(@PathVariable Long postId,@RequestHeader Long userId)
+	{
+		System.out.println("inside addReportedPost of user Controller with postId "+postId + " and userId "+userId);
+		return ResponseEntity.ok(reportedPostService.addReportedPost(userId, postId));
 	}
 }
 

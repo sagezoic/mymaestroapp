@@ -33,15 +33,25 @@ public class SecurityConfig {
 		http.csrf().disable(). //disable CSRF  to continue with REST APIs
 		authorizeRequests() //specify all authorization rules (i.e authorize all requests)
 		.antMatchers("/products/view","/login","/signup","/swagger-ui/index.html","/users/role","/users/details",
-		"/users/interest","/users/{userId}/image","/service/add","/service/edit","/service/delete","/service/{userId}","/service/addrequest","/users/delete/{userId}","/users/edit","/users/explorer/{userId}","/users/maestro/{userId}",
+		"/users/interest","/users/{userId}/image","/users/delete/{userId}","/users/edit",
+		"/users/get/maestro/transaction/{userId}","/users/get/explorer/transaction/{userId}",
+		
 		"/webjars/**", "/v3/api-docs/**","/v2/api-docs/**", "/swagger.json", "/swagger-ui/**", "/swagger-ui.html", "/swagger-resources/**",
-		"/post","/post/image","/post/{userId}/allpost","/post/deletepost","/post/edit",
+		
+		"/post","/post/image","/post/{userId}/allpost","/post/getallpost","/post/deletepost","/post/edit",
+		
 		"/date/add","/date/{serviceId}/getalldate","/date/edit","/date/delete",
+
 		"/transaction/add",
-		"/service/get/{serviceId}","/service/gettransaction/{serviceId}","/service/getallservice",
+		
+		"/service/get/{serviceId}","/service/gettransaction/{serviceId}","/service/getallservice","/service/add","/service/edit","/service/delete","/service/{userId}",
+		"/service/addrequest","/service/get/{serviceId}",
+
 		"/servicerequest/add","/servicerequest/get/{serviceId}","/servicerequest/edit",
-		"/likepost/add","/likepost/delete/{likePostId}","/likepost/getpostlike/{userId}","/likepost/getallpostlike",
-		"/admin/verifyuser/{userId}").permitAll()
+		
+		"/likepost/add","/likepost/delete/{likePostId}","/likepost/getpostlike/{userId}",
+		
+		"/admin/verifyuser/{userId}","/admin/block/{userId}","/admin/getuserlist","/users/reportpost/{postId}","/admin/removereportedpost/{postId}","/admin/getallreportedpost").permitAll()
 
 		.antMatchers(HttpMethod.OPTIONS).permitAll()// for incoming req ending with /products/view : no authentication n authorization needed
 

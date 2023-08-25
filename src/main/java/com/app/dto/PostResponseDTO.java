@@ -1,5 +1,7 @@
 package com.app.dto;
 
+import java.time.LocalDateTime;
+
 import com.app.entities.PostType;
 
 import lombok.AllArgsConstructor;
@@ -19,5 +21,7 @@ public class PostResponseDTO {
 	private PostType postType;
 	private String captionText;
 	private String urlText;
+	private LocalDateTime timeStamp; 
 	private Long userId;
+	private Long postLikeId;
 }

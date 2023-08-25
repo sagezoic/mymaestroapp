@@ -13,9 +13,11 @@ public interface PostService {
 
 	PostResponseDTO addPost(PostRequestDTO dto) throws IOException; 
 	
-	List<PostResponseDTO> getAllPost(Long userId);
+	List<PostResponseDTO> getAllPostForUser(Long userId);
 	
 	void deletePost(Long userId,Long postId);
 	
 	PostResponseDTO editPost(Long postId,String caption) throws IOException;
+	
+	List<PostResponseDTO> getAllPost();
 }
