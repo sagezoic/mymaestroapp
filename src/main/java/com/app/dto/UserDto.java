@@ -41,6 +41,7 @@ public class UserDto {
 	private boolean otpVerified;
 
 	private String dpUrl;
+	private String mobileNo;
 	private UserInterest interest;
 	private String bio;
 	private String socialMediaLink;
@@ -49,7 +50,8 @@ public class UserDto {
 
 
 
-	public UserDto(String firstName, String lastName, String email, String password, UserRole userRole,LocalDate dob,UserInterest interest,String userName) {
+	public UserDto(String firstName, String lastName, String email, String password, UserRole userRole,
+			LocalDate dob,UserInterest interest,String userName,String dpUrl,String mobileNo ) {
 		super();
 		
 		this.firstName = firstName;
@@ -58,6 +60,8 @@ public class UserDto {
 		this.password = password;
 		this.userRole = userRole;
 		this.dob = dob;
+		this.dpUrl=dpUrl;
+		this.mobileNo=mobileNo;
 		this.interest = interest;
 		this.userName=userName;
 				

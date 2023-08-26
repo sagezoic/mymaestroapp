@@ -117,6 +117,7 @@ public class AdminServiceImpl implements AdminService{
 		adminVerificationforUserResponseDto.setSocialMediaLink(user.getSocialMediaLink());
 		adminVerificationforUserResponseDto.setEnabled(user.getEnabled());
 		adminVerificationforUserResponseDto.setCreatedAt(user.getCreatedAt());
+		adminVerificationforUserResponseDto.setDpUrl(user.getDpUrl());
 		return adminVerificationforUserResponseDto;
 	}
 

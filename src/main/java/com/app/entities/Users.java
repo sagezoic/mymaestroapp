@@ -84,6 +84,9 @@ public class Users extends BaseEntity {
 	
 	@Column(name="created_at")
 	private LocalDateTime createdAt;
+	
+	@Column(name="mobile_no",length =10)
+	private String mobileNo;
 
 	@OneToMany(mappedBy = "userId",cascade = CascadeType.ALL,orphanRemoval = true)
 	private List<LikePost> likePost = new ArrayList<>();

@@ -33,5 +33,6 @@ public class AdminVerificationforUserResponseDto {
 	private String socialMediaLink;
 	private boolean enabled;
 	private LocalDateTime createdAt;
+	private String dpUrl;
 	
 }

@@ -27,13 +27,14 @@ public class UserSignupResponseDto {
 	private UserRole userRole;
 	private UserInterest interest;
 	private LocalDate dob;
+	private String mobileNo;
 	private LocalDateTime createdAt;
 	private String userName;
 	private String dpUrl;
 	
 	
 
-	public UserSignupResponseDto(/*Long id,*/String firstName, String lastName, String email, UserRole userRole,UserInterest interest,LocalDate dob,String userName,String dpUrl) {
+	public UserSignupResponseDto(/*Long id,*/String firstName, String lastName, String email, UserRole userRole,UserInterest interest,LocalDate dob,String userName,String dpUrl,String mobileNo) {
 		super();
 		//this.id=id;
 		this.firstName = firstName;
@@ -44,6 +45,7 @@ public class UserSignupResponseDto {
 		this.dob=dob;
 		this.userName=userName;
 		this.dpUrl=dpUrl;
+		this.mobileNo=mobileNo;
 		this.createdAt=LocalDateTime.now();
 	}	
 }
