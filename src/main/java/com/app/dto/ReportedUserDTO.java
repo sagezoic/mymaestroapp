@@ -4,27 +4,21 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
-
-@NoArgsConstructor
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
-public class ReportedPostDTO{
+@NoArgsConstructor
+public class ReportedUserDTO {
 	
 	private Long id;
-	
-	private Long postId;
 	
 	private boolean removedStatus;
 	
 	private Long reportingUserId;
 	
+	private Long reportedUserId;
+	
 	private String description;
 
-	
-	
-	
 }

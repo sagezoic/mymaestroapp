@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.app.dto.AdminVerificationforUserResponseDto;
 import com.app.dto.ReportedPostDTO;
+import com.app.dto.ReportedUserDTO;
 import com.app.entities.Users;
 
 public interface AdminService {
@@ -13,4 +14,6 @@ public interface AdminService {
 	List<AdminVerificationforUserResponseDto> getAllUsersList();
 	String removeReportedPost(Long postId);
 	List<ReportedPostDTO> getAllReportedPost();
+	List<ReportedUserDTO> getAllReportedUser();
+	String removeReportedUser(Long userId);
 }

@@ -21,7 +21,7 @@ public interface UserDao extends JpaRepository<Users, Long> {
 	Optional<Users> findByEmail(String email);
 	Optional<Users> findById(Users users);
 
-	
 	@Query("select u from Users u where u.userRole='ROLE_MAESTRO'")
 	List<Object []> getAllMaestroUser();
+
 }
