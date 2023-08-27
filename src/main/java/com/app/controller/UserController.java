@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.app.dto.CommonResponse;
+import com.app.dto.PasswordRequestDTO;
 import com.app.dto.UserDto;
 import com.app.service.ReportedPostService;
 import com.app.service.UserService;
@@ -104,8 +105,14 @@ public class UserController {
 	public ResponseEntity<?> editUser(@RequestBody UserDto user){
 		
 		System.out.println("in user edit controller");
-		userService.editUser(user);
-		return ResponseEntity.ok("user data edited Successfully");
+	
+		return ResponseEntity.ok(new CommonResponse("user data edited Successfully",userService.editUser(user)));
+	}
+	
+	@PutMapping("/forgetpassword")
+	public ResponseEntity<?> forgetPassword(@RequestBody PasswordRequestDTO dto){
+		System.out.println("in user  controller forgetPassword method");
+		return ResponseEntity.ok(new CommonResponse("password updated Successfully",userService.forgetPassword(dto)));
 	}
 	
 	@GetMapping("/get/maestro/transaction/{userId}")
@@ -133,6 +140,12 @@ public class UserController {
 		System.out.println("inside userController in getUserDetailsFromUserId method with userId "+userId);
 		
 		return ResponseEntity.ok(new CommonResponse("user detail ",userService.getUserDetailsfromUserId(userId)));
+	}
+	
+	@GetMapping("/getallmeastro")
+	public ResponseEntity<?> getAllMaestroList(){
+		System.out.println("Inside the userController getAllMeastroListMethod");
+		return ResponseEntity.ok(new CommonResponse("All meastro List",userService.getAllMeastroUser()));
 	}
 }
 
