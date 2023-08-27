@@ -10,12 +10,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.PostDao;
 import com.app.dao.ReportedPostDao;
+import com.app.dao.ReportedUserDao;
 import com.app.dao.UserDao;
 import com.app.dto.AdminVerificationforUserResponseDto;
 import com.app.dto.ReportedPostDTO;
+import com.app.dto.ReportedUserDTO;
 import com.app.dto.UserSignupResponseDto;
 import com.app.entities.Post;
 import com.app.entities.ReportedPost;
+import com.app.entities.ReportedUser;
 import com.app.entities.Users;
 
 import custom_exception.ResourceNotFoundException;
@@ -32,6 +35,9 @@ public class AdminServiceImpl implements AdminService{
 		
 	@Autowired
 	private PostDao postDao;
+	
+	@Autowired
+	private ReportedUserDao reportedUserDao;
 	
 	@Override
 	public String addAdminVerification(Long userId) 
@@ -71,8 +77,11 @@ public class AdminServiceImpl implements AdminService{
 		ReportedPost reportedPosttochange=reportedPostDao.findByPostId(postId);
 		if(reportedPosttochange.getRemovedStatus()==false)
 		{
-		Post reportedPost=postDao.findById(postId).orElseThrow(()->new ResourceNotFoundException("invalid postId"));
+			
+		Post reportedPost=postDao.findById(postId).orElseThrow(()->new ResourceNotFoundException("Invalid postId"));
+		Users user = userDao.findById(reportedPost.getUserId().getId()).orElseThrow(()->new ResourceNotFoundException("Invalid usertId"));
 		postDao.delete(reportedPost);
+		user.removePost(reportedPost);
 		reportedPosttochange.setRemovedStatus(true);
 		return "success";
 		}
@@ -80,6 +89,24 @@ public class AdminServiceImpl implements AdminService{
 		{
 			return "post already removed";
 		}
+		
+	}
+	
+	@Override
+	public String removeReportedUser(Long userId) {
+		Users reportedUser = userDao.findById(userId).orElseThrow(()->new ResourceNotFoundException("Invalid User Id"));
+		ReportedUser reportedUserTable = reportedUserDao.findByReportedUserId(reportedUser);
+		if(reportedUserTable.getRemovedStatus()==false) {
+			userDao.delete(reportedUser);
+			Users reportingUser = userDao.findById(reportedUserTable.getReportingUserId()).orElseThrow(()->new ResourceNotFoundException("Invalid User Id"));
+			reportedUserTable.setRemovedStatus(true);
+			return "Reported User is deleted successfully";
+		}else {
+			return "User already removed";
+		}
+		
+
+		
 		
 	}
 	
@@ -101,6 +128,7 @@ public class AdminServiceImpl implements AdminService{
 		reportedPostDTO.setPostId(reportedPost.getPostId());
 		reportedPostDTO.setRemovedStatus(reportedPost.getRemovedStatus());
 		reportedPostDTO.setReportingUserId(reportedPost.getReportingUserId().getId());
+		reportedPostDTO.setDescription(reportedPost.getDescription());
 		return reportedPostDTO;
 	}
 	
@@ -121,6 +149,26 @@ public class AdminServiceImpl implements AdminService{
 		return adminVerificationforUserResponseDto;
 	}
 
-	
+	@Override
+	public List<ReportedUserDTO> getAllReportedUser() {
+		List<ReportedUser> list=reportedUserDao.findAll();
+		List<ReportedUserDTO> reportedUserList=new ArrayList<>();
+		for(ReportedUser l:list)
+		{
+			reportedUserList.add(reportedUserDTOMapper(l));
+		}
+		return reportedUserList;
+	}
+	ReportedUserDTO reportedUserDTOMapper(ReportedUser reportedUser)
+	{
+		ReportedUserDTO reportedUserDTO=new ReportedUserDTO();
+		reportedUserDTO.setId(reportedUser.getId());
+		reportedUserDTO.setRemovedStatus(reportedUser.getRemovedStatus());
+		reportedUserDTO.setReportingUserId(reportedUser.getReportingUserId());
+		if(reportedUser.getReportedUserId()!=null)
+		reportedUserDTO.setReportedUserId(reportedUser.getReportedUserId().getId());
+		reportedUserDTO.setDescription(reportedUser.getDescription());
+		return reportedUserDTO;
+	}
 
 }

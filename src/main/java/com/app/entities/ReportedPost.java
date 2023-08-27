@@ -24,6 +24,9 @@ public class ReportedPost extends BaseEntity{
 	@Column(name="removed_status")
 	private boolean removedStatus;
 	
+	@Column(name="description",length=2000)
+	private String description;
+
 	@ManyToOne
 	@JoinColumn(name = "reporting_user_id")
 	private Users reportingUserId;

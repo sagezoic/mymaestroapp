@@ -59,11 +59,26 @@ public class AdminController {
 		System.out.println("inside admin controller in removeReportedPost with postId = "+ postId );
 		return ResponseEntity.ok(new CommonResponse("deletetion ", adminService.removeReportedPost(postId)));
 	}
+	@DeleteMapping("/removereporteduser/{userId}")
+	public ResponseEntity<?> removeReportedUser(@PathVariable Long userId){
+		System.out.println("inside admin controller in removeReportedUser with  = "+ userId );
+		return ResponseEntity.ok(adminService.removeReportedUser(userId));
+	}
+	
+	
 	@GetMapping("/getallreportedpost")
 	public ResponseEntity<?> getAllReportedPost()
 	{
 		System.out.println("inside admin controller in getAllReportedPost ");
 		
 		return ResponseEntity.ok(new CommonResponse("success",adminService.getAllReportedPost()));
+	}
+	
+	@GetMapping("/getallreporteduser")
+	public ResponseEntity<?> getAllReportedUser()
+	{
+		System.out.println("inside admin controller in getAllReportedUser ");
+		
+		return ResponseEntity.ok(new CommonResponse("success",adminService.getAllReportedUser()));
 	}
 }
