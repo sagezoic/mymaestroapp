@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.app.dao.ServceDao;
 import com.app.dao.ServiceRequestDao;
 import com.app.dao.UserDao;
+import com.app.dto.AllServceResponseDTO;
 import com.app.dto.ServceRequestDTO;
 import com.app.dto.ServceResponseDTO;
 import com.app.dto.ServiceTransactionResponseDTO;
@@ -103,14 +104,35 @@ public class ServceServiceImpl implements ServceService{
 	}
 	
 	@Override
-	public List<ServceResponseDTO> getAllServices() {
-		List<ServceResponseDTO> responseDTOList = new ArrayList<ServceResponseDTO>();
+	public List<AllServceResponseDTO> getAllServices() {
+		List<AllServceResponseDTO> responseDTOList = new ArrayList<>();
 		List<Servce> alllist=servceDao.findAll();
 		for(Servce service : alllist) {
-			responseDTOList.add(myMapper(service));
+			Users maestro = userDao.findById(service.getUserId().getId()).orElseThrow(()-> new ResourceNotFoundException("Invalid user id"));
+			responseDTOList.add(myMapper(service,maestro));
 		}
 		return responseDTOList;
 	}
+	
+	AllServceResponseDTO myMapper(Servce service,Users maestro) {
+		AllServceResponseDTO serviceDTO = new AllServceResponseDTO();
+		serviceDTO.setId(service.getId());
+		serviceDTO.setServiceTitle(service.getServiceTitle());
+		serviceDTO.setPriceToken(service.getPriceToken());
+		serviceDTO.setServicetype(service.getServicetype());
+		serviceDTO.setUserId(service.getUserId().getId());
+		serviceDTO.setTimePeriod(service.getTimePeriod());
+		serviceDTO.setDescription(service.getDescription());
+		serviceDTO.setServiceCategory(service.getServiceCategory());
+		serviceDTO.setFirstName(maestro.getFirstName());
+		serviceDTO.setLastName(maestro.getLastName());
+		serviceDTO.setUserName(maestro.getUserName());
+		serviceDTO.setDpUrl(maestro.getDpUrl());
+		return serviceDTO;
+		
+	}
+	
+	
 	
 	@Override
 	public ServceResponseDTO getUserServiceUsingServiceId(Long serviceId) {

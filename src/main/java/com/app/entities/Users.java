@@ -179,13 +179,13 @@ public class Users extends BaseEntity {
 	
 	public void addReportedUser(ReportedUser ru) {
 		reportedUserList.add(ru);
-		//ru.setReportedUserId(this);
+		//ru.setReportingUserId(this);
 	
 	}
 		
 	public void removeReportedUser(ReportedUser ru) {
 		reportedUserList.remove(ru);
-		ru.setReportedUserId(null);
+		ru.setReportingUserId(null);
 	}
 	
 	
