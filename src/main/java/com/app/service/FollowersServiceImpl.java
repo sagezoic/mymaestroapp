@@ -93,8 +93,8 @@ public class FollowersServiceImpl implements FollowersService {
 	@Override
 	public String deleteFollowing(Long followingId, Long userId) {
 		System.out.println("inside followersService deleteFollowing method");
-		//List<Following> followingList=followingDao.findByUserId(userId);
-		List<Following> followingList=followingDao.findByFollowingId(followingId);
+		List<Following> followingList=followingDao.findByUserId(followingId);
+		//List<Following> followingList=followingDao.findByFollowingId(followingId);
 		System.out.println("at point 10");
 		for(Following f:followingList)
 		{
@@ -109,7 +109,7 @@ public class FollowersServiceImpl implements FollowersService {
 		for(Following f: followingList)
 		{
 			System.out.println("at point 13");
-			if(f.getFollowingId().getId()==followingId)
+			if(f.getFollowingId().getId()==userId)
 			{
 				System.out.println("at point 14");
 				idToFindFollowing=f.getId();
