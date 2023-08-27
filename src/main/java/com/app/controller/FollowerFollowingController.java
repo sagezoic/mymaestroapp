@@ -38,9 +38,9 @@ public class FollowerFollowingController {
 	public ResponseEntity<?> deleteFollowerandFollowing(@RequestParam Long followerId,@RequestParam Long userId)
 	{
 		System.out.println("in followerfollowing controller with request parameters " + followerId+ " and "+userId);
-		//String str1=followerService.deleteFollowers(followerId, userId);
+		String str1=followerService.deleteFollowers(followerId, userId);
 		String str2=followerService.deleteFollowing(followerId, userId);
-		return ResponseEntity.ok(new CommonResponse("", str2 ));
+		return ResponseEntity.ok(new CommonResponse("",str1 +" " + str2 ));
 	}
 	
 }
