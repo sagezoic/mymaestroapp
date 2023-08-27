@@ -17,11 +17,17 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.event.TransactionPhase;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.app.dao.FollowersDao;
+import com.app.dao.FollowingDao;
 import com.app.dao.UserDao;
 import com.app.dto.CommonResponse;
+import com.app.dto.PasswordRequestDTO;
+import com.app.dto.PasswordResponseDTO;
 import com.app.dto.ServiceTransactionResponseDTO;
 import com.app.dto.UserDto;
 import com.app.dto.UserSignupResponseDto;
+import com.app.entities.Followers;
+import com.app.entities.Following;
 import com.app.entities.ServiceTransaction;
 //import com.app.entities.UserEntity;
 import com.app.entities.Users;
@@ -46,6 +52,12 @@ public class UserServiceImpl implements UserService {
 	//dep : model mapper
 	@Autowired
 	private ModelMapper mapper;
+	
+	@Autowired
+	private FollowingDao followingDao;
+	
+	@Autowired
+	private FollowersDao followersDao;
 	
 	//declare in application.properties
 	@Value("${upload.locationmaestro}")
@@ -72,6 +84,13 @@ public class UserServiceImpl implements UserService {
 		user.setPassword(encoder.encode(user.getPassword()));
 		user.setCreatedAt(LocalDateTime.now());
 		Users persistentUser = userDao.save(user);
+		Followers followers = new Followers();
+		followers.setUserId(persistentUser.getId());
+		followersDao.save(followers);
+		Following following = new Following();
+		following.setUserId(persistentUser.getId());
+		followingDao.save(following);
+		
 		// map persistent entity --> dto
 		return mapper.map(persistentUser,UserSignupResponseDto.class);
 	}
@@ -186,12 +205,24 @@ public class UserServiceImpl implements UserService {
 //edit user 
 //------------------------------------------------
 	@Override
-	public void editUser(UserDto request)
+	public UserSignupResponseDto editUser (UserDto request)
 	{
 		Users user=mapper.map(request, Users.class);
 		System.out.println(user);
 		Users persistentUser=userDao.save(user);
+		return myMapper(persistentUser);
 	}
+	
+	
+	@Override
+	public PasswordResponseDTO forgetPassword(PasswordRequestDTO dto) {
+		Users user = userDao.findByEmail(dto.getEmail()).orElseThrow(()->new ResourceNotFoundException("Email is invalid"));
+		user.setPassword(encoder.encode(dto.getPassword()));
+		Users persistantUser = userDao.save(user);
+		PasswordResponseDTO passwordResponseDTO = new PasswordResponseDTO(persistantUser.getEmail(),persistantUser.getPassword());
+		return passwordResponseDTO;
+	}
+	
 	
 //deleting user using email --not working
 //-------------------------------------------------------------------
@@ -267,5 +298,34 @@ public class UserServiceImpl implements UserService {
 		UserSignupResponseDto userSignupResponseDto=mapper.map(user, UserSignupResponseDto.class);		
 		return userSignupResponseDto;
 	}
+
+	@Override
+	public List<UserSignupResponseDto> getAllMeastroUser() {
+	List<UserSignupResponseDto> list = new ArrayList<>();
+	List<Object []> obj	=userDao.getAllMaestroUser();
+	for(Object o[] : obj ) {
+	for(int i = 0 ;i<o.length;i++) {
+		Users user = (Users) o[i];
+		list.add(myMapper(user));
+		}
+	}
+		return list;
+	}
 	
+	 
+	public UserSignupResponseDto myMapper(Users user) {
+		UserSignupResponseDto userSignupResponseDto = new UserSignupResponseDto();
+		userSignupResponseDto.setFirstName(user.getFirstName());
+		userSignupResponseDto.setEmail(user.getEmail());
+		userSignupResponseDto.setUserName(user.getUserName());
+		userSignupResponseDto.setCreatedAt(user.getCreatedAt());
+		userSignupResponseDto.setDob(user.getDob());
+		userSignupResponseDto.setDpUrl(user.getDpUrl());
+		userSignupResponseDto.setInterest(user.getInterest());
+		userSignupResponseDto.setLastName(user.getLastName());
+		userSignupResponseDto.setMobileNo(user.getMobileNo());
+		userSignupResponseDto.setUserRole(user.getUserRole());
+		return userSignupResponseDto;
+		
+	}
 }

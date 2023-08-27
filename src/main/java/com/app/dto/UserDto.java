@@ -33,7 +33,7 @@ public class UserDto {
 	//skip password during ser.
 	//@JsonIgnore
 	//@JsonProperty(access = Access.WRITE_ONLY)
-	private String password;
+	
 	private UserRole userRole;
 	private LocalDate dob;
 	private LocalDateTime createdAt;
@@ -50,14 +50,13 @@ public class UserDto {
 
 
 
-	public UserDto(String firstName, String lastName, String email, String password, UserRole userRole,
+	public UserDto(String firstName, String lastName, String email, UserRole userRole,
 			LocalDate dob,UserInterest interest,String userName,String dpUrl,String mobileNo ) {
 		super();
 		
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.password = password;
 		this.userRole = userRole;
 		this.dob = dob;
 		this.dpUrl=dpUrl;

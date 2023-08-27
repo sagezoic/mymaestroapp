@@ -10,18 +10,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-@Entity
-@Getter
-@Setter
-@ToString@NoArgsConstructor
-@AllArgsConstructor
-public class Followers extends BaseEntity {
-	
-	@Column(name="user_id")
-	private Long userId;
 
+@Entity
+@Setter
+@Getter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+public class Following extends BaseEntity {
+
+	@Column(name="userId")
+	private Long userId;
 	@ManyToOne
-	@JoinColumn(name="followersId")
-	private Users followersId;
+	@JoinColumn(name="following_Id")
+	private Users followingId;  
 }
 

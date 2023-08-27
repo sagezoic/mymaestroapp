@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.app.dto.CommonResponse;
+import com.app.dto.PasswordRequestDTO;
+import com.app.dto.PasswordResponseDTO;
 import com.app.dto.ServiceTransactionResponseDTO;
 import com.app.dto.UserDto;
 import com.app.dto.UserSignupResponseDto;
@@ -37,8 +39,9 @@ public interface UserService {
 
 //edit user
 //------------------------------------------------
-	void editUser(UserDto request);
+	UserSignupResponseDto editUser(UserDto request);
 //--------------------------------------------------	
+	PasswordResponseDTO forgetPassword(PasswordRequestDTO dto);
 
 	//get trasaction list of maestro 
 	List<ServiceTransactionResponseDTO> getTransactionListOfMaestro(Long userId);
@@ -48,4 +51,5 @@ public interface UserService {
 	
 	UserSignupResponseDto getUserDetailsfromUserId(Long userId);
 	
+	List<UserSignupResponseDto> getAllMeastroUser();
 }

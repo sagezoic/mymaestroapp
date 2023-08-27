@@ -3,29 +3,19 @@ package com.app.entities;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-import org.springframework.stereotype.Service;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @Table(name="user_table")
@@ -106,8 +96,15 @@ public class Users extends BaseEntity {
 	@OneToMany(mappedBy="reportingUserId",cascade=CascadeType.ALL,orphanRemoval=true)
 	private List<ReportedPost> reportedPostList=new ArrayList<>();
 	
+	@OneToMany(mappedBy = "followingId",cascade = CascadeType.ALL,orphanRemoval = true )
+	private List<Following> followingList = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "followersId",cascade = CascadeType.ALL, orphanRemoval = true)
+	private	List<Followers> followersList = new ArrayList<>(); 
+
 	@OneToMany(mappedBy="reportedUserId",cascade=CascadeType.ALL,orphanRemoval=true)
 	private List<ReportedUser> reportedUserList=new ArrayList<>();
+
 	
 	@Override
 	public String toString() {
@@ -182,13 +179,13 @@ public class Users extends BaseEntity {
 	
 	public void addReportedUser(ReportedUser ru) {
 		reportedUserList.add(ru);
-		//ru.setReportedUserId(this);
+		//ru.setReportingUserId(this);
 	
 	}
 		
 	public void removeReportedUser(ReportedUser ru) {
 		reportedUserList.remove(ru);
-		ru.setReportedUserId(null);
+		ru.setReportingUserId(null);
 	}
 	
 	
@@ -204,4 +201,29 @@ public class Users extends BaseEntity {
 	{
 		return this.enabled;
 	}
+	
+	public void addFollowers(Followers f) {
+		
+		followersList.add(f);
+		f.setFollowersId(this);
+	}
+	
+	public void removeFollowers(Followers f) {
+		followersList.remove(f);
+		f.setFollowersId(null);
+		
+	}
+	
+public void addFollowing(Following f) {
+		
+		followingList.add(f);
+		f.setFollowingId(this);
+	}
+	
+	public void removeFollowing(Following f) {
+		followingList.remove(f);
+		f.setFollowingId(null);
+		
+	}
+	
 }

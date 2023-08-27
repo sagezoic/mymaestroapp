@@ -1,11 +1,11 @@
 package com.app.service;
 
+import java.util.List;
+
+import com.app.dto.AllServceResponseDTO;
+import com.app.dto.ServceRequestDTO;
 import com.app.dto.ServceResponseDTO;
 import com.app.dto.ServiceTransactionResponseDTO;
-import com.app.entities.Servce;
-import com.app.entities.Users;
-import java.util.List;
-import com.app.dto.ServceRequestDTO;
 
 
 public interface ServceService {
@@ -15,7 +15,10 @@ public interface ServceService {
 	ServceResponseDTO editService(ServceRequestDTO request);
 	List<ServceResponseDTO> getUserService(Long userId);
 	ServceResponseDTO getUserServiceUsingServiceId(Long serviceId);
-	List<ServceResponseDTO> getAllServices();
+	List<AllServceResponseDTO> getAllServices();
 	List<ServiceTransactionResponseDTO> getServiceTransactionUsingServiceId(Long serviceId);
+	
+	
+	
 	
 }

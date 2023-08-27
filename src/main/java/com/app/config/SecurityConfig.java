@@ -33,8 +33,9 @@ public class SecurityConfig {
 		http.csrf().disable(). //disable CSRF  to continue with REST APIs
 		authorizeRequests() //specify all authorization rules (i.e authorize all requests)
 		.antMatchers("/products/view","/login","/signup","/swagger-ui/index.html","/users/role","/users/details",
-		"/users/interest","/users/{userId}/dp","/users/finddp","/users/delete/{userId}","/users/edit",
-		"/users/get/maestro/transaction/{userId}","/users/get/explorer/transaction/{userId}",
+		"/users/interest","/users/{userId}/dp","/users/finddp","/users/delete/{userId}","/users/edit","/users/forgetpassword",
+		"/users/get/maestro/transaction/{userId}","/users/get/explorer/transaction/{userId}","/users/getallmeastro","/users/reportuser",
+		"/users/reportpost",
 		
 		"/webjars/**", "/v3/api-docs/**","/v2/api-docs/**", "/swagger.json", "/swagger-ui/**", "/swagger-ui.html", "/swagger-resources/**",
 		
@@ -51,8 +52,11 @@ public class SecurityConfig {
 		
 		"/likepost/add","/likepost/delete/{likePostId}","/likepost/getpostlike/{userId}","/likepost/getallpostlike",
 		
-		"/admin/verifyuser/{userId}","/admin/block/{userId}","/admin/getuserlist","/users/reportpost","/admin/removereportedpost/{postId}","/admin/getallreportedpost").permitAll()
-		
+
+		"/admin/verifyuser/{userId}","/admin/block/{userId}","/admin/getuserlist","/admin/removereportedpost/{postId}","/admin/getallreportedpost",
+		"/followerfollowing/addfandf","/followerfollowing/deletefandf","/admin/getallreporteduser","/admin/removereporteduser/{userId}").permitAll()
+
+
 		.antMatchers(HttpMethod.OPTIONS).permitAll()// for incoming req ending with /products/view : no authentication n authorization needed
 
 		//.antMatchers("/products/purchase").hasRole("EXPLORER")//only explorer can purchase the products
