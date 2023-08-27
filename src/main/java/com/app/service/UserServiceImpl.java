@@ -116,7 +116,7 @@ public class UserServiceImpl implements UserService {
 		user.setFirstName(dto.getFirstName());
 		user.setLastName(dto.getLastName());
 		user.setDob(dto.getDob());
-		user.setUserName(dto.getUserName());
+		//user.setUserName(dto.getUserName());
 		Users persistenceuser = userDao.save(user);
 		return mapper.map(persistenceuser, UserSignupResponseDto.class);
 	}
