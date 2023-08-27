@@ -25,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.app.dao.ReportedUserDao;
 import com.app.dto.CommonResponse;
+import com.app.dto.EditUserDto;
 import com.app.dto.PasswordRequestDTO;
 import com.app.dto.ReportedPostDTO;
 import com.app.dto.ReportedUserDTO;
@@ -109,7 +110,7 @@ public class UserController {
 	}
 	
 	@PutMapping("/edit")
-	public ResponseEntity<?> editUser(@RequestBody UserDto user){
+	public ResponseEntity<?> editUser(@RequestBody EditUserDto user){
 		
 		System.out.println("in user edit controller");
 	

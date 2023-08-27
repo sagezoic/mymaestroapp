@@ -1,6 +1,7 @@
 
 package com.app.entities;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +47,9 @@ public class Servce extends BaseEntity {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "service_category")
 	private ServiceCategory serviceCategory;
-
+	
+	@Column(name="service_created_at")
+	private LocalDateTime serviceCreatedAt;
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private Users userId;

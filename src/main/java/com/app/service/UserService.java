@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.app.dto.CommonResponse;
+import com.app.dto.EditUserDto;
 import com.app.dto.PasswordRequestDTO;
 import com.app.dto.PasswordResponseDTO;
 import com.app.dto.ServiceTransactionResponseDTO;
@@ -39,7 +40,7 @@ public interface UserService {
 
 //edit user
 //------------------------------------------------
-	UserSignupResponseDto editUser(UserDto request);
+	UserSignupResponseDto editUser(EditUserDto request);
 //--------------------------------------------------	
 	PasswordResponseDTO forgetPassword(PasswordRequestDTO dto);
 

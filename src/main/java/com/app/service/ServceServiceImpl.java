@@ -1,5 +1,6 @@
 package com.app.service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -52,6 +53,7 @@ public class ServceServiceImpl implements ServceService{
 	    debugLogger.debug("Mapped request to Service entity: {}", ser);
 		System.out.println(ser);
 		ser.setUserId(userDao.findById(request.getUserId()).orElse(null));
+		ser.setServiceCreatedAt(LocalDateTime.now());
 		Servce persistentser=servceDao.save(ser);
 		Users user=userDao.findById(request.getUserId()).orElse(null);
 	    debugLogger.debug("Retrieved user with ID {}: {}", request.getUserId(), user);
@@ -124,6 +126,7 @@ public class ServceServiceImpl implements ServceService{
 		serviceDTO.setTimePeriod(service.getTimePeriod());
 		serviceDTO.setDescription(service.getDescription());
 		serviceDTO.setServiceCategory(service.getServiceCategory());
+		serviceDTO.setServiceCreatedAt(service.getServiceCreatedAt());
 		serviceDTO.setFirstName(maestro.getFirstName());
 		serviceDTO.setLastName(maestro.getLastName());
 		serviceDTO.setUserName(maestro.getUserName());
@@ -151,6 +154,7 @@ public class ServceServiceImpl implements ServceService{
 		serviceDTO.setTimePeriod(service.getTimePeriod());
 		serviceDTO.setDescription(service.getDescription());
 		serviceDTO.setServiceCategory(service.getServiceCategory());
+		serviceDTO.setServiceCreatedAt(service.getServiceCreatedAt());
 		return serviceDTO;
 		
 	}

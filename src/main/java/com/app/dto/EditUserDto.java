@@ -21,14 +21,13 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
+public class EditUserDto {
 	//skip id during de-ser
 	//@JsonProperty(access = Access.WRITE_ONLY)
 	private Long id;
 	private String firstName;
 	private String lastName;
 	private String email;
-	private String password;
 	private String userName;
 
 	//skip password during ser.
@@ -52,7 +51,7 @@ public class UserDto {
 
 
 
-	public UserDto(String firstName, String lastName, String email, UserRole userRole,
+	public EditUserDto(String firstName, String lastName, String email, UserRole userRole,
 			LocalDate dob,UserInterest interest,String userName,String dpUrl,String mobileNo ) {
 		super();
 		

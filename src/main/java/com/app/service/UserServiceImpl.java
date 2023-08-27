@@ -21,6 +21,7 @@ import com.app.dao.FollowersDao;
 import com.app.dao.FollowingDao;
 import com.app.dao.UserDao;
 import com.app.dto.CommonResponse;
+import com.app.dto.EditUserDto;
 import com.app.dto.PasswordRequestDTO;
 import com.app.dto.PasswordResponseDTO;
 import com.app.dto.ServiceTransactionResponseDTO;
@@ -205,7 +206,7 @@ public class UserServiceImpl implements UserService {
 //edit user 
 //------------------------------------------------
 	@Override
-	public UserSignupResponseDto editUser (UserDto request)
+	public UserSignupResponseDto editUser(EditUserDto request)
 	{
 		Users user=mapper.map(request, Users.class);
 		System.out.println(user);

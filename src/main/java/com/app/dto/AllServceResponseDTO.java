@@ -1,5 +1,6 @@
 package com.app.dto;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.app.entities.Servce;
@@ -33,4 +34,5 @@ public class AllServceResponseDTO {
 	private String lastName;
 	private String userName;
 	private String dpUrl;
-}
+	private LocalDateTime serviceCreatedAt;
+	}

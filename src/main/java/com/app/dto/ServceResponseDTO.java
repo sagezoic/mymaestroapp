@@ -1,5 +1,6 @@
 package com.app.dto;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.app.entities.Servce;
@@ -29,4 +30,5 @@ public class ServceResponseDTO {
 	private float priceToken;
 	private Long userId;
 	private ServiceCategory serviceCategory;
+	private LocalDateTime serviceCreatedAt;
 }
