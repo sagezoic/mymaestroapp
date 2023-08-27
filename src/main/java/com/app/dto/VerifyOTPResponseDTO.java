@@ -6,25 +6,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
-@NoArgsConstructor
 @Getter
 @Setter
 @ToString
 @AllArgsConstructor
-public class ReportedPostDTO{
-	
-	private Long id;
-	
-	private Long postId;
-	
-	private boolean removedStatus;
-	
-	private Long reportingUserId;
-	
-	private String description;
+@NoArgsConstructor
+public class VerifyOTPResponseDTO {
 
-	
-	
-	
+	private String otp;
+	private String email;
+	private boolean success;
+	private String message;
 }

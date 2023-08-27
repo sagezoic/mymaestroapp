@@ -23,9 +23,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.app.dao.ReportedUserDao;
 import com.app.dto.CommonResponse;
+import com.app.dto.ReportedPostDTO;
+import com.app.dto.ReportedUserDTO;
 import com.app.dto.UserDto;
 import com.app.service.ReportedPostService;
+import com.app.service.ReportedUserService;
 import com.app.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -42,6 +46,9 @@ public class UserController {
 	
 	@Autowired
 	private ReportedPostService reportedPostService;
+	
+	@Autowired
+	private ReportedUserService reportedUserService;
 	
 	public UserController() {
 		System.out.println("in user controller");
@@ -121,12 +128,20 @@ public class UserController {
 		System.out.println("userId "+userId);
 		return ResponseEntity.ok(new CommonResponse("Explorer Transaction List",userService.getTransactionListOfExplorer(userId)));
 	}
-	@PostMapping("/reportpost/{postId}")
-	public ResponseEntity<?> addReportedPost(@PathVariable Long postId,@RequestHeader Long userId)
+	@PostMapping("/reportpost")
+	public ResponseEntity<?> addReportedPost(@RequestBody ReportedPostDTO dto)
 	{
-		System.out.println("inside addReportedPost of user Controller with postId "+postId + " and userId "+userId);
-		return ResponseEntity.ok(reportedPostService.addReportedPost(userId, postId));
+		System.out.println("inside addReportedPost of user Controller with postId "+dto.getPostId() + " and userId "+dto.getReportingUserId());
+		return ResponseEntity.ok(reportedPostService.addReportedPost(dto));
 	}
+	
+	@PostMapping("/reportuser")
+	public ResponseEntity<?> addReportedUser(@RequestBody ReportedUserDTO dto)
+	{
+		System.out.println("inside addReportedUser of user Controller");
+		return ResponseEntity.ok(reportedUserService.addReportedUser(dto));
+	}
+	
 	@GetMapping("/{userId}")
 	public ResponseEntity<?> getUserDetailsFromUserId(@PathVariable Long userId)
 	{

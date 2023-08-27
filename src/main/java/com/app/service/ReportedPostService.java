@@ -1,7 +1,9 @@
 package com.app.service;
 
+import com.app.dto.ReportedPostDTO;
+
 public interface ReportedPostService {
 
-	String addReportedPost(Long userId,Long postId);
+	String addReportedPost(ReportedPostDTO dto);
 	String removeReportedPost(Long postId);
 }

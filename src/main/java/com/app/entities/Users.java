@@ -103,6 +103,9 @@ public class Users extends BaseEntity {
 	@OneToMany(mappedBy="reportingUserId",cascade=CascadeType.ALL,orphanRemoval=true)
 	private List<ReportedPost> reportedPostList=new ArrayList<>();
 	
+	@OneToMany(mappedBy="reportedUserId",cascade=CascadeType.ALL,orphanRemoval=true)
+	private List<ReportedUser> reportedUserList=new ArrayList<>();
+	
 	@Override
 	public String toString() {
 		return "Users [userRole=" + userRole + ", userName=" + userName + ", email=" + email + ", firstName="
@@ -172,6 +175,17 @@ public class Users extends BaseEntity {
 	public void removeReportedPost(ReportedPost rp) {
 		reportedPostList.remove(rp);
 		rp.setReportingUserId(null);
+	}
+	
+	public void addReportedUser(ReportedUser ru) {
+		reportedUserList.add(ru);
+		//ru.setReportedUserId(this);
+	
+	}
+		
+	public void removeReportedUser(ReportedUser ru) {
+		reportedUserList.remove(ru);
+		ru.setReportedUserId(null);
 	}
 	
 	

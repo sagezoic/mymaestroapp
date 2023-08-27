@@ -51,8 +51,8 @@ public class SecurityConfig {
 		
 		"/likepost/add","/likepost/delete/{likePostId}","/likepost/getpostlike/{userId}","/likepost/getallpostlike",
 		
-		"/admin/verifyuser/{userId}","/admin/block/{userId}","/admin/getuserlist","/users/reportpost/{postId}","/admin/removereportedpost/{postId}","/admin/getallreportedpost").permitAll()
-
+		"/admin/verifyuser/{userId}","/admin/block/{userId}","/admin/getuserlist","/users/reportpost","/admin/removereportedpost/{postId}","/admin/getallreportedpost").permitAll()
+		
 		.antMatchers(HttpMethod.OPTIONS).permitAll()// for incoming req ending with /products/view : no authentication n authorization needed
 
 		//.antMatchers("/products/purchase").hasRole("EXPLORER")//only explorer can purchase the products
