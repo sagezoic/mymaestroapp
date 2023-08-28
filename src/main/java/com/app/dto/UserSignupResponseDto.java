@@ -33,11 +33,12 @@ public class UserSignupResponseDto {
 	private String dpUrl;
 	private String bio;
 	private String socialMediaLink;
+	private float token;
 	
 	
 
 	public UserSignupResponseDto(/*Long id,*/String firstName, String lastName, String email, UserRole userRole,UserInterest interest,
-			LocalDate dob,String userName,String dpUrl,String mobileNo,String bio,String socialMediaLink) {
+			LocalDate dob,String userName,String dpUrl,String mobileNo,String bio,String socialMediaLink,float token) {
 		super();
 		//this.id=id;
 		this.firstName = firstName;
@@ -52,5 +53,7 @@ public class UserSignupResponseDto {
 		this.createdAt=LocalDateTime.now();
 		this.bio=bio;
 		this.socialMediaLink=socialMediaLink;
+		this.token=token;
+		
 	}	
 }
