@@ -208,7 +208,15 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserSignupResponseDto editUser(EditUserDto request)
 	{
-		Users user=mapper.map(request, Users.class);
+		Users user=userDao.findById(request.getId()).orElseThrow(()->new ResourceNotFoundException("invalid id"));
+		user.setBio(request.getBio());
+		user.setDpUrl(request.getDpUrl());
+		user.setUserName(request.getUserName());
+		user.setEmail(request.getEmail());
+		user.setFirstName(request.getFirstName());
+		user.setLastName(request.getLastName());
+		user.setInterest(request.getInterest());
+		user.setSocialMediaLink(request.getSocialMediaLink());
 		System.out.println(user);
 		Users persistentUser=userDao.save(user);
 		return myMapper(persistentUser);
@@ -326,6 +334,8 @@ public class UserServiceImpl implements UserService {
 		userSignupResponseDto.setLastName(user.getLastName());
 		userSignupResponseDto.setMobileNo(user.getMobileNo());
 		userSignupResponseDto.setUserRole(user.getUserRole());
+		userSignupResponseDto.setBio(user.getBio());
+		userSignupResponseDto.setSocialMediaLink(user.getSocialMediaLink());
 		return userSignupResponseDto;
 		
 	}

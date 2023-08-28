@@ -25,7 +25,7 @@ import lombok.Setter;
 public class ServiceRequest extends BaseEntity {
 	
 	@Column(name="slot_date")
-	private LocalDate slotDate;
+	private LocalDateTime slotDate;
 	
 	@Column(name="description",length=1000)
 	private String description;

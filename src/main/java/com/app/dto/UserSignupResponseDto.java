@@ -31,10 +31,13 @@ public class UserSignupResponseDto {
 	private LocalDateTime createdAt;
 	private String userName;
 	private String dpUrl;
+	private String bio;
+	private String socialMediaLink;
 	
 	
 
-	public UserSignupResponseDto(/*Long id,*/String firstName, String lastName, String email, UserRole userRole,UserInterest interest,LocalDate dob,String userName,String dpUrl,String mobileNo) {
+	public UserSignupResponseDto(/*Long id,*/String firstName, String lastName, String email, UserRole userRole,UserInterest interest,
+			LocalDate dob,String userName,String dpUrl,String mobileNo,String bio,String socialMediaLink) {
 		super();
 		//this.id=id;
 		this.firstName = firstName;
@@ -47,5 +50,7 @@ public class UserSignupResponseDto {
 		this.dpUrl=dpUrl;
 		this.mobileNo=mobileNo;
 		this.createdAt=LocalDateTime.now();
+		this.bio=bio;
+		this.socialMediaLink=socialMediaLink;
 	}	
 }

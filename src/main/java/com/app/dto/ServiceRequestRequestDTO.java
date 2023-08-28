@@ -1,6 +1,7 @@
 package com.app.dto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 
@@ -20,7 +21,7 @@ public class ServiceRequestRequestDTO {
 	
 	private Long id;
 	
-	private LocalDate slotDate;
+	private LocalDateTime slotDate;
 
 	private String description;
 

@@ -21,7 +21,7 @@ public class ServiceRequestResponseDTO {
 	
 	private Long id;
 	
-	private LocalDate slotDate;
+	private LocalDateTime slotDate;
 
 	private String description;
 
