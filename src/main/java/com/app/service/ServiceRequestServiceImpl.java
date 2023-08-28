@@ -12,11 +12,14 @@ import org.springframework.transaction.annotation.Transactional;
 import com.app.dao.ServceDao;
 import com.app.dao.ServiceRequestDao;
 import com.app.dao.ServiceTransactionDao;
+import com.app.dao.UserDao;
 import com.app.dto.ServiceRequestRequestDTO;
 import com.app.dto.ServiceRequestResponseDTO;
+import com.app.dto.GetServiceRequestRequestDTO;
 import com.app.entities.Servce;
 import com.app.entities.ServiceRequest;
 import com.app.entities.ServiceTransaction;
+import com.app.entities.Users;
 
 import custom_exception.ResourceNotFoundException;
 
@@ -27,6 +30,9 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
 
 	@Autowired
 	private ServiceRequestDao  serviceRequestDao;
+	
+	@Autowired
+	private UserDao userDao;
 	
 	@Autowired
 	private ServceDao serviceDao;
@@ -54,15 +60,37 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
 	}
 	
 	@Override
-	public List<ServiceRequestResponseDTO> getServiceRequestList(Long serviceId) {
+	public List<GetServiceRequestRequestDTO> getServiceRequestList(Long serviceId) {
 		
 		Servce service=serviceDao.findById(serviceId).orElseThrow(()->new ResourceNotFoundException("invalid serviceId"));
-		List<ServiceRequestResponseDTO> serviceRequestList=new ArrayList<>();
+		List<GetServiceRequestRequestDTO> serviceRequestList=new ArrayList<>();
 		for(ServiceRequest ser : service.getServiceList())
-		{
-			serviceRequestList.add(myMapper(ser));
+		{	
+			Users user = userDao.findById(ser.getExplorerUserId()).orElseThrow(()->new ResourceNotFoundException("invalid serviceId"));
+			serviceRequestList.add(myMapperGet(ser, service, user));
 		}
 		return serviceRequestList;
+	}
+	
+	GetServiceRequestRequestDTO myMapperGet(ServiceRequest serviceRequest, Servce service, Users user) {
+		GetServiceRequestRequestDTO serviceRequestResponseDTO = new GetServiceRequestRequestDTO();
+		serviceRequestResponseDTO.setId(serviceRequest.getId());
+		serviceRequestResponseDTO.setSlotDate(serviceRequest.getSlotDate());
+		serviceRequestResponseDTO.setDescription(serviceRequest.getDescription());
+		serviceRequestResponseDTO.setMaestroUserId(serviceRequest.getMaestroUserId());
+		serviceRequestResponseDTO.setExplorerUserId(serviceRequest.getExplorerUserId());
+		serviceRequestResponseDTO.setServiceId(serviceRequest.getServiceId().getId());
+		serviceRequestResponseDTO.setStatus(serviceRequest.getStatus());
+		serviceRequestResponseDTO.setRequestGenTime(serviceRequest.getRequestGenTime());
+		if(serviceRequest.getTransactionId()!=null)
+			serviceRequestResponseDTO.setTransactionId(serviceRequest.getTransactionId().getId());
+		serviceRequestResponseDTO.setAmount(service.getPriceToken());
+		serviceRequestResponseDTO.setFirstName(user.getFirstName());
+		serviceRequestResponseDTO.setLastName(user.getLastName());
+		serviceRequestResponseDTO.setServiceTitle(service.getServiceTitle());
+		serviceRequestResponseDTO.setServiceType(service.getServicetype());
+		return serviceRequestResponseDTO;
+		
 	}
 	
 	@Override
